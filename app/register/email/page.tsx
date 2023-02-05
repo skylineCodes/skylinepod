@@ -21,7 +21,7 @@ import GoogleButton from '@/components/GoogleButton';
 import AppleButton from '@/components/AppleButton';
 import Link from 'next/link';
 
-const page = () => {
+const email = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const { toggleColorMode } = useColorMode();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -95,11 +95,7 @@ const page = () => {
                     type='email'
                     placeholder='Enter your email address'
                   />
-                  <Button
-                    text={'Continue with Email'}
-                    nextPage='/register/email'
-                    loading={false}
-                  />
+                  <Button text={'Continue with Email'} />
                   <Center display={'flex'} flexDirection={'row'} gap={'12px'}>
                     <Divider
                       width={'62px'}
@@ -126,10 +122,10 @@ const page = () => {
                     gap={'16px'}
                   >
                     <GoogleButton
-                      text={isMobile ? 'Google Sign Up' : 'Continue with Google'}
+                      text={isMobile ? 'Google' : 'Continue with Google'}
                     />
                     <AppleButton
-                      text={isMobile ? 'Apple Sign Up' : 'Continue with Apple'}
+                      text={isMobile ? 'Apple' : 'Continue with Apple'}
                     />
                   </Flex>
                 </Flex>
@@ -208,10 +204,7 @@ const page = () => {
                     type='email'
                     placeholder='Enter your email address'
                   />
-                  <Button
-                    text={'Continue with Email'}
-                    nextPage='/register/email'
-                  />
+                  <Button text={'Continue with Email'} />
                   <Center display={'flex'} flexDirection={'row'} gap={'12px'}>
                     <Divider
                       width={'62px'}
@@ -275,7 +268,7 @@ const page = () => {
       )}
     </Flex>
   );
-}
+};
 
 {
   /* <Box
@@ -292,4 +285,4 @@ const page = () => {
       </Box> */
 }
 
-export default page
+export default email;
