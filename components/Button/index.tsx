@@ -6,9 +6,10 @@ export interface InputProps {
   nextPage?: string;
   text?: string;
   loading?: boolean;
+  style?: any;
 }
 
-const ButtonWrapper = ({ text, nextPage, loading }: InputProps) => {
+const ButtonWrapper = ({ text, nextPage, loading, style }: InputProps) => {
   return (
     <>
       <Button
@@ -20,10 +21,15 @@ const ButtonWrapper = ({ text, nextPage, loading }: InputProps) => {
         height={'56px'}
         isLoading={loading}
         _hover={{ backgroundColor: 'primary.50', opacity: '0.8' }}
+        sx={style}
       >
-        <Link href={`${nextPage}`}>
+        {nextPage ? (
+          <Link href={`${nextPage}`}>
+            <Text>{text}</Text>
+          </Link>
+        ) : (
           <Text>{text}</Text>
-        </Link>
+        )}
       </Button>
     </>
   );

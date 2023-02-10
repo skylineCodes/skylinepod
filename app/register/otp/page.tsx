@@ -16,6 +16,9 @@ import {
   Icon,
   InputGroup,
   InputRightElement,
+  HStack,
+  PinInput,
+  PinInputField,
 } from '@chakra-ui/react';
 import { IoSunny, IoMoon } from 'react-icons/io5';
 import Input from '@/components/Input';
@@ -28,7 +31,7 @@ import { BiHide, BiShow } from 'react-icons/bi';
 import BackButton from '@/components/BackButton';
 import { useRouter } from 'next/navigation';
 
-const email = () => {
+const OTP = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const { toggleColorMode } = useColorMode();
   const [show, setShow] = useState(false);
@@ -103,9 +106,7 @@ const email = () => {
                       lineHeight={'base'}
                       noOfLines={1}
                       textAlign={'center'}
-                    >
-                      Sign Up
-                    </Heading>
+                    ></Heading>
                   </Flex>
                 </Flex>
               </Box>
@@ -132,7 +133,7 @@ const email = () => {
                     lineHeight={'base'}
                     noOfLines={1}
                   >
-                    Complete your account
+                    Enter OTP
                   </Heading>
                   <Text
                     fontSize='16px'
@@ -141,59 +142,51 @@ const email = () => {
                     lineHeight={'24px'}
                     textAlign={'center'}
                   >
-                    Few more steps to set up your account.
+                    We have just sent you 4 digit code via your email
+                    example@gmail.com
                   </Text>
                 </Flex>
               </Box>
               <Box pt={'2rem'}>
                 <Stack spacing={3} mb={'2rem'}>
-                  <Flex direction={'column'} gap={'32px'}>
-                    <Input
-                      label='First Name'
-                      type='text'
-                      placeholder='Enter your first name'
+                  <Flex
+                    direction={'column'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    gap={'40px'}
+                    width={'100%'}
+                  >
+                    <HStack gap={'24px'}>
+                      <PinInput size='lg'>
+                        <PinInputField
+                          borderRadius={'24px'}
+                          backgroundColor={'secondary.50'}
+                          border={'1px solid #526EA0'}
+                        />
+                        <PinInputField
+                          borderRadius={'24px'}
+                          backgroundColor={'secondary.50'}
+                          border={'1px solid #526EA0'}
+                        />
+                        <PinInputField
+                          borderRadius={'24px'}
+                          backgroundColor={'secondary.50'}
+                          border={'1px solid #526EA0'}
+                          value={''}
+                        />
+                        <PinInputField
+                          borderRadius={'24px'}
+                          backgroundColor={'secondary.50'}
+                          border={'1px solid #526EA0'}
+                        />
+                      </PinInput>
+                    </HStack>
+                    <Button
+                      text={'Continue'}
+                      style={{
+                        width: '100%',
+                      }}
                     />
-                    <Input
-                      label='Last Name'
-                      type='text'
-                      placeholder='Enter your last name'
-                    />
-                    <Input
-                      label='E-mail'
-                      type='email'
-                      placeholder='Enter your email address'
-                    />
-                    <Input
-                      label='Enter Password'
-                      type={show ? 'text' : 'password'}
-                      placeholder='Enter your password'
-                      element={
-                        show ? (
-                          <BiHide onClick={handleClick} cursor={'pointer'} />
-                        ) : (
-                          <BiShow onClick={handleClick} cursor={'pointer'} />
-                        )
-                      }
-                    />
-                    <Input
-                      label='Confirm Password'
-                      type={showConfirm ? 'text' : 'password'}
-                      placeholder='Enter your password'
-                      element={
-                        showConfirm ? (
-                          <BiHide
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        ) : (
-                          <BiShow
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        )
-                      }
-                    />
-                    <Button text={'Sign Up'} />
                   </Flex>
                   <Flex
                     direction={'column'}
@@ -204,17 +197,17 @@ const email = () => {
                       color={'grey.15'}
                       fontSize={'xxs'}
                       fontWeight={'semibold'}
-                      marginTop={'10px'}
+                      marginTop={'5px'}
                       textAlign={'center'}
                     >
-                      Already have an account?{' '}
+                      Didn&apos;t receive code?{' '}
                       <Link
                         href='#'
                         style={{
                           color: '#514eb6',
                         }}
                       >
-                        Login
+                        Resend Code
                       </Link>
                     </Text>
                   </Flex>
@@ -241,7 +234,7 @@ const email = () => {
                 lineHeight={'base'}
                 noOfLines={1}
               >
-                Complete your account
+                Enter OTP
               </Heading>
               <Text
                 fontSize='16px'
@@ -250,7 +243,8 @@ const email = () => {
                 lineHeight={'24px'}
                 textAlign={'center'}
               >
-                Few more steps to set up your account.
+                We have just sent you 4 digit code via your email
+                example@gmail.com
               </Text>
             </Flex>
           </Box>
@@ -265,53 +259,44 @@ const email = () => {
               height={'auto'}
             >
               <Stack spacing={3}>
-                <Flex direction={'column'} gap={'32px'}>
-                  <Input
-                    label='First Name'
-                    type='text'
-                    placeholder='Enter your first name'
+                <Flex
+                  direction={'column'}
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                  gap={'40px'}
+                  width={'100%'}
+                >
+                  <HStack>
+                    <PinInput size='lg'>
+                      <PinInputField
+                        borderRadius={'24px'}
+                        backgroundColor={'secondary.50'}
+                        border={'1px solid #526EA0'}
+                      />
+                      <PinInputField
+                        borderRadius={'24px'}
+                        backgroundColor={'secondary.50'}
+                        border={'1px solid #526EA0'}
+                      />
+                      <PinInputField
+                        borderRadius={'24px'}
+                        backgroundColor={'secondary.50'}
+                        border={'1px solid #526EA0'}
+                        value={''}
+                      />
+                      <PinInputField
+                        borderRadius={'24px'}
+                        backgroundColor={'secondary.50'}
+                        border={'1px solid #526EA0'}
+                      />
+                    </PinInput>
+                  </HStack>
+                  <Button
+                    text={'Continue'}
+                    style={{
+                      width: '100%',
+                    }}
                   />
-                  <Input
-                    label='Last Name'
-                    type='text'
-                    placeholder='Enter your last name'
-                  />
-                  <Input
-                    label='E-mail'
-                    type='email'
-                    placeholder='Enter your email address'
-                  />
-                  <Input
-                    label='Enter Password'
-                    type={show ? 'text' : 'password'}
-                    placeholder='Enter your password'
-                    element={
-                      show ? (
-                        <BiHide onClick={handleClick} cursor={'pointer'} />
-                      ) : (
-                        <BiShow onClick={handleClick} cursor={'pointer'} />
-                      )
-                    }
-                  />
-                  <Input
-                    label='Confirm Password'
-                    type={showConfirm ? 'text' : 'password'}
-                    placeholder='Enter your password'
-                    element={
-                      showConfirm ? (
-                        <BiHide
-                          onClick={handleClickConfirm}
-                          cursor={'pointer'}
-                        />
-                      ) : (
-                        <BiShow
-                          onClick={handleClickConfirm}
-                          cursor={'pointer'}
-                        />
-                      )
-                    }
-                  />
-                  <Button text={'Sign Up'} />
                 </Flex>
                 <Flex
                   direction={'column'}
@@ -325,14 +310,14 @@ const email = () => {
                     marginTop={'5px'}
                     textAlign={'center'}
                   >
-                    Already have an account?{' '}
+                    Didn&apos;t receive code?{' '}
                     <Link
                       href='#'
                       style={{
                         color: '#514eb6',
                       }}
                     >
-                      Login
+                      Resend Code
                     </Link>
                   </Text>
                 </Flex>
@@ -345,19 +330,4 @@ const email = () => {
   );
 };
 
-{
-  /* <Box
-        position={'absolute'}
-        top={2}
-        right={2}
-        cursor={'pointer'}
-        onClick={() => {
-          toggleColorMode();
-          setToggle(!toggle);
-        }}
-      >
-        {toggle ? <IoSunny /> : <IoMoon />}
-      </Box> */
-}
-
-export default email;
+export default OTP;

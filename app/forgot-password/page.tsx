@@ -16,6 +16,8 @@ import {
   Icon,
   InputGroup,
   InputRightElement,
+  Radio,
+  Checkbox,
 } from '@chakra-ui/react';
 import { IoSunny, IoMoon } from 'react-icons/io5';
 import Input from '@/components/Input';
@@ -28,7 +30,7 @@ import { BiHide, BiShow } from 'react-icons/bi';
 import BackButton from '@/components/BackButton';
 import { useRouter } from 'next/navigation';
 
-const email = () => {
+const forgotPassword = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const { toggleColorMode } = useColorMode();
   const [show, setShow] = useState(false);
@@ -37,7 +39,7 @@ const email = () => {
   const handleClick = () => setShow(!show);
   const handleClickConfirm = () => setShowConfirm(!showConfirm);
 
-  const router = useRouter(); 
+  const router = useRouter();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const formBackground = useColorModeValue('secondary.50', 'grey.500');
 
@@ -103,9 +105,7 @@ const email = () => {
                       lineHeight={'base'}
                       noOfLines={1}
                       textAlign={'center'}
-                    >
-                      Sign Up
-                    </Heading>
+                    ></Heading>
                   </Flex>
                 </Flex>
               </Box>
@@ -132,7 +132,7 @@ const email = () => {
                     lineHeight={'base'}
                     noOfLines={1}
                   >
-                    Complete your account
+                    Forgot Password
                   </Heading>
                   <Text
                     fontSize='16px'
@@ -141,7 +141,7 @@ const email = () => {
                     lineHeight={'24px'}
                     textAlign={'center'}
                   >
-                    Few more steps to set up your account.
+                    Recover your account password
                   </Text>
                 </Flex>
               </Box>
@@ -149,74 +149,11 @@ const email = () => {
                 <Stack spacing={3} mb={'2rem'}>
                   <Flex direction={'column'} gap={'32px'}>
                     <Input
-                      label='First Name'
-                      type='text'
-                      placeholder='Enter your first name'
-                    />
-                    <Input
-                      label='Last Name'
-                      type='text'
-                      placeholder='Enter your last name'
-                    />
-                    <Input
                       label='E-mail'
                       type='email'
                       placeholder='Enter your email address'
                     />
-                    <Input
-                      label='Enter Password'
-                      type={show ? 'text' : 'password'}
-                      placeholder='Enter your password'
-                      element={
-                        show ? (
-                          <BiHide onClick={handleClick} cursor={'pointer'} />
-                        ) : (
-                          <BiShow onClick={handleClick} cursor={'pointer'} />
-                        )
-                      }
-                    />
-                    <Input
-                      label='Confirm Password'
-                      type={showConfirm ? 'text' : 'password'}
-                      placeholder='Enter your password'
-                      element={
-                        showConfirm ? (
-                          <BiHide
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        ) : (
-                          <BiShow
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        )
-                      }
-                    />
-                    <Button text={'Sign Up'} />
-                  </Flex>
-                  <Flex
-                    direction={'column'}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                  >
-                    <Text
-                      color={'grey.15'}
-                      fontSize={'xxs'}
-                      fontWeight={'semibold'}
-                      marginTop={'10px'}
-                      textAlign={'center'}
-                    >
-                      Already have an account?{' '}
-                      <Link
-                        href='#'
-                        style={{
-                          color: '#514eb6',
-                        }}
-                      >
-                        Login
-                      </Link>
-                    </Text>
+                    <Button text={'Continue'} />
                   </Flex>
                 </Stack>
               </Box>
@@ -241,7 +178,7 @@ const email = () => {
                 lineHeight={'base'}
                 noOfLines={1}
               >
-                Complete your account
+                Forgot Password
               </Heading>
               <Text
                 fontSize='16px'
@@ -250,7 +187,7 @@ const email = () => {
                 lineHeight={'24px'}
                 textAlign={'center'}
               >
-                Few more steps to set up your account.
+                Recover your account password
               </Text>
             </Flex>
           </Box>
@@ -267,74 +204,11 @@ const email = () => {
               <Stack spacing={3}>
                 <Flex direction={'column'} gap={'32px'}>
                   <Input
-                    label='First Name'
-                    type='text'
-                    placeholder='Enter your first name'
-                  />
-                  <Input
-                    label='Last Name'
-                    type='text'
-                    placeholder='Enter your last name'
-                  />
-                  <Input
                     label='E-mail'
                     type='email'
                     placeholder='Enter your email address'
                   />
-                  <Input
-                    label='Enter Password'
-                    type={show ? 'text' : 'password'}
-                    placeholder='Enter your password'
-                    element={
-                      show ? (
-                        <BiHide onClick={handleClick} cursor={'pointer'} />
-                      ) : (
-                        <BiShow onClick={handleClick} cursor={'pointer'} />
-                      )
-                    }
-                  />
-                  <Input
-                    label='Confirm Password'
-                    type={showConfirm ? 'text' : 'password'}
-                    placeholder='Enter your password'
-                    element={
-                      showConfirm ? (
-                        <BiHide
-                          onClick={handleClickConfirm}
-                          cursor={'pointer'}
-                        />
-                      ) : (
-                        <BiShow
-                          onClick={handleClickConfirm}
-                          cursor={'pointer'}
-                        />
-                      )
-                    }
-                  />
-                  <Button text={'Sign Up'} />
-                </Flex>
-                <Flex
-                  direction={'column'}
-                  justifyContent={'center'}
-                  alignItems={'center'}
-                >
-                  <Text
-                    color={'grey.15'}
-                    fontSize={'xxs'}
-                    fontWeight={'semibold'}
-                    marginTop={'5px'}
-                    textAlign={'center'}
-                  >
-                    Already have an account?{' '}
-                    <Link
-                      href='#'
-                      style={{
-                        color: '#514eb6',
-                      }}
-                    >
-                      Login
-                    </Link>
-                  </Text>
+                  <Button text={'Continue'} />
                 </Flex>
               </Stack>
             </Flex>
@@ -345,19 +219,4 @@ const email = () => {
   );
 };
 
-{
-  /* <Box
-        position={'absolute'}
-        top={2}
-        right={2}
-        cursor={'pointer'}
-        onClick={() => {
-          toggleColorMode();
-          setToggle(!toggle);
-        }}
-      >
-        {toggle ? <IoSunny /> : <IoMoon />}
-      </Box> */
-}
-
-export default email;
+export default forgotPassword;

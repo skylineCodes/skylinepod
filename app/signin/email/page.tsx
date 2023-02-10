@@ -16,6 +16,8 @@ import {
   Icon,
   InputGroup,
   InputRightElement,
+  Radio,
+  Checkbox,
 } from '@chakra-ui/react';
 import { IoSunny, IoMoon } from 'react-icons/io5';
 import Input from '@/components/Input';
@@ -104,60 +106,14 @@ const email = () => {
                       noOfLines={1}
                       textAlign={'center'}
                     >
-                      Sign Up
+                      Sign In
                     </Heading>
                   </Flex>
-                </Flex>
-              </Box>
-              <Box
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                alignItems={'center'}
-                width={'100%'}
-                mt={'2rem'}
-              >
-                <Flex
-                  direction={'column'}
-                  justifyContent={'center'}
-                  alignItems={'center'}
-                  gap={'8px'}
-                  w={{ base: '95vw', sm: '60vw', md: '60vw', lg: '30vw' }}
-                >
-                  <Heading
-                    as='h1'
-                    fontSize={'md'}
-                    fontWeight={'bold'}
-                    color={'secondary.10'}
-                    lineHeight={'base'}
-                    noOfLines={1}
-                  >
-                    Complete your account
-                  </Heading>
-                  <Text
-                    fontSize='16px'
-                    fontWeight={'medium'}
-                    color={'secondary.10'}
-                    lineHeight={'24px'}
-                    textAlign={'center'}
-                  >
-                    Few more steps to set up your account.
-                  </Text>
                 </Flex>
               </Box>
               <Box pt={'2rem'}>
                 <Stack spacing={3} mb={'2rem'}>
                   <Flex direction={'column'} gap={'32px'}>
-                    <Input
-                      label='First Name'
-                      type='text'
-                      placeholder='Enter your first name'
-                    />
-                    <Input
-                      label='Last Name'
-                      type='text'
-                      placeholder='Enter your last name'
-                    />
                     <Input
                       label='E-mail'
                       type='email'
@@ -175,25 +131,72 @@ const email = () => {
                         )
                       }
                     />
-                    <Input
-                      label='Confirm Password'
-                      type={showConfirm ? 'text' : 'password'}
-                      placeholder='Enter your password'
-                      element={
-                        showConfirm ? (
-                          <BiHide
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        ) : (
-                          <BiShow
-                            onClick={handleClickConfirm}
-                            cursor={'pointer'}
-                          />
-                        )
-                      }
-                    />
-                    <Button text={'Sign Up'} />
+                    <Flex
+                      direction={'row'}
+                      justifyContent={'space-between'}
+                      alignItems={'center'}
+                      width={'100%'}
+                    >
+                      <Checkbox defaultChecked>
+                        <Text
+                          fontSize={'14px'}
+                          fontWeight={'semibold'}
+                          color={'#78828A'}
+                        >
+                          Remember Me
+                        </Text>
+                      </Checkbox>
+                      <Link href='#'>
+                        <Text
+                          color={'error.500'}
+                          fontSize={'14px'}
+                          fontWeight={'semibold'}
+                        >
+                          Forgot Password?
+                        </Text>
+                      </Link>
+                    </Flex>
+                    <Button text={'Sign In'} />
+                    <Center display={'flex'} flexDirection={'row'} gap={'12px'}>
+                      <Divider
+                        width={'62px'}
+                        color={'grey.15'}
+                        border={'1px solid #6C6C6C'}
+                      />
+                      <Text
+                        fontWeight={'semibold'}
+                        fontSize={'14px'}
+                        lineHeight={'22px'}
+                        color={'grey.15'}
+                      >
+                        {isMobile ? 'Or continue with' : 'Or continue with'}
+                      </Text>
+                      <Divider
+                        width={'62px'}
+                        color={'grey.15'}
+                        border={'1px solid #6C6C6C'}
+                      />
+                    </Center>
+                    <Flex
+                      direction={'column'}
+                      justifyContent={'flex-start'}
+                      gap={'16px'}
+                    >
+                      <GoogleButton
+                        text={
+                          isMobile
+                            ? 'Continue with Google'
+                            : 'Continue with Google'
+                        }
+                      />
+                      <AppleButton
+                        text={
+                          isMobile
+                            ? 'Continue with Apple'
+                            : 'Continue with Apple'
+                        }
+                      />
+                    </Flex>
                   </Flex>
                   <Flex
                     direction={'column'}
@@ -204,17 +207,17 @@ const email = () => {
                       color={'grey.15'}
                       fontSize={'xxs'}
                       fontWeight={'semibold'}
-                      marginTop={'10px'}
+                      marginTop={'40px'}
                       textAlign={'center'}
                     >
-                      Already have an account?{' '}
+                      Don&apos;t have an account?{' '}
                       <Link
                         href='#'
                         style={{
                           color: '#514eb6',
                         }}
                       >
-                        Login
+                        Sign Up
                       </Link>
                     </Text>
                   </Flex>
