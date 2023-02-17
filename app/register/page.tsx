@@ -149,7 +149,7 @@ const page = () => {
                     <Link
                       href='#'
                       style={{
-                        color: '#514eb6',
+                        color: 'primary.500',
                       }}
                     >
                       Login
