@@ -24,15 +24,11 @@ import {
   MenuItem,
   MenuList,
   Text,
-  RangeSlider,
-  RangeSliderTrack,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
-  Tooltip,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import burnaBoy from '../../public/burna-boy3.jpg';
 import { BsShuffle, BsVolumeUp } from 'react-icons/bs';
+import Sidebar from '@/components/Sidebar';
 
 const page = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -113,34 +109,7 @@ const page = () => {
     <Stack height={'100vh'}>
       <Box height={'87vh'}>
         <Grid templateColumns='250px 1fr 300px' gap={0} height={'inherit'}>
-          <Box backgroundColor={'grey.800'} p={'1rem'}>
-            <Flex
-              direction={'row'}
-              justifyContent={'center'}
-              alignItems={'flex-end'}
-              width={'inherit'}
-              height={'6vh'}
-            >
-              <Heading
-                as='h1'
-                fontSize={'lg'}
-                fontWeight={'bold'}
-                color={'secondary.50'}
-                lineHeight={'base'}
-                noOfLines={1}
-                height={'inherit'}
-                width={'inherit'}
-                textAlign={'center'}
-                display={'flex'}
-                flexDirection={'row'}
-                justifyContent={'center'}
-                alignItems={'flex-end'}
-                pb={'2px'}
-              >
-                SkyCast
-              </Heading>
-            </Flex>
-          </Box>
+          <Sidebar />
           <Box backgroundColor={'grey.500'} p={'1rem'}>
             <Flex
               direction={'row'}
@@ -359,7 +328,7 @@ const page = () => {
                     onClick={togglePlayPause}
                   />
                 )}
-                <Tooltip label='Skip forward 30 seconds'>
+                {/* <Tooltip label='Skip forward 30 seconds'> */}
                   <Icon
                     as={FaStepForward}
                     color={'secondary.50'}
@@ -368,7 +337,7 @@ const page = () => {
                     width={'20px'}
                     onClick={forwardThirty}
                   />
-                </Tooltip>
+                {/* </Tooltip> */}
                 <Icon
                   as={FiRepeat}
                   color={'secondary.50'}
@@ -391,19 +360,10 @@ const page = () => {
                   defaultValue='0'
                   ref={progressBar}
                   onChange={changeRange}
+                  style={{
+                    width: '100%'
+                  }}
                 />
-                {/* <Slider
-                  aria-label='slider-ex-1'
-                  defaultValue={0}
-                  // ref={progressBar}
-                  value={currentTime}
-                  onChange={changeRange}
-                >
-                  <SliderTrack>
-                    <SliderFilledTrack />
-                  </SliderTrack>
-                  <SliderThumb />
-                </Slider> */}
                 <Text fontSize={'xs'} color={'secondary.50'}>
                   {duration && !isNaN(duration) && calculateTime(duration)}
                 </Text>
