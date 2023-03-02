@@ -8,6 +8,7 @@ import SidebarItem from '../SidebarItem';
 import { IoBarChartSharp } from 'react-icons/io5';
 import { BsSoundwave } from 'react-icons/bs';
 import { AiOutlineClockCircle, AiOutlinePlus } from 'react-icons/ai';
+import { Svgs } from '@/assets';
 
 export interface InputProps {
   //
@@ -40,29 +41,21 @@ const Sidebar = () => {
       >
         <Flex
           direction={'row'}
-          justifyContent={'center'}
+          justifyContent={'flex-start'}
           alignItems={'flex-end'}
           width={'inherit'}
           height={'6vh'}
         >
-          <Heading
-            as='h1'
-            fontSize={'lg'}
-            fontWeight={'bold'}
-            color={'secondary.50'}
-            lineHeight={'base'}
-            noOfLines={1}
+          <Box
             height={'inherit'}
             width={'inherit'}
-            textAlign={'center'}
             display={'flex'}
-            flexDirection={'row'}
-            justifyContent={'center'}
-            alignItems={'flex-end'}
-            pb={'2px'}
+            flexDirection={'column'}
+            justifyContent={'flex-start'}
+            alignItems={'flex-start'}
           >
-            SkyCast
-          </Heading>
+            <Svgs.LOGO width={'inherit'} height={'inherit'} />
+          </Box>
         </Flex>
         <Box mt={'2rem'}>
           <Flex
