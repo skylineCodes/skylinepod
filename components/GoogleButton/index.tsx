@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Button as ChakraButton, Flex, Text } from '@chakra-ui/react';
 import { Svgs } from '@/assets';
 
 export interface InputProps {
@@ -8,10 +8,10 @@ export interface InputProps {
   label?: string;
 }
 
-const GoogleButtonWrapper = ({ text, placeholder, label }: InputProps) => {
+const GoogleButton = ({ text, placeholder, label }: InputProps) => {
   return (
     <>
-      <Button
+      <ChakraButton
         borderRadius={'24px'}
         backgroundColor={'transparent'}
         border={'1px solid #111111'}
@@ -29,9 +29,9 @@ const GoogleButtonWrapper = ({ text, placeholder, label }: InputProps) => {
           <Svgs.GOOGLE_ICON />
           <Text>{text}</Text>
         </Flex>
-      </Button>
+      </ChakraButton>
     </>
   );
 };
 
-export default GoogleButtonWrapper;
+export default GoogleButton;

@@ -8,7 +8,7 @@ export interface InputProps {
   label?: string;
 }
 
-const AppleButtonWrapper = ({ text, placeholder, label }: InputProps) => {
+const AppleButton = ({ text, placeholder, label }: InputProps) => {
   return (
     <>
       <Button
@@ -34,4 +34,4 @@ const AppleButtonWrapper = ({ text, placeholder, label }: InputProps) => {
   );
 };
 
-export default AppleButtonWrapper;
+export default AppleButton;

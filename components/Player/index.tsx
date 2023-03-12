@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { BsShuffle, BsVolumeUp } from 'react-icons/bs';
 import { FiRepeat } from 'react-icons/fi';
 import burnaBoy from '../../public/burna-boy3.jpg';
-import { FaPause, FaPlay, FaStepBackward, FaStepForward } from 'react-icons/fa';
+import { FaBackward, FaForward, FaPause, FaPlay, FaStepBackward, FaStepForward } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 export interface InputProps {
@@ -94,7 +94,7 @@ const Player = () => {
   };
 
   const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
+    progressBar.current.value = audioPlayer.current?.currentTime;
 
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
@@ -204,6 +204,14 @@ const Player = () => {
                   cursor={'pointer'}
                   height={'20px'}
                   width={'20px'}
+                  // onClick={backThirty}
+                />
+                <Icon
+                  as={FaBackward}
+                  color={'secondary.50'}
+                  cursor={'pointer'}
+                  height={'25px'}
+                  width={'25px'}
                   onClick={backThirty}
                 />
                 {isPlaying ? (
@@ -211,8 +219,8 @@ const Player = () => {
                     as={FaPause}
                     color={'secondary.50'}
                     cursor={'pointer'}
-                    height={'25px'}
-                    width={'25px'}
+                    height={'30px'}
+                    width={'30px'}
                     onClick={togglePlayPause}
                   />
                 ) : (
@@ -220,18 +228,26 @@ const Player = () => {
                     as={FaPlay}
                     color={'secondary.50'}
                     cursor={'pointer'}
-                    height={'25px'}
-                    width={'25px'}
+                    height={'30px'}
+                    width={'30px'}
                     onClick={togglePlayPause}
                   />
                 )}
+                <Icon
+                  as={FaForward}
+                  color={'secondary.50'}
+                  cursor={'pointer'}
+                  height={'25px'}
+                  width={'25px'}
+                  onClick={forwardThirty}
+                />
                 <Icon
                   as={FaStepForward}
                   color={'secondary.50'}
                   cursor={'pointer'}
                   height={'20px'}
                   width={'20px'}
-                  onClick={forwardThirty}
+                  // onClick={forwardThirty}
                 />
                 <Icon
                   as={FiRepeat}
@@ -269,7 +285,7 @@ const Player = () => {
                   <SliderTrack>
                     <SliderFilledTrack />
                   </SliderTrack>
-                  <SliderThumb />
+                  {/* <SliderThumb /> */}
                 </Slider>
                 <Text fontSize={'xs'} color={'secondary.50'}>
                   {duration && !isNaN(duration) && calculateTime(duration)}

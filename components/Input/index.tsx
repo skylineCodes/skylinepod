@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormControl, FormLabel, InputRightElement, InputGroup } from '@chakra-ui/react';
+import { Input as ChakraInput, FormControl, FormLabel, InputRightElement, InputGroup } from '@chakra-ui/react';
 
 export interface InputProps {
   placeholder?: string;
@@ -8,7 +8,7 @@ export interface InputProps {
   element?: any;
 }
 
-const InputWrapper = ({ type, placeholder, label, element }: InputProps) => {
+const Input = ({ type, placeholder, label, element }: InputProps) => {
   return (
     <>
       <FormControl>
@@ -21,7 +21,7 @@ const InputWrapper = ({ type, placeholder, label, element }: InputProps) => {
           {label}
         </FormLabel>
         <InputGroup size='md'>
-          <Input
+          <ChakraInput
             type={type}
             placeholder={placeholder}
             _placeholder={{
@@ -54,4 +54,4 @@ const InputWrapper = ({ type, placeholder, label, element }: InputProps) => {
   );
 };
 
-export default InputWrapper;
+export default Input;
