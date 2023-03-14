@@ -3,7 +3,19 @@
   gap: 10px;
 }
 
+.inner-topPodcaster {
+  display: flex;
+  gap: 10px;
+}
+
 .podcast-box {
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  min-width: 55vw;
+}
+
+.toppodcast-box {
   height: 100%;
   object-fit: cover;
   user-select: none;

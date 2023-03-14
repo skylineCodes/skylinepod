@@ -38,6 +38,11 @@ const ChakraBox2 = chakra(motion.div, {
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
+const ChakraBox3 = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
 const podcastData = [
   {
     imageUrl:
@@ -302,20 +307,20 @@ const MobileDashboard = () => {
                   ref={topPodcaster}
                   whileTap={{ cursor: 'grabbing' }}
                 >
-                  <ChakraBox2
+                  <ChakraBox3
                     display={'flex'}
                     mt={'16px'}
-                    height={'200px'}
-                    className='inner-carousel'
+                    height={'150px'}
+                    className='inner-topPodcaster'
                     drag={'x'}
                     dragConstraints={{ right: 0, left: -topPodcasterWidth }}
                   >
                     {[1, 2, 3, 4, 5, 6]?.map((item: any, index: number) => (
-                      <Box key={index} className='podcast-box'>
+                      <Box key={index} className='toppodcast-box'>
                         <TopPodcasters />
                       </Box>
                     ))}
-                  </ChakraBox2>
+                  </ChakraBox3>
                 </ChakraBox>
               </Box>
             </Box>
