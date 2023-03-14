@@ -26,6 +26,7 @@ import Podcast from '../Podcast';
 import { motion, isValidMotionProp } from 'framer-motion';
 
 import './styles.css';
+import TopPodcasters from '../TopPodcasters';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -72,10 +73,15 @@ const MobileDashboard = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const formBackground = useColorModeValue('secondary.50', 'grey.500');
   const [width, setWidth] = useState<number>(0);
+  const [topPodcasterWidth, setTopPodcasterWidth] = useState<number>(0);
   const carousel = useRef<any>();
+  const topPodcaster = useRef<any>();
 
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
+    setTopPodcasterWidth(
+      topPodcaster?.current?.scrollWidth - topPodcaster?.current?.offsetWidth
+    );
   }, []);
 
   return (
@@ -147,6 +153,7 @@ const MobileDashboard = () => {
             borderRadius={'30px 30px 0px 0px'}
             w={{ base: '100vw' }}
             height={'85vh'}
+            overflowX={'auto'}
           >
             <Box>
               <Box
@@ -159,8 +166,9 @@ const MobileDashboard = () => {
                 <Box
                   style={{
                     borderRadius: '24px 24px 0px 0px',
+                    objectFit: 'cover',
                     background:
-                      'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #526EA0 75.64%), url(https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG9kY2FzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)',
+                      'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #526EA0 75.64%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
                     height: '100%',
                     zIndex: '20',
                   }}
@@ -264,6 +272,52 @@ const MobileDashboard = () => {
                   </ChakraBox2>
                 </ChakraBox>
               </Box>
+              <Box width={'100%'} mt={'28px'}>
+                <Flex
+                  direction={'row'}
+                  justifyContent={'space-between'}
+                  alignItems={'center'}
+                  width={'inherit'}
+                >
+                  <Heading
+                    fontSize={'xs'}
+                    lineHeight={'24px'}
+                    fontWeight={'semibold'}
+                    letterSpacing={'0.005em'}
+                  >
+                    Top podcaster
+                  </Heading>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#78828A'}
+                      fontSize={'xxs'}
+                      fontWeight={'medium'}
+                    >
+                      See All
+                    </Text>
+                  </Link>
+                </Flex>
+                <ChakraBox
+                  className='carousel'
+                  ref={topPodcaster}
+                  whileTap={{ cursor: 'grabbing' }}
+                >
+                  <ChakraBox2
+                    display={'flex'}
+                    mt={'16px'}
+                    height={'200px'}
+                    className='inner-carousel'
+                    drag={'x'}
+                    dragConstraints={{ right: 0, left: -topPodcasterWidth }}
+                  >
+                    {[1, 2, 3, 4, 5, 6]?.map((item: any, index: number) => (
+                      <Box key={index} className='podcast-box'>
+                        <TopPodcasters />
+                      </Box>
+                    ))}
+                  </ChakraBox2>
+                </ChakraBox>
+              </Box>
             </Box>
           </Flex>
         </Box>
@@ -282,6 +336,7 @@ const MobileDashboard = () => {
             borderRadius={'0px 0px 0px 0px'}
             w={{ base: '100%' }}
             height={'10vh'}
+            zIndex={'99'}
           >
             <Grid templateColumns={'repeat(4, 1fr)'} placeItems={'center'}>
               <Box>
