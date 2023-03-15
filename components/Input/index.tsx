@@ -1,14 +1,23 @@
 import React from 'react';
-import { Input as ChakraInput, FormControl, FormLabel, InputRightElement, InputGroup } from '@chakra-ui/react';
+import { Input as ChakraInput, FormControl, FormLabel, InputRightElement, InputGroup, InputLeftElement } from '@chakra-ui/react';
 
 export interface InputProps {
   placeholder?: string;
   type?: string;
   label?: string;
   element?: any;
+  height?: string;
+  leftElement?: any;
 }
 
-const Input = ({ type, placeholder, label, element }: InputProps) => {
+const Input = ({
+  type,
+  placeholder,
+  label,
+  element,
+  height,
+  leftElement,
+}: InputProps) => {
   return (
     <>
       <FormControl>
@@ -21,6 +30,9 @@ const Input = ({ type, placeholder, label, element }: InputProps) => {
           {label}
         </FormLabel>
         <InputGroup size='md'>
+          <InputLeftElement top={'5px'} color={'#9CA4AB'}>
+            {leftElement}
+          </InputLeftElement>
           <ChakraInput
             type={type}
             placeholder={placeholder}
@@ -30,6 +42,7 @@ const Input = ({ type, placeholder, label, element }: InputProps) => {
               fontSize: '16px',
             }}
             variant='filled'
+            height={height}
             size={'lg'}
             _focus={{
               outline: 'none',
@@ -41,7 +54,9 @@ const Input = ({ type, placeholder, label, element }: InputProps) => {
               outline: 'none',
               border: 'none',
               borderRadius: '24px',
-              padding: '0px 0px 0px 16px',
+              padding: '0px 0px 0px 0px',
+              paddingLeft: leftElement ? '36px' : '16px',
+              paddingRight: element ? '36px' : '16px',
               backgroundColor: 'secondary.500',
             }}
           />

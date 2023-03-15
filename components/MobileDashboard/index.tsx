@@ -27,6 +27,7 @@ import { motion, isValidMotionProp } from 'framer-motion';
 
 import './styles.css';
 import TopPodcasters from '../TopPodcasters';
+import BottomNavigation from '../BottomNavigation';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -328,45 +329,7 @@ const MobileDashboard = () => {
         </Box>
 
         {/* Bottom Navigation */}
-        <Box>
-          <Flex
-            direction={'column'}
-            justifyContent={'center'}
-            backgroundColor={'grey.0'}
-            p={6}
-            position={'absolute'}
-            bottom={'0'}
-            right={'0'}
-            left={'0'}
-            borderRadius={'0px 0px 0px 0px'}
-            w={{ base: '100%' }}
-            height={'10vh'}
-            zIndex={'99'}
-          >
-            <Grid templateColumns={'repeat(4, 1fr)'} placeItems={'center'}>
-              <Box>
-                <Link href={'/'}>
-                  <Svgs.HOME_BLUE />
-                </Link>
-              </Box>
-              <Box>
-                <Link href={'/'}>
-                  <Svgs.DISCOVERY_WHITE />
-                </Link>
-              </Box>
-              <Box>
-                <Link href={'/'}>
-                  <Svgs.PLAY_WHITE />
-                </Link>
-              </Box>
-              <Box>
-                <Link href={'/'}>
-                  <Svgs.PROFILE_WHITE />
-                </Link>
-              </Box>
-            </Grid>
-          </Flex>
-        </Box>
+        <BottomNavigation />
       </Flex>
     </>
   );
