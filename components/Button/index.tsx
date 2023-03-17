@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text } from '@chakra-ui/react';
+import { Button as ChakraButton, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
 export interface InputProps {
@@ -9,10 +9,10 @@ export interface InputProps {
   style?: any;
 }
 
-const ButtonWrapper = ({ text, nextPage, loading, style }: InputProps) => {
+const Button = ({ text, nextPage, loading, style }: InputProps) => {
   return (
     <>
-      <Button
+      <ChakraButton
         borderRadius={'24px'}
         backgroundColor={'primary.50'}
         color={'secondary.50'}
@@ -30,9 +30,9 @@ const ButtonWrapper = ({ text, nextPage, loading, style }: InputProps) => {
         ) : (
           <Text>{text}</Text>
         )}
-      </Button>
+      </ChakraButton>
     </>
   );
 };
 
-export default ButtonWrapper;
+export default Button;

@@ -7,6 +7,8 @@ import HOME_WHITE from './svgs/home-white.svg';
 import DISCOVERY_WHITE from './svgs/discovery-white.svg';
 import DISCOVERY_BLUE from './svgs/discovery-blue.svg';
 import PLAY_WHITE from './svgs/play-white.svg';
+import PLAY_ROUND_BLUE from './svgs/play-round-blue.svg';
+import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
 import ROUNDED_PLAY_ICON from './svgs/rounded-play-icon.svg';
@@ -21,6 +23,8 @@ export const Svgs = {
   DISCOVERY_WHITE,
   DISCOVERY_BLUE,
   PLAY_WHITE,
+  PLAY_ROUND_BLUE,
+  PLAY_ROUND_WHITE,
   PROFILE_WHITE,
   GOOGLE_ICON,
   APPLE_ICON,

@@ -1,13 +1,14 @@
 import { Svgs } from '@/assets';
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Box, Flex, Icon } from '@chakra-ui/react';
 import React from 'react';
+import { AiTwotoneStar } from 'react-icons/ai';
 
 export interface podcastProps {
-  name?: string;
+  count?: number[];
   onClick?: any;
 }
 
-const PodcastCategory = ({ name, onClick }: podcastProps) => {
+const StarRatings = ({ count, onClick }: podcastProps) => {
   return (
     <Box
       className='toppodcaster'
@@ -29,21 +30,14 @@ const PodcastCategory = ({ name, onClick }: podcastProps) => {
         direction={'row'}
         justifyContent={'center'}
         alignItems={'center'}
-        gap={'10px'}
+        gap={'5px'}
       >
-        {name === 'Filters' ? <Svgs.FILTER /> : null}
-        <Heading
-          as={'h4'}
-          fontSize={'xxs'}
-          lineHeight={'20px'}
-          fontWeight={'medium'}
-          color={'secondary.10'}
-        >
-          {name}
-        </Heading>
+        {count?.map((item: any, index: number) => (
+          <Icon key={index} as={AiTwotoneStar} fill={'#FFCD1A'} />
+        ))}
       </Flex>
     </Box>
   );
 };
 
-export default PodcastCategory;
+export default StarRatings;

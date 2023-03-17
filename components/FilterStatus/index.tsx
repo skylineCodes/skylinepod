@@ -7,7 +7,7 @@ export interface podcastProps {
   onClick?: any;
 }
 
-const PodcastCategory = ({ name, onClick }: podcastProps) => {
+const FilterStatus = ({ name, onClick }: podcastProps) => {
   return (
     <Box
       className='toppodcaster'
@@ -46,4 +46,4 @@ const PodcastCategory = ({ name, onClick }: podcastProps) => {
   );
 };
 
-export default PodcastCategory;
+export default FilterStatus;

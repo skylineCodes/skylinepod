@@ -1,17 +1,19 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Avatar, AvatarGroup, Box, chakra, Flex, Heading, shouldForwardProp, Text, useMediaQuery } from '@chakra-ui/react';
+import { Avatar, AvatarGroup, Box, chakra, Flex, Heading, shouldForwardProp, Text, useDisclosure, useMediaQuery } from '@chakra-ui/react';
 import BottomNavigation from '@/components/BottomNavigation';
 import { Svgs } from '@/assets';
 import Input from '@/components/Input';
 import { isValidMotionProp, motion } from 'framer-motion';
 import Image from 'next/image';
 import teddyBear from '../../public/teddy-bear-podcast.png';
+import Link from 'next/link';
 
 import './styles.css';
 import PodcastCategory from '@/components/PodcastCategory';
 import Podcast from '@/components/Podcast';
+import FilterModal from '@/components/FilterModal';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -86,6 +88,7 @@ const categories = [
 ]
 
 const Explore = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [width, setWidth] = useState<number>(0);
   const [categoriesWidth, setCategoriesWidth] = useState<number>(0);
@@ -101,6 +104,7 @@ const Explore = () => {
 
   return (
     <>
+      <FilterModal isOpen={isOpen} onClose={onClose} />
       <Flex
         height={'100vh'}
         direction={'column'}
@@ -167,13 +171,15 @@ const Explore = () => {
             pb={'12vh'}
           >
             <Box>
-              <Input
-                type='text'
-                height={'52px'}
-                placeholder='Search...'
-                leftElement={<Svgs.SEARCH_ICON_GREY />}
-                element={<Svgs.FILTER_OUTLINE />}
-              />
+              <Link href={'/search'}>
+                <Input
+                  type='text'
+                  height={'52px'}
+                  placeholder='Search...'
+                  leftElement={<Svgs.SEARCH_ICON_GREY />}
+                  element={<Svgs.FILTER_OUTLINE />}
+                />
+              </Link>
             </Box>
             <Box width={'100%'}>
               <ChakraBox
@@ -189,7 +195,7 @@ const Explore = () => {
                   dragConstraints={{ right: 0, left: -categoriesWidth }}
                 >
                   <Box className='toppodcast-box'>
-                    <PodcastCategory name={'Filters'} />
+                    <PodcastCategory name={'Filters'} onClick={onOpen} />
                   </Box>
                   {categories?.map((item: any, index: number) => (
                     <Box key={index} className='toppodcast-box'>

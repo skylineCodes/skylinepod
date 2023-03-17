@@ -33,7 +33,6 @@ const Podcast = ({ imageUrl }: podcastProps) => {
         zIndex={'25'}
         height={'50px'}
         background={'rgba(82, 110, 160, 0.7)'}
-        // backdropFilter={'blur(12.5px)'}
       >
         <Flex
           direction={'row'}
