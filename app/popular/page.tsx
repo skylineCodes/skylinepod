@@ -4,15 +4,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Avatar, AvatarGroup, Box, chakra, Flex, Grid, Heading, Text, useDisclosure, useMediaQuery, Wrap, WrapItem } from '@chakra-ui/react';
 import BottomNavigation from '@/components/BottomNavigation';
 import { Svgs } from '@/assets';
-import Input from '@/components/Input';
-import { isValidMotionProp, motion } from 'framer-motion';
 
 import './styles.css';
 import BackButton from '@/components/BackButton';
 import { BsArrowLeft } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import teddyBear from '../../public/teddy-bear-podcast.png';
 import PodcastList from '@/components/PodcastList';
 
 const Explore = () => {
@@ -66,7 +63,7 @@ const Explore = () => {
             >
               <Heading
                 as='h1'
-                fontSize={'xs'}
+                fontSize={'sm'}
                 fontWeight={'semibold'}
                 color={'secondary.50'}
                 lineHeight={'base'}
@@ -98,7 +95,7 @@ const Explore = () => {
             <Box
               borderRadius={'24px 24px 0px 0px'}
               backgroundColor={'secondary.100'}
-              height={'310px'}
+              minHeight={'50vh'}
               width={'100%'}
               position={'relative'}
             >
@@ -107,7 +104,7 @@ const Explore = () => {
                   borderRadius: '24px 24px 0px 0px',
                   objectFit: 'cover',
                   background:
-                    'linear-gradient(180deg, rgba(82, 110, 160, 0) 0%, #526EA0 88.54%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
+                    'linear-gradient(180deg, rgba(82, 110, 160, 0) 0%, #526EA0 88.54%)',
                   height: '100%',
                   zIndex: '20',
                 }}
@@ -122,8 +119,10 @@ const Explore = () => {
                   height: '100%',
                   borderRadius: '24px 24px 0px 0px',
                   transform: 'scaleX(-1)',
+                  objectFit: 'cover',
                 }}
-                src={teddyBear}
+                src={`https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60`}
+                fill={true}
                 alt='Fluffybuns the destroyer'
               />
               <Flex
@@ -135,7 +134,7 @@ const Explore = () => {
                 right={'0'}
                 left={'0'}
                 zIndex={'25'}
-                mb={'2rem'}
+                mb={'1rem'}
                 ml={'1rem'}
               >
                 <Flex direction={'row'}>

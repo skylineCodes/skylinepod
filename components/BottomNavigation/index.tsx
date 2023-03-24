@@ -19,8 +19,6 @@ const BottomNavigation = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const formBackground = useColorModeValue('secondary.50', 'grey.500');
 
-  console.log(pathname);
-
   return (
     <>
       {/* Bottom Navigation */}
@@ -59,9 +57,9 @@ const BottomNavigation = () => {
               </Link>
             </Box>
             <Box>
-              <Link href={'/play'}>
-                {pathname === '/play' ? (
-                  <Svgs.PLAY_WHITE />
+              <Link href={'/playlists'}>
+                {pathname === '/playlists' ? (
+                  <Svgs.PLAY_BLUE />
                 ) : (
                   <Svgs.PLAY_WHITE />
                 )}
