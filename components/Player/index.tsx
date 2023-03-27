@@ -28,10 +28,6 @@ const Player = () => {
     (state: any) => state.player.audioToggle
   );
 
-  // console.log(player);
-  // console.log(calculateTime(duration));
-  // console.log(audioPlayer);
-
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current?.duration);
     setDuration(seconds);

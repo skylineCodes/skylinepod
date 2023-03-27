@@ -23,6 +23,7 @@ import Image from 'next/image';
 import PodcastList from '@/components/PodcastList';
 import { motion, isValidMotionProp } from 'framer-motion';
 import Podcast from '@/components/Podcast';
+import CommentModal from '@/components/CommentModal';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -84,6 +85,7 @@ const Explore = () => {
 
   return (
     <>
+      <CommentModal isOpen={isOpen} onClose={onClose} />
       <Flex
         height={'100vh'}
         direction={'column'}
@@ -196,6 +198,7 @@ const Explore = () => {
                       icon={<Svgs.COMMENT_ICON />}
                       backgroundColor={'rgba(255, 255, 255, 0.2)'}
                       borderRadius={'50%'}
+                      onClick={onOpen}
                     />
                   </Flex>
                 </Flex>
@@ -206,7 +209,8 @@ const Explore = () => {
                 right={'0'}
                 left={'6%'}
                 transform={'translate(0%, 10%)'}
-                width={'289px'}
+                minWidth={'289px'}
+                width={'89%'}
                 height={'89px'}
               >
                 <Flex

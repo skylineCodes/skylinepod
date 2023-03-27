@@ -8,6 +8,7 @@ export interface InputProps {
   element?: any;
   height?: string;
   leftElement?: any;
+  style?: any;
 }
 
 const Input = ({
@@ -17,6 +18,7 @@ const Input = ({
   element,
   height,
   leftElement,
+  style
 }: InputProps) => {
   return (
     <>
@@ -58,6 +60,7 @@ const Input = ({
               paddingLeft: leftElement ? '36px' : '16px',
               paddingRight: element ? '36px' : '16px',
               backgroundColor: 'secondary.500',
+              ...style
             }}
           />
           <InputRightElement top={'5px'} color={'#9CA4AB'} width='4.5rem'>
