@@ -3,10 +3,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {
   Avatar,
-  AvatarGroup,
   Box,
   Center,
-  chakra,
   Circle,
   Flex,
   Grid,
@@ -18,17 +16,11 @@ import {
   WrapItem,
 } from '@chakra-ui/react';
 import BottomNavigation from '@/components/BottomNavigation';
-import { Svgs } from '@/assets';
-import Input from '@/components/Input';
-import { isValidMotionProp, motion } from 'framer-motion';
 
 import './styles.css';
 import BackButton from '@/components/BackButton';
 import { BsArrowLeft } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import teddyBear from '../../public/teddy-bear-podcast.png';
-import PodcastList from '@/components/PodcastList';
 
 const Explore = () => {
   const router = useRouter(); 

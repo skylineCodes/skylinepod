@@ -68,7 +68,7 @@ const podcastData = [
   },
 ];
 
-const Explore = () => {
+const PodcastDetails = () => {
   const router = useRouter(); 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -125,7 +125,7 @@ const Explore = () => {
                 lineHeight={'base'}
                 noOfLines={1}
               >
-                Detail Podcast
+                Podcast Details
               </Heading>
             </Flex>
           </Flex>
@@ -339,4 +339,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default PodcastDetails;

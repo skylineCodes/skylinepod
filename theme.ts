@@ -124,6 +124,7 @@ export const themeSettings = () => {
     lineHeights: {
       normal: 'normal',
       none: 1,
+      shortest: '22px',
       shorter: '26px',
       short: '28px',
       base: '32px',

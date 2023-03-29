@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as ChakraButton, Text } from '@chakra-ui/react';
+import { Button as ChakraButton, Text, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 
 export interface InputProps {
@@ -7,9 +7,10 @@ export interface InputProps {
   text?: string;
   loading?: boolean;
   style?: any;
+  onClick?: any;
 }
 
-const Button = ({ text, nextPage, loading, style }: InputProps) => {
+const Button = ({ text, onClick, nextPage, loading, style }: InputProps) => {
   return (
     <>
       <ChakraButton
@@ -28,7 +29,9 @@ const Button = ({ text, nextPage, loading, style }: InputProps) => {
             <Text>{text}</Text>
           </Link>
         ) : (
-          <Text>{text}</Text>
+          <Box onClick={onClick}>
+            <Text>{text}</Text>
+          </Box>
         )}
       </ChakraButton>
     </>

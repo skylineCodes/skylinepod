@@ -34,7 +34,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import CommentModal from '@/components/CommentModal';
 
-const Explore = () => {
+const Playing = () => {
   const router = useRouter(); 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
@@ -431,4 +431,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default Playing;
