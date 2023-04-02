@@ -101,7 +101,7 @@ const Explore = () => {
           alignItems={'center'}
           width={'100%'}
           p={'0px 10px 10px 10px'}
-          mt={'2rem'}
+          mt={'1rem'}
         >
           <Flex
             direction={'column'}
@@ -205,7 +205,7 @@ const Explore = () => {
               </Flex>
               <Box
                 position={'absolute'}
-                bottom={'-25px'}
+                bottom={'-30%'}
                 right={'0'}
                 left={'6%'}
                 transform={'translate(0%, 10%)'}

@@ -7,20 +7,24 @@ import {
   Flex,
   useMediaQuery,
   Grid,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Svgs } from '@/assets';
 
 import './styles.css';
 import { usePathname, useRouter } from 'next/navigation';
+import ProfileDrawer from '../ProfileDrawer';
 
 const BottomNavigation = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const pathname = usePathname();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const formBackground = useColorModeValue('secondary.50', 'grey.500');
 
   return (
     <>
+      <ProfileDrawer isOpen={isOpen} onClose={onClose} />
       {/* Bottom Navigation */}
       <Box>
         <Flex
@@ -65,14 +69,15 @@ const BottomNavigation = () => {
                 )}
               </Link>
             </Box>
-            <Box>
-              <Link href={'/profile'}>
+            <Box onClick={onOpen}>
+              {/* <Link href={'/profile'}>
                 {pathname === '/profile' ? (
                   <Svgs.PROFILE_WHITE />
                 ) : (
                   <Svgs.PROFILE_WHITE />
                 )}
-              </Link>
+              </Link> */}
+              <Svgs.PROFILE_WHITE />
             </Box>
           </Grid>
         </Flex>

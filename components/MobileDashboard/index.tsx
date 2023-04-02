@@ -13,6 +13,7 @@ import {
   Wrap,
   chakra,
   shouldForwardProp,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Svgs } from '@/assets';
@@ -24,6 +25,8 @@ import { motion, isValidMotionProp } from 'framer-motion';
 import './styles.css';
 import TopPodcasters from '../TopPodcasters';
 import BottomNavigation from '../BottomNavigation';
+import ProfileDrawer from '../ProfileDrawer';
+import PodcastList from '../PodcastList';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -104,6 +107,7 @@ const MobileDashboard = () => {
           width={'100%'}
           p={'0px 10px 10px 10px'}
           mt={'2rem'}
+          mb={'2rem'}
         >
           <Flex
             direction={'column'}
@@ -120,7 +124,7 @@ const MobileDashboard = () => {
               lineHeight={'base'}
               noOfLines={1}
             >
-              Hi, John!{' '}
+              Hi, Korede!{' '}
               <h3
                 style={{
                   display: 'inline',
@@ -142,7 +146,7 @@ const MobileDashboard = () => {
             <Svgs.BELL />
           </Flex>
         </Box>
-        <Box>
+        <Box height={'auto'}>
           <Flex
             direction={'column'}
             backgroundColor={'grey.10'}
@@ -319,6 +323,29 @@ const MobileDashboard = () => {
                     ))}
                   </ChakraBox3>
                 </ChakraBox>
+              </Box>
+              <Box width={'100%'} mt={'10px'}>
+                <Flex
+                  direction={'row'}
+                  justifyContent={'space-between'}
+                  alignItems={'center'}
+                  width={'inherit'}
+                >
+                  <Heading
+                    fontSize={'xs'}
+                    lineHeight={'24px'}
+                    fontWeight={'semibold'}
+                    letterSpacing={'0.005em'}
+                  >
+                    Recommendation
+                  </Heading>
+                  <Svgs.ROUNDED_RIGHT_SHORT_ARROW />
+                </Flex>
+                <Flex direction={'column'} gap={'10px'} mt={'15px'}>
+                  {[1, 2, 3, 4, 5, 6, 7]?.map((item: any, index: number) => (
+                    <PodcastList key={index} />
+                  ))}
+                </Flex>
               </Box>
             </Box>
           </Flex>
