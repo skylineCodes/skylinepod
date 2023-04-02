@@ -31,10 +31,9 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
   return (
     <>
       <Drawer
-        isOpen={isOpen}
+        isOpen={isOpen === true ? isOpen : false}
         placement='left'
         onClose={onClose}
-        // finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -46,7 +45,7 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
             gridGap={'10px'}
             width={'100%'}
             p={'0px 10px 10px 10px'}
-            mt={'2rem'}
+            mt={'1rem'}
           >
             <Flex justifyContent={'center'} alignItems={'center'}>
               <Svgs.ARROW_BACK_WHITE />
