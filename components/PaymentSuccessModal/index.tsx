@@ -113,12 +113,6 @@ const PaymentSuccessModal = ({ isOpen, onClose }: any) => {
             </Flex>
           </Box>
         </ModalBody>
-        {/* <ModalFooter
-          paddingInlineStart={'0px'}
-          paddingInlineEnd={'0px'}
-          pb={'0px'}
-        >
-        </ModalFooter> */}
       </ModalContent>
     </Modal>
   );

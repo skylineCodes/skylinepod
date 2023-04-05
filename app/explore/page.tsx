@@ -120,7 +120,7 @@ const Explore = () => {
           alignItems={'center'}
           width={'100%'}
           p={'0px 10px 10px 10px'}
-          mt={'2rem'}
+          mt={'1rem'}
         >
           <Flex
             direction={'column'}
@@ -189,7 +189,7 @@ const Explore = () => {
               >
                 <ChakraBox3
                   display={'flex'}
-                  height={'5vh'}
+                  height={'6vh'}
                   className='inner-topPodcaster'
                   drag={'x'}
                   dragConstraints={{ right: 0, left: -categoriesWidth }}

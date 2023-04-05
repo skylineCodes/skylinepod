@@ -262,7 +262,7 @@ const PodcastDetails = () => {
               >
                 <Button
                   text={'Play Podcast'}
-                  nextPage='/play'
+                  nextPage='/playing'
                   loading={false}
                   style={{
                     borderRadius: '12px',
@@ -272,7 +272,7 @@ const PodcastDetails = () => {
                 />
                 <Button
                   text={'Subscribe'}
-                  nextPage='/subscribe'
+                  nextPage='/subscription'
                   loading={false}
                   style={{
                     borderRadius: '12px',

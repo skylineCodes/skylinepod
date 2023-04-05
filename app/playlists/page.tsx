@@ -289,7 +289,7 @@ const Explore = () => {
                 </Flex>
               </Box>
             </Box>
-            <Box width={'100%'} mt={'28px'}>
+            <Box width={'100%'} mt={'50px'}>
               <Flex
                 direction={'row'}
                 justifyContent={'space-between'}

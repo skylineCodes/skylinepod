@@ -11,14 +11,14 @@
 .podcast-box {
   height: 100%;
   object-fit: cover;
-  user-select: none;
+  /* user-select: none; */
   min-width: 55vw;
 }
 
 .toppodcast-box {
   height: 100%;
   object-fit: cover;
-  user-select: none;
+  /* user-select: none; */
   min-width: 158px;
 }
 

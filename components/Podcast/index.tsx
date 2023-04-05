@@ -3,13 +3,19 @@ import { Box, Flex, Text, Icon } from '@chakra-ui/react'
 import Image from 'next/image';
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
-import podcastCover1 from '../../public/podcast-cover-1.png';
+import { useRouter } from 'next/navigation';
 
 export interface podcastProps {
   imageUrl?: string;
 }
 
 const Podcast = ({ imageUrl }: podcastProps) => {
+  const router = useRouter();
+
+  const handlePlay = () => {
+    return router.push('/playing');
+  }
+
   return (
     <Box className='podcast' height={'100%'} position={'relative'}>
       <Image
@@ -69,6 +75,7 @@ const Podcast = ({ imageUrl }: podcastProps) => {
               cursor={'pointer'}
               height={'15px'}
               width={'15px'}
+              onClick={() => handlePlay()}
             />
           </Flex>
         </Flex>

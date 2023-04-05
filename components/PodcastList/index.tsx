@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
+import Link from 'next/link';
 import burnaBoy from '../../public/burna-boy3.jpg';
 import { currentPlayer } from '../../redux/reducers/player';
 import { Svgs } from '@/assets';
@@ -87,7 +88,9 @@ const PodcastList = ({ src }: PodcastListsProps) => {
         </Flex>
         <Flex position={'absolute'} right={'0'}>
           <Box>
-            <Svgs.PLAY_ROUND_BLUE />
+            <Link href={'/playing'}>
+              <Svgs.PLAY_ROUND_BLUE />            
+            </Link>
           </Box>
         </Flex>
       </Flex>

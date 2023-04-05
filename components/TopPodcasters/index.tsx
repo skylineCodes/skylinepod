@@ -20,7 +20,7 @@ const TopPodcasters = ({ imageUrl }: podcastProps) => {
       width={'auto'}
       display={'flex'}
       flexDirection={'row'}
-      justifyContent={'center'}
+      justifyContent={'flex-start'}
       alignItems={'center'}
       gap={'15px'}
       pt={'10px'}

@@ -35,7 +35,7 @@ import { useSelector } from 'react-redux';
 import CommentModal from '@/components/CommentModal';
 
 const Playing = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [width, setWidth] = useState<number>(0);

@@ -103,11 +103,11 @@ const Explore = () => {
                 element={<Svgs.FILTER_OUTLINE />}
               />
             </Box>
-            {/* <SearchCategories
+            <SearchCategories
               categoriesRef={categoriesRef}
               categoriesWidth={categoriesWidth}
-            /> */}
-            <SearchResults />
+            />
+            {/* <SearchResults /> */}
           </Flex>
         </Box>
 

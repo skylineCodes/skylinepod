@@ -106,7 +106,7 @@ const MobileDashboard = () => {
           alignItems={'center'}
           width={'100%'}
           p={'0px 10px 10px 10px'}
-          mt={'2rem'}
+          mt={'1rem'}
           mb={'2rem'}
         >
           <Flex
@@ -143,10 +143,12 @@ const MobileDashboard = () => {
             </Text>
           </Flex>
           <Flex>
-            <Svgs.BELL />
+            <Link href={'/notifications'}>
+              <Svgs.BELL />
+            </Link>
           </Flex>
         </Box>
-        <Box height={'auto'}>
+        <Box height={'85vh'}>
           <Flex
             direction={'column'}
             backgroundColor={'grey.10'}
@@ -158,7 +160,7 @@ const MobileDashboard = () => {
             left={'0'}
             borderRadius={'30px 30px 0px 0px'}
             w={{ base: '100vw' }}
-            height={'85vh'}
+            height={'inherit'}
             overflowX={'auto'}
           >
             <Box>
@@ -169,76 +171,78 @@ const MobileDashboard = () => {
                 width={'100%'}
                 position={'relative'}
               >
-                <Box
-                  style={{
-                    borderRadius: '24px 24px 0px 0px',
-                    objectFit: 'cover',
-                    background:
-                      'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #526EA0 75.64%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
-                    height: '100%',
-                    zIndex: '20',
-                  }}
-                  position={'absolute'}
-                  top={'0'}
-                  right={'0'}
-                  left={'0'}
-                ></Box>
-                <Image
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '24px 24px 0px 0px',
-                    transform: 'scaleX(-1)',
-                  }}
-                  src={teddyBear}
-                  alt='Fluffybuns the destroyer'
-                />
-                <Flex
-                  direction={'column'}
-                  justifyContent={'center'}
-                  alignItems={'flex-start'}
-                  position={'absolute'}
-                  top={'0'}
-                  right={'0'}
-                  left={'0'}
-                  zIndex={'25'}
-                  mt={'2rem'}
-                  ml={'1rem'}
-                >
-                  <Text fontSize={'xxs'} width={'70%'} color={'secondary.50'}>
-                    Self Healing
-                  </Text>
-                  <Heading
-                    as={'h4'}
-                    fontSize={'sm'}
-                    lineHeight={'24px'}
-                    width={'70%'}
-                    mt={'4px'}
-                    color={'secondary.50'}
-                  >
-                    Know yourself before anyone else
-                  </Heading>
+                <Link href={'/playing'}>
+                  <Box
+                    style={{
+                      borderRadius: '24px 24px 0px 0px',
+                      objectFit: 'cover',
+                      background:
+                        'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #526EA0 75.64%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
+                      height: '100%',
+                      zIndex: '20',
+                    }}
+                    position={'absolute'}
+                    top={'0'}
+                    right={'0'}
+                    left={'0'}
+                  ></Box>
+                  <Image
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '24px 24px 0px 0px',
+                      transform: 'scaleX(-1)',
+                    }}
+                    src={teddyBear}
+                    alt='Fluffybuns the destroyer'
+                  />
                   <Flex
-                    direction={'row'}
-                    justifyContent={'flex-start'}
-                    alignItems={'center'}
-                    gap={'10px'}
-                    mt={'10px'}
+                    direction={'column'}
+                    justifyContent={'center'}
+                    alignItems={'flex-start'}
+                    position={'absolute'}
+                    top={'0'}
+                    right={'0'}
+                    left={'0'}
+                    zIndex={'25'}
+                    mt={'2rem'}
+                    ml={'1rem'}
                   >
-                    <Wrap>
-                      <WrapItem>
-                        <Avatar
-                          name='Dan Abrahmov'
-                          size='xs'
-                          src='https://bit.ly/dan-abramov'
-                        />
-                      </WrapItem>
-                    </Wrap>
-                    <Text fontSize={'xxs'} color={'secondary.50'}>
-                      Alexander elevant
+                    <Text fontSize={'xxs'} width={'70%'} color={'secondary.50'}>
+                      Self Healing
                     </Text>
+                    <Heading
+                      as={'h4'}
+                      fontSize={'sm'}
+                      lineHeight={'24px'}
+                      width={'70%'}
+                      mt={'4px'}
+                      color={'secondary.50'}
+                    >
+                      Know yourself before anyone else
+                    </Heading>
+                    <Flex
+                      direction={'row'}
+                      justifyContent={'flex-start'}
+                      alignItems={'center'}
+                      gap={'10px'}
+                      mt={'10px'}
+                    >
+                      <Wrap>
+                        <WrapItem>
+                          <Avatar
+                            name='Dan Abrahmov'
+                            size='xs'
+                            src='https://bit.ly/dan-abramov'
+                          />
+                        </WrapItem>
+                      </Wrap>
+                      <Text fontSize={'xxs'} color={'secondary.50'}>
+                        Alexander elevant
+                      </Text>
+                    </Flex>
                   </Flex>
-                </Flex>
+                </Link>
               </Box>
               <Box width={'100%'} mt={'28px'}>
                 <Flex
@@ -311,20 +315,21 @@ const MobileDashboard = () => {
                   <ChakraBox3
                     display={'flex'}
                     mt={'16px'}
-                    height={'150px'}
                     className='inner-topPodcaster'
                     drag={'x'}
                     dragConstraints={{ right: 0, left: -topPodcasterWidth }}
                   >
                     {[1, 2, 3, 4, 5, 6]?.map((item: any, index: number) => (
                       <Box key={index} className='toppodcast-box'>
-                        <TopPodcasters />
+                        <Link href={`/podcasts/${item}`}>
+                          <TopPodcasters />
+                        </Link>
                       </Box>
                     ))}
                   </ChakraBox3>
                 </ChakraBox>
               </Box>
-              <Box width={'100%'} mt={'10px'}>
+              <Box width={'100%'} mt={'10px'} pb={'50px'}>
                 <Flex
                   direction={'row'}
                   justifyContent={'space-between'}

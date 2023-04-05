@@ -16,11 +16,14 @@ import {
   Wrap,
   WrapItem,
   Switch,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Svgs } from '@/assets';
 import Button from '../Button';
 import { AiOutlineRight } from 'react-icons/ai';
+import { IoSettingsOutline } from 'react-icons/io5';
+import LogoutModal from '../ProfilePictureModal copy';
 
 export interface ProfileDrawerProps {
   isOpen?: boolean;
@@ -28,8 +31,11 @@ export interface ProfileDrawerProps {
 }
 
 const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
+  const { isOpen: isLogoutOpen, onOpen, onClose: onLogoutClose } = useDisclosure();
+
   return (
     <>
+      <LogoutModal isOpen={isLogoutOpen} onClose={onLogoutClose} />
       <Drawer
         isOpen={isOpen === true ? isOpen : false}
         placement='left'
@@ -37,8 +43,6 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          {/* <DrawerHeader>Create your account</DrawerHeader> */}
           <Box
             display={'grid'}
             gridTemplateColumns={'45px 1fr 35px'}
@@ -76,7 +80,7 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
             alignItems={'center'}
             gap={'15px'}
             p={'0px 10px 10px 10px'}
-            mt={'24px'}
+            mt={'10px'}
           >
             <Wrap>
               <WrapItem>
@@ -127,7 +131,6 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
             <Box
               width={'100%'}
               p={'0px 10px 10px 10px'}
-              mt={'10px'}
               display={'flex'}
               flexDirection={'column'}
               justifyContent={'flex-start'}
@@ -153,13 +156,16 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.PERSON_ICON />
+                      <Box width={'25px'}>
+                        <Svgs.PERSON_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Profile
+                        <Link href={'/profile'}>Profile</Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -176,11 +182,14 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.WALLET_ICON />
+                      <Box>
+                        <Svgs.WALLET_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
                         Payment Method
                       </Text>
@@ -210,13 +219,16 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.LOCK_ICON />
+                      <Box>
+                        <Svgs.LOCK_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Change Password
+                        <Link href={'/change-password'}>Change Password</Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -233,13 +245,18 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.UNLOCK_ICON />
+                      <Box>
+                        <Svgs.UNLOCK_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Forgot Password
+                        <Link href={'/profile/forgot-password'}>
+                          Forgot Password
+                        </Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -256,13 +273,20 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.SHIELD_ICON />
+                      <Box width={'26px'} height={'21px'}>
+                        <Icon
+                          as={IoSettingsOutline}
+                          width={'100%'}
+                          height={'100%'}
+                        />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Security
+                        <Link href={'/notifications-settings'}>Settings</Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -290,13 +314,18 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.SHIELD_EMPTY_ICON />
+                      <Box>
+                        <Svgs.SHIELD_EMPTY_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Legal and Policies
+                        <Link href={'/terms-and-conditions'}>
+                          Legal and Policies
+                        </Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -313,13 +342,16 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.SUPPORT_ICON />
+                      <Box>
+                        <Svgs.SUPPORT_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
-                        Help & Support
+                        <Link href={'/support'}>Help & Support</Link>
                       </Text>
                     </Flex>
                     <Flex justifyContent={'flex-end'} alignItems={'center'}>
@@ -336,11 +368,14 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
                       alignItems={'center'}
                       gap={'10px'}
                     >
-                      <Svgs.ACTIVITY_ICON />
+                      <Box>
+                        <Svgs.ACTIVITY_ICON />
+                      </Box>
                       <Text
                         fontSize={'xxs'}
                         color={'secondary.10'}
                         fontWeight={'semibold'}
+                        lineHeight={'24px'}
                       >
                         Dark Mode
                       </Text>
@@ -354,7 +389,21 @@ const ProfileDrawer = ({ isOpen, onClose }: ProfileDrawerProps) => {
             </Box>
           </DrawerBody>
 
-          <DrawerFooter></DrawerFooter>
+          <DrawerFooter>
+            <Box width={'100%'}>
+              <Button
+                text={'Log Out'}
+                onClick={onOpen}
+                loading={false}
+                style={{
+                  width: '100%',
+                  border: '1px solid #526EA0',
+                  backgroundColor: 'transparent',
+                  color: '#526EA0',
+                }}
+              />
+            </Box>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

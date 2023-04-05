@@ -7,6 +7,7 @@ import ACTIVITY_ICON from './svgs/activity.svg';
 import BELL from './svgs/bell-icon.svg';
 import COMMENT_ICON from './svgs/comment-icon.svg';
 import CAPTION_ICON from './svgs/caption-icon.svg';
+import CAUTION_HARSH_ICON from './svgs/caution-harsh-icon.svg';
 import COMMENT_LIKE_ICON from './svgs/comment-like-icon.svg';
 import COMMENT_MESSAGE_ICON from './svgs/comment-message-icon.svg';
 import DEVICES_ICON from './svgs/devices-icon.svg';
@@ -27,6 +28,7 @@ import PLAY_ROUND_BLUE from './svgs/play-round-blue.svg';
 import PLAY_ROUND_BLUE_BIG from './svgs/play-round-blue-big.svg';
 import PAUSE_ROUND_BLUE from './svgs/pause-round-blue.svg';
 import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
+import PROFILE_EDIT_ICON from './svgs/profile-edit-icon.svg';
 import PREV_ICON_GREY from './svgs/prev-icon-grey.svg';
 import NEXT_ICON_GREY from './svgs/next-icon-grey.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
@@ -47,6 +49,7 @@ export const Svgs = {
   ARROW_BACK_WHITE,
   BELL,
   CAPTION_ICON,
+  CAUTION_HARSH_ICON,
   COMMENT_LIKE_ICON,
   COMMENT_MESSAGE_ICON,
   DEVICES_ICON,
@@ -62,6 +65,7 @@ export const Svgs = {
   PAUSE_ROUND_BLUE,
   PERSON_ICON,
   PLAY_ROUND_BLUE_BIG,
+  PROFILE_EDIT_ICON,
   PLAY_ROUND_WHITE,
   PREV_ICON_GREY,
   NEXT_ICON_GREY,
