@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
+import DesktopHomePage from '@/components/DesktopHomePage'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main>
-      <h1>Hello Home Page</h1>
+      <DesktopHomePage />
     </main>
   )
 }

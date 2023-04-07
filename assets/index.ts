@@ -5,6 +5,7 @@ import AUDIO_ICON from './svgs/audio-icon.svg';
 import AD_REMOVAL_ICON from './svgs/ad-removal-icon.svg';
 import ACTIVITY_ICON from './svgs/activity.svg';
 import BELL from './svgs/bell-icon.svg';
+import BOY_PODCAST from './svgs/boy-podcast.svg';
 import COMMENT_ICON from './svgs/comment-icon.svg';
 import CAPTION_ICON from './svgs/caption-icon.svg';
 import CAUTION_HARSH_ICON from './svgs/caution-harsh-icon.svg';
@@ -16,8 +17,12 @@ import DISCOVERY_BLUE from './svgs/discovery-blue.svg';
 import FILTER_OUTLINE from './svgs/filter-outline.svg';
 import FILTER from './svgs/filter.svg';
 import LOGO from './svgs/logo.svg';
+import LOGO_WHITE from './svgs/logo-white.svg';
+import LOGO_ICON from './svgs/logo-icon.svg';
 import LOCK_ICON from './svgs/lock-icon.svg';
+import GIRL_PODCAST from './svgs/girl-podcast.svg';
 import HOME_BLUE from './svgs/home-blue.svg';
+import HOME_PLAYCIRCLE from './svgs/home-playcircle.svg';
 import HD_STREAMING_ICON from './svgs/hd-streaming-icon.svg';
 import HOME_WHITE from './svgs/home-white.svg';
 import DISCOVERY_WHITE from './svgs/discovery-white.svg';
@@ -31,6 +36,7 @@ import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
 import PROFILE_EDIT_ICON from './svgs/profile-edit-icon.svg';
 import PREV_ICON_GREY from './svgs/prev-icon-grey.svg';
 import NEXT_ICON_GREY from './svgs/next-icon-grey.svg';
+import MUSIC_WAVE from './svgs/music-wave.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
 import ROUNDED_PLAY_ICON from './svgs/rounded-play-icon.svg';
@@ -48,6 +54,7 @@ export const Svgs = {
   AD_REMOVAL_ICON,
   ARROW_BACK_WHITE,
   BELL,
+  BOY_PODCAST,
   CAPTION_ICON,
   CAUTION_HARSH_ICON,
   COMMENT_LIKE_ICON,
@@ -55,7 +62,9 @@ export const Svgs = {
   DEVICES_ICON,
   DOWNLOAD_ICON,
   HD_STREAMING_ICON,
+  GIRL_PODCAST,
   HOME_BLUE,
+  HOME_PLAYCIRCLE,
   HOME_WHITE,
   DISCOVERY_WHITE,
   DISCOVERY_BLUE,
@@ -69,11 +78,14 @@ export const Svgs = {
   PLAY_ROUND_WHITE,
   PREV_ICON_GREY,
   NEXT_ICON_GREY,
+  MUSIC_WAVE,
   PROFILE_WHITE,
   GOOGLE_ICON,
   APPLE_ICON,
   COMMENT_ICON,
   LOGO,
+  LOGO_WHITE,
+  LOGO_ICON,
   LOCK_ICON,
   ROUNDED_RIGHT_SHORT_ARROW,
   ROUNDED_PLAY_ICON,
