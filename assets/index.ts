@@ -6,6 +6,7 @@ import AD_REMOVAL_ICON from './svgs/ad-removal-icon.svg';
 import ACTIVITY_ICON from './svgs/activity.svg';
 import BELL from './svgs/bell-icon.svg';
 import BOY_PODCAST from './svgs/boy-podcast.svg';
+import BOY_POINTING from './svgs/boy-pointing.svg';
 import COMMENT_ICON from './svgs/comment-icon.svg';
 import CAPTION_ICON from './svgs/caption-icon.svg';
 import CAUTION_HARSH_ICON from './svgs/caution-harsh-icon.svg';
@@ -36,6 +37,7 @@ import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
 import PROFILE_EDIT_ICON from './svgs/profile-edit-icon.svg';
 import PREV_ICON_GREY from './svgs/prev-icon-grey.svg';
 import NEXT_ICON_GREY from './svgs/next-icon-grey.svg';
+import MAN_POINTING from './svgs/man-pointing.svg';
 import MUSIC_WAVE from './svgs/music-wave.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
@@ -47,6 +49,7 @@ import SUPPORT_ICON from './svgs/support-icon.svg';
 import THUMBS_UP_ICON from './svgs/thumbs-up-icon.svg';
 import UNLOCK_ICON from './svgs/unlock-icon.svg';
 import WALLET_ICON from './svgs/wallet-icon.svg';
+import WOMAN_POINTING from './svgs/woman-pointing.svg';
 
 export const Svgs = {
   AUDIO_ICON,
@@ -55,6 +58,7 @@ export const Svgs = {
   ARROW_BACK_WHITE,
   BELL,
   BOY_PODCAST,
+  BOY_POINTING,
   CAPTION_ICON,
   CAUTION_HARSH_ICON,
   COMMENT_LIKE_ICON,
@@ -79,6 +83,7 @@ export const Svgs = {
   PREV_ICON_GREY,
   NEXT_ICON_GREY,
   MUSIC_WAVE,
+  MAN_POINTING,
   PROFILE_WHITE,
   GOOGLE_ICON,
   APPLE_ICON,
@@ -95,6 +100,7 @@ export const Svgs = {
   SUPPORT_ICON,
   THUMBS_UP_ICON,
   WALLET_ICON,
+  WOMAN_POINTING,
   FILTER_OUTLINE,
   UNLOCK_ICON,
   FILTER,
