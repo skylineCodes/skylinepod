@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import {
-  Box, Flex, Grid, Heading, Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Grid, Heading, Text, Button, Icon } from '@chakra-ui/react';
 import Navbar from '../Navbar';
-import Button from '../Button';
+// import Button from '../Button';
 import { Svgs } from '@/assets';
+import './styles.css';
+import { BsArrowRightShort } from 'react-icons/bs';
 
 const DesktopHomePage = () => {
   return (
@@ -85,16 +85,16 @@ const DesktopHomePage = () => {
             </Box>
             <Flex gap={'30px'} justifyContent={'center'} alignItems={'center'}>
               <Button
-                text={'Start trial for free'}
-                nextPage='/signin/email'
-                loading={false}
-                style={{
-                  backgroundColor: 'primary.500',
-                  borderRadius: '4px',
-                  fontWeight: '500',
-                  lineHeight: '23px',
-                }}
-              />
+                backgroundColor={'primary.500'}
+                borderRadius={'4px'}
+                fontWeight={'500'}
+                lineHeight={'23px'}
+                _hover={{ opacity: 0.8 }}
+              >
+                <Text color={'#FFFFFF'} fontSize={'18px'}>
+                  Start trial for free
+                </Text>
+              </Button>
               <Flex gap={'7px'} cursor={'pointer'}>
                 <Svgs.HOME_PLAYCIRCLE />
                 <Text color={'#1C1916C7'} fontSize={'18px'}>
@@ -157,18 +157,23 @@ const DesktopHomePage = () => {
             dis amet lacus. Cras fringilla non faucibus et mi. Mi sit nibh{' '}
           </Text>
           <Button
-            text={'View All'}
-            nextPage='/'
-            loading={false}
-            style={{
-              backgroundColor: 'primary.500',
-              borderRadius: '4px',
-              fontWeight: '500',
-              lineHeight: '23px',
-              zIndex: '20',
-              height: '45px',
-            }}
-          />
+            backgroundColor={'primary.500'}
+            borderRadius={'4px'}
+            fontWeight={'500'}
+            lineHeight={'23px'}
+            height={'45px'}
+            width={'138.19px'}
+            zIndex={'20'}
+            display={'flex'}
+            alignItems={'center'}
+            gap={'12px'}
+            _hover={{ opacity: 0.8 }}
+          >
+            <Text color={'#FFFFFF'} fontSize={'18px'}>
+              View All
+            </Text>
+            <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
+          </Button>
         </Flex>
         <Grid
           templateColumns={'1fr 1fr 1fr'}
@@ -215,19 +220,23 @@ const DesktopHomePage = () => {
                 Lorem ipsum dolor sit amet consectetur. Lacus et eu.
               </Text>
               <Button
-                text={'Play Now'}
-                nextPage='/'
-                loading={false}
-                style={{
-                  backgroundColor: '#1C1916',
-                  borderRadius: '6px',
-                  fontWeight: '500',
-                  lineHeight: '23px',
-                  zIndex: '20',
-                  height: '40px',
-                  width: '137px',
-                }}
-              />
+                backgroundColor={'#1C1916'}
+                borderRadius={'6px'}
+                fontWeight={'500'}
+                lineHeight={'23px'}
+                height={'40px'}
+                width={'137px'}
+                _hover={{ opacity: 0.8 }}
+                zIndex={'25'}
+                display={'flex'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.HOME_PLAYCIRCLE_SMALL />
+                <Text color={'#FFF'} fontSize={'18px'}>
+                  Play Now
+                </Text>
+              </Button>
             </Flex>
           </Grid>
           <Grid
@@ -268,19 +277,23 @@ const DesktopHomePage = () => {
                 Lorem ipsum dolor sit amet consectetur. Lacus et eu.
               </Text>
               <Button
-                text={'Play Now'}
-                nextPage='/'
-                loading={false}
-                style={{
-                  backgroundColor: '#1C1916',
-                  borderRadius: '6px',
-                  fontWeight: '500',
-                  lineHeight: '23px',
-                  zIndex: '20',
-                  height: '40px',
-                  width: '137px',
-                }}
-              />
+                backgroundColor={'#1C1916'}
+                borderRadius={'6px'}
+                fontWeight={'500'}
+                lineHeight={'23px'}
+                height={'40px'}
+                width={'137px'}
+                _hover={{ opacity: 0.8 }}
+                zIndex={'25'}
+                display={'flex'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.HOME_PLAYCIRCLE_SMALL />
+                <Text color={'#FFF'} fontSize={'18px'}>
+                  Play Now
+                </Text>
+              </Button>
             </Flex>
           </Grid>
           <Grid
@@ -321,26 +334,30 @@ const DesktopHomePage = () => {
                 Lorem ipsum dolor sit amet consectetur. Lacus et eu.
               </Text>
               <Button
-                text={'Play Now'}
-                nextPage='/'
-                loading={false}
-                style={{
-                  backgroundColor: '#1C1916',
-                  borderRadius: '6px',
-                  fontWeight: '500',
-                  lineHeight: '23px',
-                  zIndex: '20',
-                  height: '40px',
-                  width: '137px',
-                }}
-              />
+                backgroundColor={'#1C1916'}
+                borderRadius={'6px'}
+                fontWeight={'500'}
+                lineHeight={'23px'}
+                height={'40px'}
+                width={'137px'}
+                _hover={{ opacity: 0.8 }}
+                zIndex={'25'}
+                display={'flex'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.HOME_PLAYCIRCLE_SMALL />
+                <Text color={'#FFF'} fontSize={'18px'}>
+                  Play Now
+                </Text>
+              </Button>
             </Flex>
           </Grid>
         </Grid>
       </Box>
       <Box
         position={'relative'}
-        height={'80vh'}
+        minHeight={'80vh'}
         width={'100%'}
         _after={{
           width: '100%',
@@ -352,7 +369,143 @@ const DesktopHomePage = () => {
           left: '0',
           backgroundColor: '#FCDDEC80',
         }}
-      ></Box>
+      >
+        <Grid
+          templateColumns={'1fr 1fr'}
+          zIndex={'20'}
+          pt={'18rem'}
+          pb={'5rem'}
+          maxWidth={'90%'}
+          margin={'auto'}
+        >
+          <Flex zIndex={'20'} direction={'column'} gap={'20px'}>
+            <Heading
+              fontSize={'58px'}
+              color={'#1C1916'}
+              lineHeight={'64px'}
+              width={'70%'}
+            >
+              What makes us{' '}
+              <Text as={'span'} color={'primary.500'}>
+                unique
+              </Text>{' '}
+              from others
+            </Heading>
+            <Text
+              fontSize={'xxs'}
+              fontWeight={'medium'}
+              color={'#1C1916A8'}
+              width={'90%'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+              eget dis amet lacus. Cras fringilla non faucibus et mi. Mi sit
+              nibh{' '}
+            </Text>
+            <Flex direction={'column'} gap={'35px'}>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'17px'}
+              >
+                <Svgs.CHECKMARK_CIRCLE />
+                <Text
+                  fontSize={'xxs'}
+                  color={'#1C1916'}
+                  lineHeight={'21px'}
+                  fontWeight={'medium'}
+                >
+                  Record your episodesat any occassions.
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'17px'}
+              >
+                <Svgs.CHECKMARK_CIRCLE />
+                <Text
+                  fontSize={'xxs'}
+                  color={'#1C1916'}
+                  lineHeight={'21px'}
+                  fontWeight={'medium'}
+                >
+                  Record your episodesat any occassions.
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'17px'}
+              >
+                <Svgs.CHECKMARK_CIRCLE />
+                <Text
+                  fontSize={'xxs'}
+                  color={'#1C1916'}
+                  lineHeight={'21px'}
+                  fontWeight={'medium'}
+                >
+                  Record your episodesat any occassions.
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'17px'}
+              >
+                <Svgs.CHECKMARK_CIRCLE />
+                <Text
+                  fontSize={'xxs'}
+                  color={'#1C1916'}
+                  lineHeight={'21px'}
+                  fontWeight={'medium'}
+                >
+                  Record your episodesat any occassions.
+                </Text>
+              </Flex>
+            </Flex>
+            <Box mt={'20px'}>
+              <Button
+                backgroundColor={'primary.500'}
+                borderRadius={'4px'}
+                fontWeight={'500'}
+                lineHeight={'23px'}
+                height={'45px'}
+                width={'138.19px'}
+                zIndex={'20'}
+                display={'flex'}
+                alignItems={'center'}
+                gap={'12px'}
+                _hover={{ opacity: 0.8 }}
+              >
+                <Text color={'#FFFFFF'} fontSize={'18px'}>
+                  Know All
+                </Text>
+                <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
+              </Button>
+            </Box>
+          </Flex>
+          <Flex
+            zIndex={'20'}
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            position={'relative'}
+          >
+            <Box position={'absolute'} left={'0'}>
+              <Svgs.WOMAN_MICROPHONE_WAVE />
+            </Box>
+            <Box position={'absolute'}>
+              <Svgs.WOMAN_MICROPHONE />
+            </Box>
+            <Box position={'absolute'} left={'0'} bottom={'14%'}>
+              <Svgs.WOMAN_MICROPHONE_LEFT_CARD />
+            </Box>
+            <Box position={'absolute'} right={'10%'}>
+              <Svgs.WOMAN_MICROPHONE_RIGHT_CARD />
+            </Box>
+          </Flex>
+        </Grid>
+      </Box>
     </Box>
   );
 };

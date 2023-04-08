@@ -7,6 +7,7 @@ import ACTIVITY_ICON from './svgs/activity.svg';
 import BELL from './svgs/bell-icon.svg';
 import BOY_PODCAST from './svgs/boy-podcast.svg';
 import BOY_POINTING from './svgs/boy-pointing.svg';
+import CHECKMARK_CIRCLE from './svgs/checkmark-circle.svg';
 import COMMENT_ICON from './svgs/comment-icon.svg';
 import CAPTION_ICON from './svgs/caption-icon.svg';
 import CAUTION_HARSH_ICON from './svgs/caution-harsh-icon.svg';
@@ -23,6 +24,7 @@ import LOGO_ICON from './svgs/logo-icon.svg';
 import LOCK_ICON from './svgs/lock-icon.svg';
 import GIRL_PODCAST from './svgs/girl-podcast.svg';
 import HOME_BLUE from './svgs/home-blue.svg';
+import HOME_PLAYCIRCLE_SMALL from './svgs/home-playcircle-small.svg';
 import HOME_PLAYCIRCLE from './svgs/home-playcircle.svg';
 import HD_STREAMING_ICON from './svgs/hd-streaming-icon.svg';
 import HOME_WHITE from './svgs/home-white.svg';
@@ -50,6 +52,10 @@ import THUMBS_UP_ICON from './svgs/thumbs-up-icon.svg';
 import UNLOCK_ICON from './svgs/unlock-icon.svg';
 import WALLET_ICON from './svgs/wallet-icon.svg';
 import WOMAN_POINTING from './svgs/woman-pointing.svg';
+import WOMAN_MICROPHONE from './svgs/woman-microphone.svg';
+import WOMAN_MICROPHONE_WAVE from './svgs/woman-microphone-wave.svg';
+import WOMAN_MICROPHONE_LEFT_CARD from './svgs/woman-microphone-left-card.svg';
+import WOMAN_MICROPHONE_RIGHT_CARD from './svgs/woman-microphone-right-card.svg';
 
 export const Svgs = {
   AUDIO_ICON,
@@ -59,6 +65,7 @@ export const Svgs = {
   BELL,
   BOY_PODCAST,
   BOY_POINTING,
+  CHECKMARK_CIRCLE,
   CAPTION_ICON,
   CAUTION_HARSH_ICON,
   COMMENT_LIKE_ICON,
@@ -68,6 +75,7 @@ export const Svgs = {
   HD_STREAMING_ICON,
   GIRL_PODCAST,
   HOME_BLUE,
+  HOME_PLAYCIRCLE_SMALL,
   HOME_PLAYCIRCLE,
   HOME_WHITE,
   DISCOVERY_WHITE,
@@ -100,8 +108,12 @@ export const Svgs = {
   SUPPORT_ICON,
   THUMBS_UP_ICON,
   WALLET_ICON,
-  WOMAN_POINTING,
   FILTER_OUTLINE,
   UNLOCK_ICON,
   FILTER,
+  WOMAN_POINTING,
+  WOMAN_MICROPHONE,
+  WOMAN_MICROPHONE_WAVE,
+  WOMAN_MICROPHONE_LEFT_CARD,
+  WOMAN_MICROPHONE_RIGHT_CARD,
 };
