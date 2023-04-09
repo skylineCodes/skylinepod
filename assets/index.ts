@@ -16,6 +16,7 @@ import COMMENT_MESSAGE_ICON from './svgs/comment-message-icon.svg';
 import DEVICES_ICON from './svgs/devices-icon.svg';
 import DOWNLOAD_ICON from './svgs/download-icon.svg';
 import DISCOVERY_BLUE from './svgs/discovery-blue.svg';
+import EDIT_PODCAST_ICON from './svgs/edit-podcast-icon.svg';
 import FILTER_OUTLINE from './svgs/filter-outline.svg';
 import FILTER from './svgs/filter.svg';
 import LOGO from './svgs/logo.svg';
@@ -38,12 +39,16 @@ import PAUSE_ROUND_BLUE from './svgs/pause-round-blue.svg';
 import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
 import PROFILE_EDIT_ICON from './svgs/profile-edit-icon.svg';
 import PREV_ICON_GREY from './svgs/prev-icon-grey.svg';
+import PREMIUM_PODCAST_ICON from './svgs/premium-podcast-icon.svg';
+import UPLOAD_PODCAST_ICON from './svgs/upload-podcast-icon.svg';
 import NEXT_ICON_GREY from './svgs/next-icon-grey.svg';
 import MAN_POINTING from './svgs/man-pointing.svg';
+import MICROPHONE_SECTION_THREE from './svgs/microphone-section-three.svg';
 import MUSIC_WAVE from './svgs/music-wave.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
 import ROUNDED_PLAY_ICON from './svgs/rounded-play-icon.svg';
+import RECORD_PODCAST_ICON from './svgs/record-podcast-icon.svg';
 import SEARCH_ICON_GREY from './svgs/search-icon-grey.svg';
 import SHIELD_ICON from './svgs/shield.svg';
 import SHIELD_EMPTY_ICON from './svgs/shield-empty.svg';
@@ -80,6 +85,7 @@ export const Svgs = {
   HOME_WHITE,
   DISCOVERY_WHITE,
   DISCOVERY_BLUE,
+  EDIT_PODCAST_ICON,
   PLAY_BLUE,
   PLAY_WHITE,
   PLAY_ROUND_BLUE,
@@ -89,9 +95,12 @@ export const Svgs = {
   PROFILE_EDIT_ICON,
   PLAY_ROUND_WHITE,
   PREV_ICON_GREY,
+  PREMIUM_PODCAST_ICON,
+  UPLOAD_PODCAST_ICON,
   NEXT_ICON_GREY,
   MUSIC_WAVE,
   MAN_POINTING,
+  MICROPHONE_SECTION_THREE,
   PROFILE_WHITE,
   GOOGLE_ICON,
   APPLE_ICON,
@@ -101,6 +110,7 @@ export const Svgs = {
   LOGO_ICON,
   LOCK_ICON,
   ROUNDED_RIGHT_SHORT_ARROW,
+  RECORD_PODCAST_ICON,
   ROUNDED_PLAY_ICON,
   SEARCH_ICON_GREY,
   SHIELD_ICON,

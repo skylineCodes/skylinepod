@@ -506,6 +506,184 @@ const DesktopHomePage = () => {
           </Flex>
         </Grid>
       </Box>
+      <Box
+        position={'relative'}
+        minHeight={'80vh'}
+        width={'100%'}
+        _after={{
+          width: '100%',
+          height: '100%',
+          content: '""',
+          position: 'absolute',
+          zIndex: '10',
+          top: '0',
+          left: '0',
+          backgroundColor: '#FFFDFA',
+        }}
+      >
+        <Flex
+          direction={'column'}
+          gap={'20px'}
+          zIndex={'20'}
+          maxWidth={'90%'}
+          margin={'auto'}
+          pt={'3rem'}
+          justifyContent={'center'}
+          alignItems={'center'}
+        >
+          <Heading
+            zIndex={'20'}
+            color={'#1C1916'}
+            lineHeight={'71px'}
+            fontSize={'56px'}
+            fontWeight={'semibold'}
+            width={'55%'}
+            textAlign={'center'}
+          >
+            It&apos;s simple & quick to record your{' '}
+            <Text as={'span'} color={'#514EB6'}>
+              podcast
+            </Text>
+          </Heading>
+          <Text
+            zIndex={'20'}
+            width={'50%'}
+            color={'#1C1916'}
+            lineHeight={'21px'}
+            fontSize={'17px'}
+            fontWeight={'medium'}
+            textAlign={'center'}
+          >
+            Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit eget
+            dis amet lacus. Cras fringilla non faucibus et mi. Mi sit nibh diam
+          </Text>
+        </Flex>
+        <Flex zIndex={'20'} maxWidth={'90%'} margin={'auto'} mt={'125px'}>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'10px'}
+            zIndex={'20'}
+          >
+            <Box>
+              <Svgs.RECORD_PODCAST_ICON />
+            </Box>
+            <Heading
+              color={'#1C1916'}
+              lineHeight={'25px'}
+              fontSize={'20px'}
+              fontWeight={'medium'}
+            >
+              Record your podcast
+            </Heading>
+            <Text
+              color={'#666666'}
+              lineHeight={'20px'}
+              fontSize={'xxs'}
+              fontWeight={'medium'}
+              textAlign={'center'}
+              width={'60%'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+              eget dis amet lacus.
+            </Text>
+          </Flex>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'10px'}
+            zIndex={'20'}
+          >
+            <Box>
+              <Svgs.EDIT_PODCAST_ICON />
+            </Box>
+            <Heading
+              color={'#1C1916'}
+              lineHeight={'25px'}
+              fontSize={'20px'}
+              fontWeight={'medium'}
+            >
+              Record your podcast
+            </Heading>
+            <Text
+              color={'#666666'}
+              lineHeight={'20px'}
+              fontSize={'xxs'}
+              fontWeight={'medium'}
+              textAlign={'center'}
+              width={'60%'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+              eget dis amet lacus.
+            </Text>
+          </Flex>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'10px'}
+            zIndex={'20'}
+          >
+            <Box>
+              <Svgs.UPLOAD_PODCAST_ICON />
+            </Box>
+            <Heading
+              color={'#1C1916'}
+              lineHeight={'25px'}
+              fontSize={'20px'}
+              fontWeight={'medium'}
+            >
+              Record your podcast
+            </Heading>
+            <Text
+              color={'#666666'}
+              lineHeight={'20px'}
+              fontSize={'xxs'}
+              fontWeight={'medium'}
+              textAlign={'center'}
+              width={'60%'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+              eget dis amet lacus.
+            </Text>
+          </Flex>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'10px'}
+            zIndex={'20'}
+          >
+            <Box>
+              <Svgs.PREMIUM_PODCAST_ICON />
+            </Box>
+            <Heading
+              color={'#1C1916'}
+              lineHeight={'25px'}
+              fontSize={'20px'}
+              fontWeight={'medium'}
+            >
+              Record your podcast
+            </Heading>
+            <Text
+              color={'#666666'}
+              lineHeight={'20px'}
+              fontSize={'xxs'}
+              fontWeight={'medium'}
+              textAlign={'center'}
+              width={'60%'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+              eget dis amet lacus.
+            </Text>
+          </Flex>
+        </Flex>
+        <Box position={'absolute'} top={'0'} left={'0'} zIndex={'20'}>
+          <Svgs.MICROPHONE_SECTION_THREE />
+        </Box>
+      </Box>
     </Box>
   );
 };
