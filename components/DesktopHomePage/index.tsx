@@ -3,10 +3,11 @@
 import React from 'react';
 import { Box, Flex, Grid, Heading, Text, Button, Icon } from '@chakra-ui/react';
 import Navbar from '../Navbar';
-// import Button from '../Button';
+import burnaBoy from '../../public/burna-boy3.jpg';
+import Image from 'next/image';
 import { Svgs } from '@/assets';
 import './styles.css';
-import { BsArrowRightShort } from 'react-icons/bs';
+import { BsArrowRightShort, BsDot } from 'react-icons/bs';
 
 const DesktopHomePage = () => {
   return (
@@ -683,6 +684,721 @@ const DesktopHomePage = () => {
         <Box position={'absolute'} top={'0'} left={'0'} zIndex={'20'}>
           <Svgs.MICROPHONE_SECTION_THREE />
         </Box>
+      </Box>
+      <Box
+        position={'relative'}
+        minHeight={'80vh'}
+        width={'100%'}
+        _after={{
+          width: '100%',
+          height: '100%',
+          content: '""',
+          position: 'absolute',
+          zIndex: '10',
+          top: '0',
+          left: '0',
+          backgroundColor: '#FCF3FF',
+        }}
+      >
+        <Grid
+          templateColumns={'1fr 1fr'}
+          zIndex={'20'}
+          maxWidth={'90%'}
+          m={'auto'}
+          pt={'78px'}
+          pb={'1rem'}
+        >
+          <Flex direction={'column'} gap={'21px'} zIndex={'20'}>
+            <Heading
+              fontSize={'44px'}
+              fontWeight={'semibold'}
+              lineHeight={'140%'}
+              color={'#1C1916'}
+              width={'70%'}
+            >
+              <Text as={'span'} color={'primary.500'}>
+                Explore
+              </Text>{' '}
+              our podcast by categories
+            </Heading>
+            <Text
+              color={'#666666'}
+              fontSize={'xs'}
+              fontWeight={'medium'}
+              width={'70%'}
+            >
+              Choosing the best web hosting for your membership site is very
+              crucial so you can offer a quality service to visitors. If your
+              membership site is...
+            </Text>
+          </Flex>
+          <Flex
+            gap={'24px'}
+            justifyContent={'flex-start'}
+            alignItems={'flex-start'}
+            zIndex={'20'}
+          >
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              All
+            </Box>
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              Music
+            </Box>
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              Technology
+            </Box>
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              Motivational
+            </Box>
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              Fitness
+            </Box>
+            <Box
+              p={'0px 30px'}
+              border={'0.5px solid #1C1916'}
+              borderRadius={'4px'}
+              backgroundColor={'#FBFBFC'}
+              cursor={'pointer'}
+              _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+            >
+              Mental
+            </Box>
+          </Flex>
+        </Grid>
+        <Grid
+          templateColumns={'1fr 1fr 1fr 1fr'}
+          gridGap={'30px'}
+          zIndex={'20'}
+          maxWidth={'90%'}
+          m={'auto'}
+          pt={'78px'}
+        >
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Grid>
+        <Grid
+          templateColumns={'1fr 1fr 1fr 1fr'}
+          gridGap={'30px'}
+          zIndex={'20'}
+          maxWidth={'90%'}
+          m={'auto'}
+          pt={'22px'}
+          pb={'1rem'}
+        >
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex
+            p={'15px'}
+            width={'300px'}
+            boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+            backgroundColor={'#FFFFFF'}
+            borderRadius={'6px'}
+            zIndex={'25'}
+            gap={'12px'}
+          >
+            <Box width={'88px'} height={'84px'} zIndex={'20'}>
+              <Image
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '8px',
+                }}
+                src={burnaBoy}
+                alt='Fluffybun the destroyer'
+              />
+            </Box>
+            <Flex direction={'column'} gap={'10px'} zIndex={'20'}>
+              <Heading
+                fontSize={'xxs'}
+                fontWeight={'semibold'}
+                color={'#1C1916'}
+                lineHeight={'20px'}
+              >
+                Product Designer
+              </Heading>
+              <Flex
+                direction={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'5px'}
+              >
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  12 episodes
+                </Text>
+                <Icon as={BsDot} color={'#666666'} />
+                <Text
+                  color={'#666666'}
+                  fontSize={'13px'}
+                  fontWeight={'medium'}
+                  lineHeight={'20px'}
+                >
+                  120 members
+                </Text>
+              </Flex>
+              <Flex
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={'10px'}
+              >
+                <Svgs.PLAY_ROUND_PURPLE />
+                <Text
+                  color={'#1C1916'}
+                  fontWeight={'semibold'}
+                  fontSize={'13px'}
+                  lineHeight={'16px'}
+                >
+                  Play Now
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Grid>
+      </Box>
+      <Box
+        position={'relative'}
+        minHeight={'80vh'}
+        width={'100%'}
+        backgroundColor={'#FCF3FF'}
+      >
+        <Flex pt={'10rem'}>
+          <Box
+            height={'327px'}
+            width={'100%'}
+            borderRadius={'20px'}
+            backgroundColor={'#FAAE2A'}
+            zIndex={'20'}
+            maxWidth={'90%'}
+            m={'auto'}
+          >
+            Hello
+          </Box>
+        </Flex>
       </Box>
     </Box>
   );

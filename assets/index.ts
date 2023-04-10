@@ -35,6 +35,7 @@ import PLAY_BLUE from './svgs/play-blue.svg';
 import PERSON_ICON from './svgs/person-icon.svg';
 import PLAY_ROUND_BLUE from './svgs/play-round-blue.svg';
 import PLAY_ROUND_BLUE_BIG from './svgs/play-round-blue-big.svg';
+import PLAY_ROUND_PURPLE from './svgs/play-round-purple.svg';
 import PAUSE_ROUND_BLUE from './svgs/pause-round-blue.svg';
 import PLAY_ROUND_WHITE from './svgs/play-round-white.svg';
 import PROFILE_EDIT_ICON from './svgs/profile-edit-icon.svg';
@@ -92,6 +93,7 @@ export const Svgs = {
   PAUSE_ROUND_BLUE,
   PERSON_ICON,
   PLAY_ROUND_BLUE_BIG,
+  PLAY_ROUND_PURPLE,
   PROFILE_EDIT_ICON,
   PLAY_ROUND_WHITE,
   PREV_ICON_GREY,
