@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Svgs } from '@/assets';
 import './styles.css';
 import { BsArrowRightShort, BsDot } from 'react-icons/bs';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 
 const DesktopHomePage = () => {
   return (
@@ -1387,7 +1388,7 @@ const DesktopHomePage = () => {
         backgroundColor={'#FCF3FF'}
       >
         <Flex pt={'10rem'}>
-          <Box
+          <Flex
             height={'327px'}
             width={'100%'}
             borderRadius={'20px'}
@@ -1395,9 +1396,62 @@ const DesktopHomePage = () => {
             zIndex={'20'}
             maxWidth={'90%'}
             m={'auto'}
+            position={'relative'}
           >
-            Hello
-          </Box>
+            <Grid templateColumns={'35vw 1fr'} position={'relative'}>
+              <Flex
+                direction={'column'}
+                p={'25px'}
+                pl={'90px'}
+                justifyContent={'center'}
+                alignItems={'flex-start'}
+                gap={'30px'}
+              >
+                <Heading
+                  fontSize={'34px'}
+                  lineHeight={'50px'}
+                  fontWeight={'semibold'}
+                  width={'100%'}
+                >
+                  Ready to enjoy the most popular podcast in your city
+                </Heading>
+                <Text
+                  fontSize={'18px'}
+                  lineHeight={'23px'}
+                  fontWeight={'medium'}
+                  width={'70%'}
+                >
+                  Lorem ipsum dolor sit amet consectetur. Urna egestas.
+                </Text>
+                <Button
+                  backgroundColor={'#191614'}
+                  borderRadius={'10px'}
+                  fontWeight={'500'}
+                  lineHeight={'23px'}
+                  height={'45px'}
+                  width={'138.19px'}
+                  zIndex={'20'}
+                  display={'flex'}
+                  alignItems={'center'}
+                  gap={'12px'}
+                  _hover={{ opacity: 0.8 }}
+                >
+                  <Text color={'#FFFFFF'} fontSize={'18px'}>
+                    Sign Up
+                  </Text>
+                  <Icon as={RiArrowRightUpLine} color={'#FFFFFF'} />
+                </Button>
+              </Flex>
+              <Flex position={'relative'}>
+                <Box position={'absolute'}>
+                  <Svgs.WAVE_BANNER />
+                </Box>
+              </Flex>
+            </Grid>
+            <Box position={'absolute'} zIndex={'25'} right={'0'}>
+              <Svgs.WOMAN_BANNER />
+            </Box>
+          </Flex>
         </Flex>
       </Box>
     </Box>

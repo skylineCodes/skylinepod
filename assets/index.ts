@@ -57,6 +57,8 @@ import SUPPORT_ICON from './svgs/support-icon.svg';
 import THUMBS_UP_ICON from './svgs/thumbs-up-icon.svg';
 import UNLOCK_ICON from './svgs/unlock-icon.svg';
 import WALLET_ICON from './svgs/wallet-icon.svg';
+import WAVE_BANNER from './svgs/wave-banner.svg';
+import WOMAN_BANNER from './svgs/woman-banner.svg';
 import WOMAN_POINTING from './svgs/woman-pointing.svg';
 import WOMAN_MICROPHONE from './svgs/woman-microphone.svg';
 import WOMAN_MICROPHONE_WAVE from './svgs/woman-microphone-wave.svg';
@@ -123,6 +125,8 @@ export const Svgs = {
   FILTER_OUTLINE,
   UNLOCK_ICON,
   FILTER,
+  WAVE_BANNER,
+  WOMAN_BANNER,
   WOMAN_POINTING,
   WOMAN_MICROPHONE,
   WOMAN_MICROPHONE_WAVE,
