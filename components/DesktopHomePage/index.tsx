@@ -7,8 +7,9 @@ import burnaBoy from '../../public/burna-boy3.jpg';
 import Image from 'next/image';
 import { Svgs } from '@/assets';
 import './styles.css';
-import { BsArrowRightShort, BsDot } from 'react-icons/bs';
+import { BsArrowRight, BsArrowRightShort, BsDot } from 'react-icons/bs';
 import { RiArrowRightUpLine } from 'react-icons/ri';
+import Input from '../Input';
 
 const DesktopHomePage = () => {
   return (
@@ -1451,6 +1452,433 @@ const DesktopHomePage = () => {
             <Box position={'absolute'} zIndex={'25'} right={'0'}>
               <Svgs.WOMAN_BANNER />
             </Box>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box
+        position={'relative'}
+        minHeight={'80vh'}
+        width={'100%'}
+        backgroundColor={'#FCF3FF'}
+      >
+        <Flex
+          pt={'2rem'}
+          direction={'column'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          gap={'30px'}
+        >
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            width={'45%'}
+          >
+            <Heading
+              fontSize={'47px'}
+              lineHeight={'59px'}
+              fontWeight={'semibold'}
+              textAlign={'center'}
+            >
+              Affordable way to tell your{' '}
+              <Text as={'span'} color={'primary.500'}>
+                stories
+              </Text>{' '}
+              professionally
+            </Heading>
+          </Flex>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'20px'}
+          >
+            <Flex>
+              <Box
+                boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+                backgroundColor={'#FFFFFF'}
+                pt={'10px'}
+                pb={'10px'}
+                pl={'30px'}
+                pr={'30px'}
+                cursor={'pointer'}
+                _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+              >
+                <Text
+                  fontWeight={'semibold'}
+                  fontSize={'20px'}
+                  lineHeight={'25px'}
+                  color={'#666666'}
+                  _hover={{ color: '#FFFFFF' }}
+                >
+                  Monthly
+                </Text>
+              </Box>
+              <Box
+                boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
+                backgroundColor={'#FFFFFF'}
+                pt={'10px'}
+                pb={'10px'}
+                pl={'30px'}
+                pr={'30px'}
+                cursor={'pointer'}
+                _hover={{ backgroundColor: 'primary.500', color: '#FFFFFF' }}
+              >
+                <Text
+                  fontWeight={'semibold'}
+                  fontSize={'20px'}
+                  lineHeight={'25px'}
+                  color={'#666666'}
+                  _hover={{ color: '#FFFFFF' }}
+                >
+                  Yearly
+                </Text>
+              </Box>
+            </Flex>
+            <Flex
+              direction={'row'}
+              alignItems={'center'}
+              justifyContent={'center'}
+              gap={'24px'}
+              mt={'20px'}
+              mb={'40px'}
+            >
+              <Flex
+                direction={'column'}
+                height={'auto'}
+                width={'394px'}
+                borderRadius={'20px'}
+                backgroundColor={'primary.500'}
+                gap={'15px'}
+                justifyContent={'flex-start'}
+                alignItems={'flex-start'}
+                p={'1rem'}
+                pt={'1rem'}
+              >
+                <Flex
+                  direction={'column'}
+                  gap={'15px'}
+                  justifyContent={'flex-start'}
+                  alignItems={'center'}
+                  width={'100%'}
+                >
+                  <Text fontSize={'25px'} lineHeight={'32px'} color={'#FFFFFF'}>
+                    Basic
+                  </Text>
+                  <Text
+                    fontWeight={'bold'}
+                    fontSize={'44px'}
+                    lineHeight={'81px'}
+                    color={'#FFFFFF'}
+                  >
+                    NGN 8,200
+                  </Text>
+                </Flex>
+                <Flex direction={'column'} gap={'25px'} mt={'20px'}>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE_WHITE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#FFFFFF'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      Up to 3 devices
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE_WHITE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#FFFFFF'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      Unlimited episodes
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE_WHITE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#FFFFFF'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      50,000 monthly downloads
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE_WHITE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#FFFFFF'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                      width={'70%'}
+                    >
+                      Price shown after 40% discount applied. Discount
+                      applicable for first 12 months
+                    </Text>
+                  </Flex>
+                </Flex>
+                <Flex
+                  direction={'column'}
+                  width={'100%'}
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                  mt={'3rem'}
+                >
+                  <Button
+                    backgroundColor={'#191614'}
+                    borderRadius={'10px'}
+                    fontWeight={'500'}
+                    lineHeight={'23px'}
+                    height={'45px'}
+                    width={'236.05px'}
+                    zIndex={'20'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    gap={'12px'}
+                    _hover={{ opacity: 0.8 }}
+                  >
+                    <Text color={'#FFFFFF'} fontSize={'18px'}>
+                      Start 7 days free trial
+                    </Text>
+                    <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
+                  </Button>
+                </Flex>
+              </Flex>
+              <Flex
+                direction={'column'}
+                height={'auto'}
+                width={'394px'}
+                borderRadius={'20px'}
+                backgroundColor={'grey.0'}
+                border={'0.5px solid #514EB6'}
+                gap={'15px'}
+                justifyContent={'flex-start'}
+                alignItems={'flex-start'}
+                p={'1rem'}
+                pt={'1rem'}
+              >
+                <Flex
+                  direction={'column'}
+                  gap={'15px'}
+                  justifyContent={'flex-start'}
+                  alignItems={'center'}
+                  width={'100%'}
+                >
+                  <Text fontSize={'25px'} lineHeight={'32px'} color={'#666666'}>
+                    Popular
+                  </Text>
+                  <Text
+                    fontWeight={'bold'}
+                    fontSize={'44px'}
+                    lineHeight={'81px'}
+                    color={'#666666'}
+                  >
+                    NGN 10,500
+                  </Text>
+                </Flex>
+                <Flex direction={'column'} gap={'25px'} mt={'20px'}>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#666666'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      Up to 3 devices
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#666666'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      Unlimited episodes
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#666666'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                    >
+                      50,000 monthly downloads
+                    </Text>
+                  </Flex>
+                  <Flex
+                    justifyContent={'flex-start'}
+                    alignItems={'flex-start'}
+                    gap={'17px'}
+                  >
+                    <Svgs.CHECKMARK_CIRCLE />
+                    <Text
+                      fontSize={'xxs'}
+                      color={'#666666'}
+                      lineHeight={'21px'}
+                      fontWeight={'medium'}
+                      width={'70%'}
+                    >
+                      Price shown after 40% discount applied. Discount
+                      applicable for first 12 months
+                    </Text>
+                  </Flex>
+                </Flex>
+                <Flex
+                  direction={'column'}
+                  width={'100%'}
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                  mt={'3rem'}
+                >
+                  <Button
+                    backgroundColor={'#191614'}
+                    borderRadius={'10px'}
+                    fontWeight={'500'}
+                    lineHeight={'23px'}
+                    height={'45px'}
+                    width={'236.05px'}
+                    zIndex={'20'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    gap={'12px'}
+                    _hover={{ opacity: 0.8 }}
+                  >
+                    <Text color={'#FFFFFF'} fontSize={'18px'}>
+                      Start 7 days free trial
+                    </Text>
+                    <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
+                  </Button>
+                </Flex>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box
+        position={'relative'}
+        minHeight={'80vh'}
+        width={'100%'}
+        backgroundColor={'#FCF3FF'}
+        pt={'1rem'}
+      >
+        <Flex
+          height={'276px'}
+          width={'100%'}
+          borderRadius={'20px'}
+          backgroundColor={'#1FBEB3'}
+          zIndex={'20'}
+          maxWidth={'90%'}
+          m={'auto'}
+          p={'51px'}
+          position={'relative'}
+          direction={'column'}
+          justifyContent={'flex-start'}
+          alignItems={'center'}
+          gap={'40px'}
+          mt={'10rem'}
+        >
+          <Heading fontSize={'27px'} fontWeight={'medium'} textAlign={'center'}>
+            Get notified every time web post a new episode
+          </Heading>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            width={'70%'}
+          >
+            <Input
+              type='text'
+              placeholder='Enter your email address here'
+              element={<Icon as={BsArrowRight} style={{
+                cursor: 'pointer'
+              }} />}
+              style={{
+                boxShadow: '0px 4px 23px rgba(0, 0, 0, 0.12)',
+                borderRadius: '10px',
+              }}
+            />
+          </Flex>
+          <Flex
+            direction={'column'}
+            alignItems={'center'}
+            gap={'10px'}
+            position={'absolute'}
+            right={'40px'}
+            top={'0'}
+          >
+            <Svgs.NEWSLETTER_ONE />
+            <Svgs.NEWSLETTER_ONE_IMAGE />
+          </Flex>
+          <Flex
+            direction={'column'}
+            alignItems={'center'}
+            gap={'10px'}
+            position={'absolute'}
+            left={'40px'}
+            top={'0'}
+          >
+            <Svgs.NEWSLETTER_ONE />
+            <Svgs.NEWSLETTER_ONE_IMAGE />
+          </Flex>
+          <Flex
+            direction={'column'}
+            alignItems={'center'}
+            gap={'10px'}
+            position={'absolute'}
+            left={'150px'}
+            bottom={'0'}
+          >
+            <Svgs.NEWSLETTER_ONE />
+            <Svgs.NEWSLETTER_ONE_IMAGE />
+          </Flex>
+          <Flex
+            direction={'column'}
+            alignItems={'center'}
+            gap={'10px'}
+            position={'absolute'}
+            right={'150px'}
+            bottom={'0'}
+          >
+            <Svgs.NEWSLETTER_ONE />
+            <Svgs.NEWSLETTER_ONE_IMAGE />
           </Flex>
         </Flex>
       </Box>

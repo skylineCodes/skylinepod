@@ -8,6 +8,7 @@ import BELL from './svgs/bell-icon.svg';
 import BOY_PODCAST from './svgs/boy-podcast.svg';
 import BOY_POINTING from './svgs/boy-pointing.svg';
 import CHECKMARK_CIRCLE from './svgs/checkmark-circle.svg';
+import CHECKMARK_CIRCLE_WHITE from './svgs/checkmark-circle-white.svg';
 import COMMENT_ICON from './svgs/comment-icon.svg';
 import CAPTION_ICON from './svgs/caption-icon.svg';
 import CAUTION_HARSH_ICON from './svgs/caution-harsh-icon.svg';
@@ -64,6 +65,8 @@ import WOMAN_MICROPHONE from './svgs/woman-microphone.svg';
 import WOMAN_MICROPHONE_WAVE from './svgs/woman-microphone-wave.svg';
 import WOMAN_MICROPHONE_LEFT_CARD from './svgs/woman-microphone-left-card.svg';
 import WOMAN_MICROPHONE_RIGHT_CARD from './svgs/woman-microphone-right-card.svg';
+import NEWSLETTER_ONE from './svgs/newsletter-one.svg';
+import NEWSLETTER_ONE_IMAGE from './svgs/newsletter-one-image.svg';
 
 export const Svgs = {
   AUDIO_ICON,
@@ -74,6 +77,7 @@ export const Svgs = {
   BOY_PODCAST,
   BOY_POINTING,
   CHECKMARK_CIRCLE,
+  CHECKMARK_CIRCLE_WHITE,
   CAPTION_ICON,
   CAUTION_HARSH_ICON,
   COMMENT_LIKE_ICON,
@@ -105,6 +109,8 @@ export const Svgs = {
   MUSIC_WAVE,
   MAN_POINTING,
   MICROPHONE_SECTION_THREE,
+  NEWSLETTER_ONE,
+  NEWSLETTER_ONE_IMAGE,
   PROFILE_WHITE,
   GOOGLE_ICON,
   APPLE_ICON,
