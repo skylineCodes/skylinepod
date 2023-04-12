@@ -7,9 +7,11 @@ import burnaBoy from '../../public/burna-boy3.jpg';
 import Image from 'next/image';
 import { Svgs } from '@/assets';
 import './styles.css';
-import { BsArrowRight, BsArrowRightShort, BsDot } from 'react-icons/bs';
+import { BsArrowRight, BsArrowRightShort, BsDot, BsGoogle, BsTwitter } from 'react-icons/bs';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 import Input from '../Input';
+import Link from 'next/link';
+import { FaFacebookF } from 'react-icons/fa';
 
 const DesktopHomePage = () => {
   return (
@@ -1782,7 +1784,7 @@ const DesktopHomePage = () => {
                     _hover={{ opacity: 0.8 }}
                   >
                     <Text color={'#FFFFFF'} fontSize={'18px'}>
-                      Start 7 days free trial
+                      Get Subscription
                     </Text>
                     <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
                   </Button>
@@ -1827,9 +1829,14 @@ const DesktopHomePage = () => {
             <Input
               type='text'
               placeholder='Enter your email address here'
-              element={<Icon as={BsArrowRight} style={{
-                cursor: 'pointer'
-              }} />}
+              element={
+                <Icon
+                  as={BsArrowRight}
+                  style={{
+                    cursor: 'pointer',
+                  }}
+                />
+              }
               style={{
                 boxShadow: '0px 4px 23px rgba(0, 0, 0, 0.12)',
                 borderRadius: '10px',
@@ -1880,6 +1887,148 @@ const DesktopHomePage = () => {
             <Svgs.NEWSLETTER_ONE />
             <Svgs.NEWSLETTER_ONE_IMAGE />
           </Flex>
+        </Flex>
+      </Box>
+      <Box
+        position={'relative'}
+        minHeight={'40vh'}
+        width={'100%'}
+        backgroundColor={'#FFFFFF'}
+        pt={'1rem'}
+      >
+        <Grid
+          templateColumns={'400px 1fr 1fr 1fr 1fr'}
+          gridGap={'30px'}
+          maxWidth={'90%'}
+          m={'auto'}
+          pt={'49px'}
+          pb={'49px'}
+        >
+          <Flex direction={'column'} justifyContent={'flex-start'} gap={'10px'}>
+            <Svgs.LOGO />
+            <Text
+              fontSize={'15px'}
+              lineHeight={'18px'}
+              color={'#8C97AC'}
+              fontWeight={'medium'}
+            >
+              Lorem ipsum dolor sit amet consectetur. Ultricies morbi diam
+              convallis eu diam varius lectus sed morbi. At quam eu augue dui
+              sollicitudin enim orci adipiscing. Quis semper non nibh aliquet
+              morbi congue. Felis adipiscing venenatis pellentesque ac
+              sollicitudin id sed sed. Eget tempor tortor blandit quis massa
+              risus imperdiet.
+            </Text>
+          </Flex>
+          <Flex direction={'column'} justifyContent={'flex-start'}>
+            <Heading
+              fontSize={'18px'}
+              fontWeight={'500'}
+              color={'#8C97AC'}
+              pl={'5rem'}
+            >
+              Quick Links
+            </Heading>
+            <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'4rem'}>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Features
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  How It Works
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Pricing
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Categories
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  About
+                </Text>
+              </Link>
+            </Flex>
+          </Flex>
+          <Flex direction={'column'} justifyContent={'flex-start'}>
+            <Heading
+              fontSize={'18px'}
+              fontWeight={'500'}
+              color={'#8C97AC'}
+              pl={'5rem'}
+            >
+              Other Links
+            </Heading>
+            <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'4rem'}>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Privacy
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Terms & Conditions
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  Disclaimer
+                </Text>
+              </Link>
+              <Link href={'/'}>
+                <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
+                  FAQs
+                </Text>
+              </Link>
+            </Flex>
+          </Flex>
+          <Flex direction={'column'} justifyContent={'flex-start'}>
+            <Heading
+              fontSize={'18px'}
+              fontWeight={'500'}
+              color={'#8C97AC'}
+              pl={'7rem'}
+            >
+              Contacts
+            </Heading>
+            <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'7rem'}>
+              <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
+                +2349066432526
+              </Text>
+              <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
+                hello@skylinetalk.org
+              </Text>
+            </Flex>
+          </Flex>
+          <Flex direction={'column'}>
+            <Flex justifyContent={'center'} alignItems={'center'} gap={'15px'}>
+              <Icon as={BsTwitter} size={'lg'} />
+              <Icon as={FaFacebookF} size={'lg'} />
+              <Icon as={BsGoogle} size={'lg'} />
+            </Flex>
+          </Flex>
+        </Grid>
+        <Flex
+          direction={'row'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          gap={'40px'}
+        >
+          <Text
+            color={'#C5CBD5'}
+            fontSize={'16px'}
+            lineHeight={'20px'}
+            pb={'10px'}
+          >
+            Copyright© Skylinetalk 2023
+          </Text>
         </Flex>
       </Box>
     </Box>
