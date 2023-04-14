@@ -65,7 +65,6 @@ const MobileHomePage = () => {
             zIndex={'20'}
             maxWidth={'90%'}
             width={'100%'}
-            // minHeight={'83vh'}
             height={'auto'}
             m={'auto'}
             mt={'2rem'}
@@ -153,22 +152,39 @@ const MobileHomePage = () => {
               zIndex={'20'}
             >
               <Box position={'relative'}>
-                <Svgs.GIRL_PODCAST_MOBILE />
+                <Svgs.GIRL_PODCAST_MOBILE
+                  style={{
+                    zIndex: '20',
+                    position: 'relative',
+                  }}
+                />
                 <Box position={'absolute'} top={'10%'} left={'-80%'}>
                   <Svgs.GIRL_PODCAST_CARD_MOBILE />
                 </Box>
               </Box>
             </Box>
-            <Box zIndex={'20'}>
-              <Svgs.BOY_PODCAST_MOBILE />
-              {/* <Svgs.MUSIC_WAVE /> */}
+            <Box
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'flex-start'}
+              alignItems={'center'}
+              zIndex={'20'}
+            >
+              <Box position={'relative'}>
+                <Svgs.BOY_PODCAST_MOBILE />
+                <Box position={'absolute'} bottom={'10%'} right={'10%'}>
+                  <Svgs.MUSIC_WAVE_MOBILE />
+                </Box>
+              </Box>
             </Box>
           </Grid>
         </Box>
         <Box
           position={'relative'}
-          height={'400px'}
+          height={'auto'}
           width={'100%'}
+          pt={'1rem'}
+          pb={'1rem'}
           _after={{
             width: '100%',
             height: '100%',
@@ -184,20 +200,20 @@ const MobileHomePage = () => {
             direction={'column'}
             justifyContent={'flex-start'}
             alignItems={'center'}
-            pt={'64px'}
+            pt={'10px'}
             gap={'15px'}
             zIndex={'20'}
           >
             <Heading
               color={'home.50'}
-              fontSize={'45px'}
+              fontSize={'30px'}
               fontWeight={'medium'}
-              lineHeight={'57px'}
+              lineHeight={'33px'}
               zIndex={'20'}
             >
               Most popular creators
             </Heading>
-            <Text zIndex={'20'} width={'40%'} textAlign={'center'}>
+            <Text zIndex={'20'} width={'100%'} textAlign={'center'}>
               Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
               eget dis amet lacus. Cras fringilla non faucibus et mi. Mi sit
               nibh{' '}
@@ -215,15 +231,15 @@ const MobileHomePage = () => {
               gap={'12px'}
               _hover={{ opacity: 0.8 }}
             >
-              <Text color={'#FFFFFF'} fontSize={'18px'}>
+              <Text color={'#FFFFFF'} fontSize={'16px'}>
                 View All
               </Text>
               <Icon as={BsArrowRightShort} color={'#FFFFFF'} />
             </Button>
           </Flex>
           <Grid
-            templateColumns={'1fr 1fr 1fr'}
-            gridGap={'24px'}
+            templateColumns={'1fr'}
+            gridGap={'50px'}
             maxWidth={'90%'}
             margin={'auto'}
             mt={'70px'}
@@ -232,14 +248,14 @@ const MobileHomePage = () => {
               templateColumns={'1fr 1fr'}
               gridGap={'15px'}
               height={'233px'}
-              width={'30vw'}
+              width={'100%'}
               backgroundColor={'#F4651C'}
               borderRadius={'20px'}
               zIndex={'20'}
               p={'14px'}
               position={'relative'}
             >
-              <Box position={'absolute'} bottom={'0'} left={'-30px'}>
+              <Box position={'absolute'} bottom={'0'} left={'-10%'}>
                 <Svgs.BOY_POINTING />
               </Box>
               <Box></Box>
@@ -247,21 +263,21 @@ const MobileHomePage = () => {
                 direction={'column'}
                 justifyContent={'center'}
                 alignItems={'flex-start'}
-                gap={'24px'}
+                gap={'12px'}
               >
                 <Heading
-                  fontSize={'21px'}
+                  fontSize={'18px'}
                   fontWeight={'semibold'}
                   color={'#000000'}
-                  lineHeight={'26px'}
+                  lineHeight={'20px'}
                 >
                   Get to know about user research
                 </Heading>
                 <Text
-                  fontSize={'18px'}
+                  fontSize={'16px'}
                   fontWeight={'medium'}
                   color={'#000000'}
-                  lineHeight={'22px'}
+                  lineHeight={'20px'}
                 >
                   Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                 </Text>
@@ -289,14 +305,14 @@ const MobileHomePage = () => {
               templateColumns={'1fr 1fr'}
               gridGap={'15px'}
               height={'233px'}
-              width={'30vw'}
+              width={'100%'}
               backgroundColor={'#E7A72B'}
               borderRadius={'20px'}
               zIndex={'20'}
               p={'14px'}
               position={'relative'}
             >
-              <Box position={'absolute'} bottom={'0'} left={'30px'}>
+              <Box position={'absolute'} bottom={'0'} left={'0%'}>
                 <Svgs.WOMAN_POINTING />
               </Box>
               <Box></Box>
@@ -304,21 +320,21 @@ const MobileHomePage = () => {
                 direction={'column'}
                 justifyContent={'center'}
                 alignItems={'flex-start'}
-                gap={'24px'}
+                gap={'12px'}
               >
                 <Heading
-                  fontSize={'21px'}
+                  fontSize={'18px'}
                   fontWeight={'semibold'}
                   color={'#000000'}
-                  lineHeight={'26px'}
+                  lineHeight={'20px'}
                 >
                   Get to know about user research
                 </Heading>
                 <Text
-                  fontSize={'18px'}
+                  fontSize={'16px'}
                   fontWeight={'medium'}
                   color={'#000000'}
-                  lineHeight={'22px'}
+                  lineHeight={'20px'}
                 >
                   Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                 </Text>
@@ -346,14 +362,14 @@ const MobileHomePage = () => {
               templateColumns={'1fr 1fr'}
               gridGap={'15px'}
               height={'233px'}
-              width={'30vw'}
+              width={'100%'}
               backgroundColor={'#20ADA2'}
               borderRadius={'20px'}
               zIndex={'20'}
               p={'14px'}
               position={'relative'}
             >
-              <Box position={'absolute'} bottom={'0'} left={'30px'}>
+              <Box position={'absolute'} bottom={'0'} left={'0%'}>
                 <Svgs.MAN_POINTING />
               </Box>
               <Box></Box>
@@ -361,21 +377,21 @@ const MobileHomePage = () => {
                 direction={'column'}
                 justifyContent={'center'}
                 alignItems={'flex-start'}
-                gap={'24px'}
+                gap={'12px'}
               >
                 <Heading
-                  fontSize={'21px'}
+                  fontSize={'18px'}
                   fontWeight={'semibold'}
                   color={'#000000'}
-                  lineHeight={'26px'}
+                  lineHeight={'20px'}
                 >
                   Get to know about user research
                 </Heading>
                 <Text
-                  fontSize={'18px'}
+                  fontSize={'16px'}
                   fontWeight={'medium'}
                   color={'#000000'}
-                  lineHeight={'22px'}
+                  lineHeight={'20px'}
                 >
                   Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                 </Text>
@@ -404,6 +420,7 @@ const MobileHomePage = () => {
         <Box
           position={'relative'}
           minHeight={'80vh'}
+          height={'auto'}
           width={'100%'}
           _after={{
             width: '100%',
@@ -417,36 +434,48 @@ const MobileHomePage = () => {
           }}
         >
           <Grid
-            templateColumns={'1fr 1fr'}
+            templateColumns={'1fr'}
+            gridGap={'30px'}
             zIndex={'20'}
-            pt={'18rem'}
+            pt={'2rem'}
             pb={'5rem'}
             maxWidth={'90%'}
             margin={'auto'}
           >
             <Flex zIndex={'20'} direction={'column'} gap={'20px'}>
-              <Heading
-                fontSize={'58px'}
-                color={'#1C1916'}
-                lineHeight={'64px'}
-                width={'70%'}
+              <Flex
+                direction={'column'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                gap={'30px'}
               >
-                What makes us{' '}
-                <Text as={'span'} color={'primary.500'}>
-                  unique
-                </Text>{' '}
-                from others
-              </Heading>
-              <Text
-                fontSize={'xxs'}
-                fontWeight={'medium'}
-                color={'#1C1916A8'}
-                width={'90%'}
-              >
-                Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
-                eget dis amet lacus. Cras fringilla non faucibus et mi. Mi sit
-                nibh{' '}
-              </Text>
+                <Heading
+                  fontSize={'35px'}
+                  color={'#1C1916'}
+                  lineHeight={'34px'}
+                  width={'75%'}
+                  textAlign={'center'}
+                >
+                  What makes us{' '}
+                  <Text as={'span'} color={'primary.500'}>
+                    unique
+                  </Text>{' '}
+                  from others
+                </Heading>
+                <Text
+                  as={'span'}
+                  fontSize={'xxs'}
+                  fontWeight={'medium'}
+                  color={'#1C1916A8'}
+                  width={'90%'}
+                  lineHeight={'25px'}
+                  textAlign={'center'}
+                >
+                  Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
+                  eget dis amet lacus. Cras fringilla non faucibus et mi. Mi sit
+                  nibh{' '}
+                </Text>
+              </Flex>
               <Flex direction={'column'} gap={'35px'}>
                 <Flex
                   justifyContent={'flex-start'}
@@ -537,18 +566,21 @@ const MobileHomePage = () => {
               alignItems={'center'}
               position={'relative'}
             >
-              <Box position={'absolute'} left={'0'}>
-                <Svgs.WOMAN_MICROPHONE_WAVE />
+              <Box position={'relative'} zIndex={'20'}>
+                <Svgs.WOMAN_MICROPHONE style={{
+                  position: 'relative',
+                  zIndex: 20
+                }} />
+                <Box position={'absolute'} top={'20%'}>
+                  <Svgs.WOMAN_MICROPHONE_WAVE />
+                </Box>
               </Box>
-              <Box position={'absolute'}>
-                <Svgs.WOMAN_MICROPHONE />
-              </Box>
-              <Box position={'absolute'} left={'0'} bottom={'14%'}>
+              {/* <Box position={'absolute'} left={'0'} bottom={'14%'}>
                 <Svgs.WOMAN_MICROPHONE_LEFT_CARD />
-              </Box>
-              <Box position={'absolute'} right={'10%'}>
+              </Box> */}
+              {/* <Box position={'absolute'} right={'10%'}>
                 <Svgs.WOMAN_MICROPHONE_RIGHT_CARD />
-              </Box>
+              </Box> */}
             </Flex>
           </Grid>
         </Box>

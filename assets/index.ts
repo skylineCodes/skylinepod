@@ -51,6 +51,7 @@ import MAN_POINTING from './svgs/man-pointing.svg';
 import MENU_ICON from './svgs/menu-icon.svg';
 import MICROPHONE_SECTION_THREE from './svgs/microphone-section-three.svg';
 import MUSIC_WAVE from './svgs/music-wave.svg';
+import MUSIC_WAVE_MOBILE from './svgs/music-wave-mobile.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
 import ROUNDED_PLAY_ICON from './svgs/rounded-play-icon.svg';
@@ -114,6 +115,7 @@ export const Svgs = {
   UPLOAD_PODCAST_ICON,
   NEXT_ICON_GREY,
   MUSIC_WAVE,
+  MUSIC_WAVE_MOBILE,
   MAN_POINTING,
   MENU_ICON,
   MICROPHONE_SECTION_THREE,
