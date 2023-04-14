@@ -6,6 +6,7 @@ import AD_REMOVAL_ICON from './svgs/ad-removal-icon.svg';
 import ACTIVITY_ICON from './svgs/activity.svg';
 import BELL from './svgs/bell-icon.svg';
 import BOY_PODCAST from './svgs/boy-podcast.svg';
+import BOY_PODCAST_MOBILE from './svgs/boy-podcast-mobile.svg';
 import BOY_POINTING from './svgs/boy-pointing.svg';
 import CHECKMARK_CIRCLE from './svgs/checkmark-circle.svg';
 import CHECKMARK_CIRCLE_WHITE from './svgs/checkmark-circle-white.svg';
@@ -25,6 +26,8 @@ import LOGO_WHITE from './svgs/logo-white.svg';
 import LOGO_ICON from './svgs/logo-icon.svg';
 import LOCK_ICON from './svgs/lock-icon.svg';
 import GIRL_PODCAST from './svgs/girl-podcast.svg';
+import GIRL_PODCAST_MOBILE from './svgs/girl-podcast-mobile.svg';
+import GIRL_PODCAST_CARD_MOBILE from './svgs/girl-podcast-card-mobile.svg';
 import HOME_BLUE from './svgs/home-blue.svg';
 import HOME_PLAYCIRCLE_SMALL from './svgs/home-playcircle-small.svg';
 import HOME_PLAYCIRCLE from './svgs/home-playcircle.svg';
@@ -45,6 +48,7 @@ import PREMIUM_PODCAST_ICON from './svgs/premium-podcast-icon.svg';
 import UPLOAD_PODCAST_ICON from './svgs/upload-podcast-icon.svg';
 import NEXT_ICON_GREY from './svgs/next-icon-grey.svg';
 import MAN_POINTING from './svgs/man-pointing.svg';
+import MENU_ICON from './svgs/menu-icon.svg';
 import MICROPHONE_SECTION_THREE from './svgs/microphone-section-three.svg';
 import MUSIC_WAVE from './svgs/music-wave.svg';
 import PROFILE_WHITE from './svgs/profile-white.svg';
@@ -75,6 +79,7 @@ export const Svgs = {
   ARROW_BACK_WHITE,
   BELL,
   BOY_PODCAST,
+  BOY_PODCAST_MOBILE,
   BOY_POINTING,
   CHECKMARK_CIRCLE,
   CHECKMARK_CIRCLE_WHITE,
@@ -86,6 +91,8 @@ export const Svgs = {
   DOWNLOAD_ICON,
   HD_STREAMING_ICON,
   GIRL_PODCAST,
+  GIRL_PODCAST_MOBILE,
+  GIRL_PODCAST_CARD_MOBILE,
   HOME_BLUE,
   HOME_PLAYCIRCLE_SMALL,
   HOME_PLAYCIRCLE,
@@ -108,6 +115,7 @@ export const Svgs = {
   NEXT_ICON_GREY,
   MUSIC_WAVE,
   MAN_POINTING,
+  MENU_ICON,
   MICROPHONE_SECTION_THREE,
   NEWSLETTER_ONE,
   NEWSLETTER_ONE_IMAGE,
