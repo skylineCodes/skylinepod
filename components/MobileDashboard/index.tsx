@@ -25,7 +25,6 @@ import { motion, isValidMotionProp } from 'framer-motion';
 import './styles.css';
 import TopPodcasters from '../TopPodcasters';
 import BottomNavigation from '../BottomNavigation';
-import ProfileDrawer from '../ProfileDrawer';
 import PodcastList from '../PodcastList';
 
 const ChakraBox = chakra(motion.div, {

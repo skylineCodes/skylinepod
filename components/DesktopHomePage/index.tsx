@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Grid, Heading, Text, Button, Icon } from '@chakra-ui/react';
 import Navbar from '../Navbar';
 import burnaBoy from '../../public/burna-boy3.jpg';
@@ -14,6 +14,8 @@ import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
 
 const DesktopHomePage = () => {
+  const [date, setDate] = useState<any>(new Date());
+
   return (
     <Box>
       <Box
@@ -2027,7 +2029,7 @@ const DesktopHomePage = () => {
             lineHeight={'20px'}
             pb={'10px'}
           >
-            Copyright© Skylinetalk 2023
+            Copyright© Skylinetalk {date?.getFullYear()}
           </Text>
         </Flex>
       </Box>

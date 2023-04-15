@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Box, Flex, Grid, Heading, Text, Button, Icon } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Box, Flex, Grid, Heading, Text, Button, Icon, chakra, shouldForwardProp } from '@chakra-ui/react';
 import Navbar from '../Navbar';
 import burnaBoy from '../../public/burna-boy3.jpg';
 import Image from 'next/image';
@@ -13,13 +13,102 @@ import Input from '../Input';
 import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
 import MobileNavbar from '../MobileNavbar';
+import { motion, isValidMotionProp, AnimatePresence, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+const ChakraBox: any = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const ChakraBox2: any = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const ChakraBox3: any = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 const MobileHomePage = () => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
   const [date, setDate] = useState<any>(new Date());
+  const { ref, inView } = useInView();
+  const { ref:ref1, inView:inView1 } = useInView();
+  const animation = useAnimation();
+  const animationTwo = useAnimation();
+  const animationThree = useAnimation();
+  const animationFour = useAnimation();
+  const animationFive = useAnimation();
 
   const openNavbar = () => setShowNavbar(true);
   const closeNavbar = () => setShowNavbar(false);
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        y: 0,
+        opacity: 1,
+        transition: { ease: 'easeOut', duration: .5 },
+      });
+      
+      animationTwo.start({
+        y: 0,
+        opacity: 1,
+        transition: { ease: 'easeOut', duration: 1 },
+      });
+      
+      animationThree.start({
+        y: 0,
+        opacity: 1,
+        transition: { ease: 'easeOut', duration: 1.5 },
+      });
+    }
+
+    if (!inView) {
+      animation.start({
+        y: 200,
+        opacity: 0
+      });
+      
+      animationTwo.start({
+        y: 200,
+        opacity: 0,
+      });
+      
+      animationThree.start({
+        y: 200,
+        opacity: 0,
+      });
+    }
+  }, [inView]);
+
+  useEffect(() => {
+    if (inView1) {
+      animationFour.start({
+        y: 0,
+        opacity: 1,
+        transition: { ease: 'easeOut', duration: 1.5 },
+      });
+      animationFive.start({
+        y: 0,
+        opacity: 1,
+        transition: { ease: 'easeOut', duration: 1.5 },
+      });
+    }
+
+    if (!inView1) {      
+      animationFour.start({
+        y: 100,
+        opacity: 0,
+      });
+      animationFive.start({
+        y: 100,
+        opacity: 0,
+      });
+    }
+  }, [inView1]);
 
   return (
     <>
@@ -152,17 +241,25 @@ const MobileHomePage = () => {
               alignItems={'center'}
               zIndex={'20'}
             >
-              <Box position={'relative'}>
-                <Svgs.GIRL_PODCAST_MOBILE
-                  style={{
-                    zIndex: '20',
-                    position: 'relative',
-                  }}
-                />
-                <Box position={'absolute'} top={'10%'} left={'-80%'}>
-                  <Svgs.GIRL_PODCAST_CARD_MOBILE />
-                </Box>
-              </Box>
+              <AnimatePresence>
+                <ChakraBox
+                  initial={{ x: 70, opacity: 0 }}
+                  animate={{ x: 10, opacity: 1 }}
+                  transition={{ ease: 'easeOut', duration: 2 }}
+                  whileInView={{ opacity: 1 }}
+                  position={'relative'}
+                >
+                  <Svgs.GIRL_PODCAST_MOBILE
+                    style={{
+                      zIndex: '20',
+                      position: 'relative',
+                    }}
+                  />
+                  <Box position={'absolute'} top={'10%'} left={'-80%'}>
+                    <Svgs.GIRL_PODCAST_CARD_MOBILE />
+                  </Box>
+                </ChakraBox>
+              </AnimatePresence>
             </Box>
             <Box
               display={'flex'}
@@ -171,12 +268,20 @@ const MobileHomePage = () => {
               alignItems={'center'}
               zIndex={'20'}
             >
-              <Box position={'relative'}>
-                <Svgs.BOY_PODCAST_MOBILE />
-                <Box position={'absolute'} bottom={'10%'} right={'10%'}>
-                  <Svgs.MUSIC_WAVE_MOBILE />
-                </Box>
-              </Box>
+              <AnimatePresence>
+                <ChakraBox2
+                  position={'relative'}
+                  initial={{ x: -70, opacity: 0 }}
+                  animate={{ x: 10, opacity: 1 }}
+                  transition={{ ease: 'easeOut', duration: 2 }}
+                  whileInView={{ opacity: 1 }}
+                >
+                  <Svgs.BOY_PODCAST_MOBILE />
+                  <Box position={'absolute'} bottom={'10%'} right={'10%'}>
+                    <Svgs.MUSIC_WAVE_MOBILE />
+                  </Box>
+                </ChakraBox2>
+              </AnimatePresence>
             </Box>
           </Grid>
         </Box>
@@ -244,178 +349,187 @@ const MobileHomePage = () => {
             maxWidth={'90%'}
             margin={'auto'}
             mt={'70px'}
+            position={'relative'}
+            zIndex={'20'}
+            ref={ref}
           >
-            <Grid
-              templateColumns={'1fr 1fr'}
-              gridGap={'15px'}
-              height={'233px'}
-              width={'100%'}
-              backgroundColor={'#F4651C'}
-              borderRadius={'20px'}
-              zIndex={'20'}
-              p={'14px'}
-              position={'relative'}
-            >
-              <Box position={'absolute'} bottom={'0'} left={'-10%'}>
-                <Svgs.BOY_POINTING />
-              </Box>
-              <Box></Box>
-              <Flex
-                direction={'column'}
-                justifyContent={'center'}
-                alignItems={'flex-start'}
-                gap={'12px'}
+            <ChakraBox3 animate={animation}>
+              <Grid
+                templateColumns={'1fr 1fr'}
+                gridGap={'15px'}
+                height={'233px'}
+                width={'100%'}
+                backgroundColor={'#F4651C'}
+                borderRadius={'20px'}
+                zIndex={'20'}
+                p={'14px'}
+                position={'relative'}
               >
-                <Heading
-                  fontSize={'18px'}
-                  fontWeight={'semibold'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
+                <Box position={'absolute'} bottom={'0'} left={'-10%'}>
+                  <Svgs.BOY_POINTING />
+                </Box>
+                <Box></Box>
+                <Flex
+                  direction={'column'}
+                  justifyContent={'center'}
+                  alignItems={'flex-start'}
+                  gap={'12px'}
                 >
-                  Get to know about user research
-                </Heading>
-                <Text
-                  fontSize={'16px'}
-                  fontWeight={'medium'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
-                >
-                  Lorem ipsum dolor sit amet consectetur. Lacus et eu.
-                </Text>
-                <Button
-                  backgroundColor={'#1C1916'}
-                  borderRadius={'6px'}
-                  fontWeight={'500'}
-                  lineHeight={'23px'}
-                  height={'40px'}
-                  width={'137px'}
-                  _hover={{ opacity: 0.8 }}
-                  zIndex={'25'}
-                  display={'flex'}
-                  alignItems={'center'}
-                  gap={'10px'}
-                >
-                  <Svgs.HOME_PLAYCIRCLE_SMALL />
-                  <Text color={'#FFF'} fontSize={'18px'}>
-                    Play Now
+                  <Heading
+                    fontSize={'18px'}
+                    fontWeight={'semibold'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Get to know about user research
+                  </Heading>
+                  <Text
+                    fontSize={'16px'}
+                    fontWeight={'medium'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                   </Text>
-                </Button>
-              </Flex>
-            </Grid>
-            <Grid
-              templateColumns={'1fr 1fr'}
-              gridGap={'15px'}
-              height={'233px'}
-              width={'100%'}
-              backgroundColor={'#E7A72B'}
-              borderRadius={'20px'}
-              zIndex={'20'}
-              p={'14px'}
-              position={'relative'}
-            >
-              <Box position={'absolute'} bottom={'0'} left={'0%'}>
-                <Svgs.WOMAN_POINTING />
-              </Box>
-              <Box></Box>
-              <Flex
-                direction={'column'}
-                justifyContent={'center'}
-                alignItems={'flex-start'}
-                gap={'12px'}
+                  <Button
+                    backgroundColor={'#1C1916'}
+                    borderRadius={'6px'}
+                    fontWeight={'500'}
+                    lineHeight={'23px'}
+                    height={'40px'}
+                    width={'137px'}
+                    _hover={{ opacity: 0.8 }}
+                    zIndex={'25'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    gap={'10px'}
+                  >
+                    <Svgs.HOME_PLAYCIRCLE_SMALL />
+                    <Text color={'#FFF'} fontSize={'18px'}>
+                      Play Now
+                    </Text>
+                  </Button>
+                </Flex>
+              </Grid>
+            </ChakraBox3>
+            <ChakraBox3 animate={animationTwo}>
+              <Grid
+                templateColumns={'1fr 1fr'}
+                gridGap={'15px'}
+                height={'233px'}
+                width={'100%'}
+                backgroundColor={'#E7A72B'}
+                borderRadius={'20px'}
+                zIndex={'20'}
+                p={'14px'}
+                position={'relative'}
               >
-                <Heading
-                  fontSize={'18px'}
-                  fontWeight={'semibold'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
+                <Box position={'absolute'} bottom={'0'} left={'0%'}>
+                  <Svgs.WOMAN_POINTING />
+                </Box>
+                <Box></Box>
+                <Flex
+                  direction={'column'}
+                  justifyContent={'center'}
+                  alignItems={'flex-start'}
+                  gap={'12px'}
                 >
-                  Get to know about user research
-                </Heading>
-                <Text
-                  fontSize={'16px'}
-                  fontWeight={'medium'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
-                >
-                  Lorem ipsum dolor sit amet consectetur. Lacus et eu.
-                </Text>
-                <Button
-                  backgroundColor={'#1C1916'}
-                  borderRadius={'6px'}
-                  fontWeight={'500'}
-                  lineHeight={'23px'}
-                  height={'40px'}
-                  width={'137px'}
-                  _hover={{ opacity: 0.8 }}
-                  zIndex={'25'}
-                  display={'flex'}
-                  alignItems={'center'}
-                  gap={'10px'}
-                >
-                  <Svgs.HOME_PLAYCIRCLE_SMALL />
-                  <Text color={'#FFF'} fontSize={'18px'}>
-                    Play Now
+                  <Heading
+                    fontSize={'18px'}
+                    fontWeight={'semibold'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Get to know about user research
+                  </Heading>
+                  <Text
+                    fontSize={'16px'}
+                    fontWeight={'medium'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                   </Text>
-                </Button>
-              </Flex>
-            </Grid>
-            <Grid
-              templateColumns={'1fr 1fr'}
-              gridGap={'15px'}
-              height={'233px'}
-              width={'100%'}
-              backgroundColor={'#20ADA2'}
-              borderRadius={'20px'}
-              zIndex={'20'}
-              p={'14px'}
-              position={'relative'}
-            >
-              <Box position={'absolute'} bottom={'0'} left={'0%'}>
-                <Svgs.MAN_POINTING />
-              </Box>
-              <Box></Box>
-              <Flex
-                direction={'column'}
-                justifyContent={'center'}
-                alignItems={'flex-start'}
-                gap={'12px'}
+                  <Button
+                    backgroundColor={'#1C1916'}
+                    borderRadius={'6px'}
+                    fontWeight={'500'}
+                    lineHeight={'23px'}
+                    height={'40px'}
+                    width={'137px'}
+                    _hover={{ opacity: 0.8 }}
+                    zIndex={'25'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    gap={'10px'}
+                  >
+                    <Svgs.HOME_PLAYCIRCLE_SMALL />
+                    <Text color={'#FFF'} fontSize={'18px'}>
+                      Play Now
+                    </Text>
+                  </Button>
+                </Flex>
+              </Grid>
+            </ChakraBox3>
+            <ChakraBox3 animate={animationThree}>
+              <Grid
+                templateColumns={'1fr 1fr'}
+                gridGap={'15px'}
+                height={'233px'}
+                width={'100%'}
+                backgroundColor={'#20ADA2'}
+                borderRadius={'20px'}
+                zIndex={'20'}
+                p={'14px'}
+                position={'relative'}
               >
-                <Heading
-                  fontSize={'18px'}
-                  fontWeight={'semibold'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
+                <Box position={'absolute'} bottom={'0'} left={'0%'}>
+                  <Svgs.MAN_POINTING />
+                </Box>
+                <Box></Box>
+                <Flex
+                  direction={'column'}
+                  justifyContent={'center'}
+                  alignItems={'flex-start'}
+                  gap={'12px'}
                 >
-                  Get to know about user research
-                </Heading>
-                <Text
-                  fontSize={'16px'}
-                  fontWeight={'medium'}
-                  color={'#000000'}
-                  lineHeight={'20px'}
-                >
-                  Lorem ipsum dolor sit amet consectetur. Lacus et eu.
-                </Text>
-                <Button
-                  backgroundColor={'#1C1916'}
-                  borderRadius={'6px'}
-                  fontWeight={'500'}
-                  lineHeight={'23px'}
-                  height={'40px'}
-                  width={'137px'}
-                  _hover={{ opacity: 0.8 }}
-                  zIndex={'25'}
-                  display={'flex'}
-                  alignItems={'center'}
-                  gap={'10px'}
-                >
-                  <Svgs.HOME_PLAYCIRCLE_SMALL />
-                  <Text color={'#FFF'} fontSize={'18px'}>
-                    Play Now
+                  <Heading
+                    fontSize={'18px'}
+                    fontWeight={'semibold'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Get to know about user research
+                  </Heading>
+                  <Text
+                    fontSize={'16px'}
+                    fontWeight={'medium'}
+                    color={'#000000'}
+                    lineHeight={'20px'}
+                  >
+                    Lorem ipsum dolor sit amet consectetur. Lacus et eu.
                   </Text>
-                </Button>
-              </Flex>
-            </Grid>
+                  <Button
+                    backgroundColor={'#1C1916'}
+                    borderRadius={'6px'}
+                    fontWeight={'500'}
+                    lineHeight={'23px'}
+                    height={'40px'}
+                    width={'137px'}
+                    _hover={{ opacity: 0.8 }}
+                    zIndex={'25'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    gap={'10px'}
+                  >
+                    <Svgs.HOME_PLAYCIRCLE_SMALL />
+                    <Text color={'#FFF'} fontSize={'18px'}>
+                      Play Now
+                    </Text>
+                  </Button>
+                </Flex>
+              </Grid>
+            </ChakraBox3>
           </Grid>
         </Box>
         <Box
@@ -567,7 +681,7 @@ const MobileHomePage = () => {
               alignItems={'center'}
               position={'relative'}
             >
-              <Box position={'relative'} zIndex={'20'}>
+              <Box position={'relative'} zIndex={'20'} ref={ref1}>
                 <Svgs.WOMAN_MICROPHONE
                   style={{
                     position: 'relative',
@@ -577,22 +691,24 @@ const MobileHomePage = () => {
                 <Box position={'absolute'} top={'20%'}>
                   <Svgs.WOMAN_MICROPHONE_WAVE />
                 </Box>
-                <Box
+                <ChakraBox3
+                  animate={animationFour}
                   position={'absolute'}
                   left={'-20%'}
                   top={'30%'}
                   zIndex={'20'}
                 >
                   <Svgs.WOMAN_MICROPHONE_LEFT_CARD />
-                </Box>
-                <Box
+                </ChakraBox3>
+                <ChakraBox3
+                  animate={animationFive}
                   position={'absolute'}
                   right={'-20%'}
                   bottom={'15%'}
                   zIndex={'20'}
                 >
                   <Svgs.WOMAN_MICROPHONE_RIGHT_CARD />
-                </Box>
+                </ChakraBox3>
               </Box>
             </Flex>
           </Grid>
@@ -1516,13 +1632,14 @@ const MobileHomePage = () => {
               m={'auto'}
               position={'relative'}
             >
-              <Grid templateColumns={'1fr 200px'} position={'relative'}>
+              <Grid templateColumns={'1fr'} position={'relative'}>
                 <Flex
                   direction={'column'}
                   p={'15px'}
                   justifyContent={'center'}
                   alignItems={'flex-start'}
                   gap={'30px'}
+                  zIndex={'20'}
                 >
                   <Heading
                     fontSize={'20px'}
@@ -1560,15 +1677,10 @@ const MobileHomePage = () => {
                     <Icon as={RiArrowRightUpLine} color={'#FFFFFF'} />
                   </Button>
                 </Flex>
-                <Flex position={'relative'}>
-                  <Box position={'absolute'}>
-                    <Svgs.WAVE_BANNER />
-                  </Box>
-                </Flex>
+                <Box position={'absolute'}>
+                  <Svgs.WAVE_BANNER />
+                </Box>
               </Grid>
-              {/* <Box position={'absolute'} zIndex={'25'} right={'0'}>
-                <Svgs.WOMAN_BANNER_SMALL />
-              </Box> */}
             </Flex>
           </Flex>
         </Box>
@@ -1952,7 +2064,9 @@ const MobileHomePage = () => {
               direction={'column'}
               justifyContent={'center'}
               alignItems={'center'}
-              width={'70%'}
+              width={'100%'}
+              position={'relative'}
+              zIndex={'20'}
             >
               <Input
                 type='text'
