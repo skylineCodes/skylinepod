@@ -567,20 +567,32 @@ const MobileHomePage = () => {
               position={'relative'}
             >
               <Box position={'relative'} zIndex={'20'}>
-                <Svgs.WOMAN_MICROPHONE style={{
-                  position: 'relative',
-                  zIndex: 20
-                }} />
+                <Svgs.WOMAN_MICROPHONE
+                  style={{
+                    position: 'relative',
+                    zIndex: 20,
+                  }}
+                />
                 <Box position={'absolute'} top={'20%'}>
                   <Svgs.WOMAN_MICROPHONE_WAVE />
                 </Box>
+                <Box
+                  position={'absolute'}
+                  left={'-20%'}
+                  top={'30%'}
+                  zIndex={'20'}
+                >
+                  <Svgs.WOMAN_MICROPHONE_LEFT_CARD />
+                </Box>
+                <Box
+                  position={'absolute'}
+                  right={'-20%'}
+                  bottom={'15%'}
+                  zIndex={'20'}
+                >
+                  <Svgs.WOMAN_MICROPHONE_RIGHT_CARD />
+                </Box>
               </Box>
-              {/* <Box position={'absolute'} left={'0'} bottom={'14%'}>
-                <Svgs.WOMAN_MICROPHONE_LEFT_CARD />
-              </Box> */}
-              {/* <Box position={'absolute'} right={'10%'}>
-                <Svgs.WOMAN_MICROPHONE_RIGHT_CARD />
-              </Box> */}
             </Flex>
           </Grid>
         </Box>
@@ -611,12 +623,12 @@ const MobileHomePage = () => {
           >
             <Heading
               zIndex={'20'}
+              fontSize={'35px'}
               color={'#1C1916'}
-              lineHeight={'71px'}
-              fontSize={'56px'}
-              fontWeight={'semibold'}
-              width={'55%'}
+              lineHeight={'34px'}
               textAlign={'center'}
+              fontWeight={'semibold'}
+              width={'100%'}
             >
               It&apos;s simple & quick to record your{' '}
               <Text as={'span'} color={'#514EB6'}>
@@ -625,11 +637,12 @@ const MobileHomePage = () => {
             </Heading>
             <Text
               zIndex={'20'}
-              width={'50%'}
-              color={'#1C1916'}
-              lineHeight={'21px'}
-              fontSize={'17px'}
+              as={'span'}
+              fontSize={'xxs'}
               fontWeight={'medium'}
+              color={'#1C1916A8'}
+              width={'90%'}
+              lineHeight={'25px'}
               textAlign={'center'}
             >
               Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
@@ -637,7 +650,17 @@ const MobileHomePage = () => {
               nibh diam
             </Text>
           </Flex>
-          <Flex zIndex={'20'} maxWidth={'90%'} margin={'auto'} mt={'125px'}>
+          <Flex
+            direction={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={'50px'}
+            zIndex={'20'}
+            maxWidth={'90%'}
+            margin={'auto'}
+            mt={'50px'}
+            pb={'50px'}
+          >
             <Flex
               direction={'column'}
               justifyContent={'center'}
@@ -662,7 +685,7 @@ const MobileHomePage = () => {
                 fontSize={'xxs'}
                 fontWeight={'medium'}
                 textAlign={'center'}
-                width={'60%'}
+                width={'100%'}
               >
                 Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
                 eget dis amet lacus.
@@ -692,7 +715,7 @@ const MobileHomePage = () => {
                 fontSize={'xxs'}
                 fontWeight={'medium'}
                 textAlign={'center'}
-                width={'60%'}
+                width={'100%'}
               >
                 Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
                 eget dis amet lacus.
@@ -722,7 +745,7 @@ const MobileHomePage = () => {
                 fontSize={'xxs'}
                 fontWeight={'medium'}
                 textAlign={'center'}
-                width={'60%'}
+                width={'100%'}
               >
                 Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
                 eget dis amet lacus.
@@ -752,16 +775,16 @@ const MobileHomePage = () => {
                 fontSize={'xxs'}
                 fontWeight={'medium'}
                 textAlign={'center'}
-                width={'60%'}
+                width={'100%'}
               >
                 Lorem ipsum dolor sit amet consectetur. Consectetur lectus sit
                 eget dis amet lacus.
               </Text>
             </Flex>
           </Flex>
-          <Box position={'absolute'} top={'0'} left={'0'} zIndex={'20'}>
+          {/* <Box position={'absolute'} top={'0'} left={'0'} zIndex={'20'}>
             <Svgs.MICROPHONE_SECTION_THREE />
-          </Box>
+          </Box> */}
         </Box>
         <Box
           position={'relative'}
@@ -779,20 +802,21 @@ const MobileHomePage = () => {
           }}
         >
           <Grid
-            templateColumns={'1fr 1fr'}
+            templateColumns={'1fr'}
             zIndex={'20'}
             maxWidth={'90%'}
             m={'auto'}
-            pt={'78px'}
+            pt={'35px'}
             pb={'1rem'}
           >
             <Flex direction={'column'} gap={'21px'} zIndex={'20'}>
               <Heading
-                fontSize={'44px'}
-                fontWeight={'semibold'}
-                lineHeight={'140%'}
+                zIndex={'20'}
+                fontSize={'35px'}
                 color={'#1C1916'}
-                width={'70%'}
+                lineHeight={'34px'}
+                fontWeight={'semibold'}
+                width={'100%'}
               >
                 <Text as={'span'} color={'primary.500'}>
                   Explore
@@ -800,10 +824,14 @@ const MobileHomePage = () => {
                 our podcast by categories
               </Heading>
               <Text
-                color={'#666666'}
-                fontSize={'xs'}
+                zIndex={'20'}
+                as={'span'}
+                fontSize={'xxs'}
                 fontWeight={'medium'}
-                width={'70%'}
+                color={'#1C1916A8'}
+                width={'100%'}
+                lineHeight={'25px'}
+                textAlign={'left'}
               >
                 Choosing the best web hosting for your membership site is very
                 crucial so you can offer a quality service to visitors. If your
@@ -815,6 +843,8 @@ const MobileHomePage = () => {
               justifyContent={'flex-start'}
               alignItems={'flex-start'}
               zIndex={'20'}
+              wrap={'wrap'}
+              mt={'40px'}
             >
               <Box
                 p={'0px 30px'}
@@ -879,16 +909,17 @@ const MobileHomePage = () => {
             </Flex>
           </Grid>
           <Grid
-            templateColumns={'1fr 1fr 1fr 1fr'}
+            templateColumns={'1fr'}
             gridGap={'30px'}
             zIndex={'20'}
             maxWidth={'90%'}
             m={'auto'}
             pt={'78px'}
+            placeItems={'center'}
           >
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -958,7 +989,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1028,7 +1059,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1098,7 +1129,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1168,17 +1199,18 @@ const MobileHomePage = () => {
             </Flex>
           </Grid>
           <Grid
-            templateColumns={'1fr 1fr 1fr 1fr'}
+            templateColumns={'1fr'}
             gridGap={'30px'}
             zIndex={'20'}
             maxWidth={'90%'}
             m={'auto'}
             pt={'22px'}
             pb={'1rem'}
+            placeItems={'center'}
           >
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1248,7 +1280,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1318,7 +1350,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1388,7 +1420,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'300px'}
+              width={'390px'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
