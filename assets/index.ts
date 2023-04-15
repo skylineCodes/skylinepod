@@ -56,6 +56,7 @@ import PROFILE_WHITE from './svgs/profile-white.svg';
 import ROUNDED_RIGHT_SHORT_ARROW from './svgs/rounded-right-short-arrow.svg';
 import ROUNDED_PLAY_ICON from './svgs/rounded-play-icon.svg';
 import RECORD_PODCAST_ICON from './svgs/record-podcast-icon.svg';
+import RECORD_PODCAST_SMALL_ICON from './svgs/record-podcast-small-icon.svg';
 import SEARCH_ICON_GREY from './svgs/search-icon-grey.svg';
 import SHIELD_ICON from './svgs/shield.svg';
 import SHIELD_EMPTY_ICON from './svgs/shield-empty.svg';
@@ -65,6 +66,7 @@ import UNLOCK_ICON from './svgs/unlock-icon.svg';
 import WALLET_ICON from './svgs/wallet-icon.svg';
 import WAVE_BANNER from './svgs/wave-banner.svg';
 import WOMAN_BANNER from './svgs/woman-banner.svg';
+import WOMAN_BANNER_SMALL from './svgs/woman-banner-small.svg';
 import WOMAN_POINTING from './svgs/woman-pointing.svg';
 import WOMAN_MICROPHONE from './svgs/woman-microphone.svg';
 import WOMAN_MICROPHONE_WAVE from './svgs/woman-microphone-wave.svg';
@@ -131,6 +133,7 @@ export const Svgs = {
   LOCK_ICON,
   ROUNDED_RIGHT_SHORT_ARROW,
   RECORD_PODCAST_ICON,
+  RECORD_PODCAST_SMALL_ICON,
   ROUNDED_PLAY_ICON,
   SEARCH_ICON_GREY,
   SHIELD_ICON,
@@ -143,6 +146,7 @@ export const Svgs = {
   FILTER,
   WAVE_BANNER,
   WOMAN_BANNER,
+  WOMAN_BANNER_SMALL,
   WOMAN_POINTING,
   WOMAN_MICROPHONE,
   WOMAN_MICROPHONE_WAVE,

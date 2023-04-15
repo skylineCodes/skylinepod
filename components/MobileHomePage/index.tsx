@@ -16,6 +16,7 @@ import MobileNavbar from '../MobileNavbar';
 
 const MobileHomePage = () => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
+  const [date, setDate] = useState<any>(new Date());
 
   const openNavbar = () => setShowNavbar(true);
   const closeNavbar = () => setShowNavbar(false);
@@ -611,6 +612,14 @@ const MobileHomePage = () => {
             backgroundColor: '#FFFDFA',
           }}
         >
+          <Box zIndex={'20'} position={'absolute'} top={'-5%'}>
+            <Svgs.RECORD_PODCAST_SMALL_ICON
+              style={{
+                position: 'relative',
+                zIndex: '20',
+              }}
+            />
+          </Box>
           <Flex
             direction={'column'}
             gap={'20px'}
@@ -919,7 +928,7 @@ const MobileHomePage = () => {
           >
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -989,7 +998,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1059,7 +1068,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1129,7 +1138,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1210,7 +1219,7 @@ const MobileHomePage = () => {
           >
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1280,7 +1289,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1350,7 +1359,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1420,7 +1429,7 @@ const MobileHomePage = () => {
             </Flex>
             <Flex
               p={'15px'}
-              width={'390px'}
+              width={'80vw'}
               boxShadow={'0px 4px 23px rgba(0, 0, 0, 0.12)'}
               backgroundColor={'#FFFFFF'}
               borderRadius={'6px'}
@@ -1492,13 +1501,13 @@ const MobileHomePage = () => {
         </Box>
         <Box
           position={'relative'}
-          minHeight={'80vh'}
+          minHeight={'60vh'}
           width={'100%'}
           backgroundColor={'#FCF3FF'}
         >
-          <Flex pt={'10rem'}>
+          <Flex pt={'5rem'}>
             <Flex
-              height={'327px'}
+              height={'auto'}
               width={'100%'}
               borderRadius={'20px'}
               backgroundColor={'#FAAE2A'}
@@ -1507,28 +1516,28 @@ const MobileHomePage = () => {
               m={'auto'}
               position={'relative'}
             >
-              <Grid templateColumns={'35vw 1fr'} position={'relative'}>
+              <Grid templateColumns={'1fr 200px'} position={'relative'}>
                 <Flex
                   direction={'column'}
-                  p={'25px'}
-                  pl={'90px'}
+                  p={'15px'}
                   justifyContent={'center'}
                   alignItems={'flex-start'}
                   gap={'30px'}
                 >
                   <Heading
-                    fontSize={'34px'}
-                    lineHeight={'50px'}
+                    fontSize={'20px'}
+                    lineHeight={'23px'}
                     fontWeight={'semibold'}
                     width={'100%'}
+                    color={'#1C1916'}
                   >
                     Ready to enjoy the most popular podcast in your city
                   </Heading>
                   <Text
                     fontSize={'18px'}
-                    lineHeight={'23px'}
+                    lineHeight={'24px'}
                     fontWeight={'medium'}
-                    width={'70%'}
+                    width={'100%'}
                   >
                     Lorem ipsum dolor sit amet consectetur. Urna egestas.
                   </Text>
@@ -1537,15 +1546,15 @@ const MobileHomePage = () => {
                     borderRadius={'10px'}
                     fontWeight={'500'}
                     lineHeight={'23px'}
-                    height={'45px'}
-                    width={'138.19px'}
+                    height={'35px'}
+                    width={'100px'}
                     zIndex={'20'}
                     display={'flex'}
                     alignItems={'center'}
                     gap={'12px'}
                     _hover={{ opacity: 0.8 }}
                   >
-                    <Text color={'#FFFFFF'} fontSize={'18px'}>
+                    <Text color={'#FFFFFF'} fontSize={'16px'}>
                       Sign Up
                     </Text>
                     <Icon as={RiArrowRightUpLine} color={'#FFFFFF'} />
@@ -1557,9 +1566,9 @@ const MobileHomePage = () => {
                   </Box>
                 </Flex>
               </Grid>
-              <Box position={'absolute'} zIndex={'25'} right={'0'}>
-                <Svgs.WOMAN_BANNER />
-              </Box>
+              {/* <Box position={'absolute'} zIndex={'25'} right={'0'}>
+                <Svgs.WOMAN_BANNER_SMALL />
+              </Box> */}
             </Flex>
           </Flex>
         </Box>
@@ -1580,13 +1589,15 @@ const MobileHomePage = () => {
               direction={'column'}
               justifyContent={'center'}
               alignItems={'center'}
-              width={'45%'}
+              width={'100%'}
             >
               <Heading
-                fontSize={'47px'}
-                lineHeight={'59px'}
-                fontWeight={'semibold'}
+                fontSize={'35px'}
+                color={'#1C1916'}
+                lineHeight={'34px'}
                 textAlign={'center'}
+                fontWeight={'semibold'}
+                width={'100%'}
               >
                 Affordable way to tell your{' '}
                 <Text as={'span'} color={'primary.500'}>
@@ -1644,7 +1655,7 @@ const MobileHomePage = () => {
                 </Box>
               </Flex>
               <Flex
-                direction={'row'}
+                direction={'column'}
                 alignItems={'center'}
                 justifyContent={'center'}
                 gap={'24px'}
@@ -1910,7 +1921,7 @@ const MobileHomePage = () => {
         </Box>
         <Box
           position={'relative'}
-          minHeight={'80vh'}
+          minHeight={'60vh'}
           width={'100%'}
           backgroundColor={'#FCF3FF'}
           pt={'1rem'}
@@ -1921,15 +1932,14 @@ const MobileHomePage = () => {
             borderRadius={'20px'}
             backgroundColor={'#1FBEB3'}
             zIndex={'20'}
-            maxWidth={'90%'}
-            m={'auto'}
+            maxWidth={'100%'}
             p={'51px'}
             position={'relative'}
             direction={'column'}
             justifyContent={'flex-start'}
             alignItems={'center'}
             gap={'40px'}
-            mt={'10rem'}
+            mt={'4rem'}
           >
             <Heading
               fontSize={'27px'}
@@ -1966,8 +1976,8 @@ const MobileHomePage = () => {
               alignItems={'center'}
               gap={'10px'}
               position={'absolute'}
-              right={'40px'}
-              top={'0'}
+              right={'15px'}
+              top={'45px'}
             >
               <Svgs.NEWSLETTER_ONE />
               <Svgs.NEWSLETTER_ONE_IMAGE />
@@ -1977,30 +1987,8 @@ const MobileHomePage = () => {
               alignItems={'center'}
               gap={'10px'}
               position={'absolute'}
-              left={'40px'}
-              top={'0'}
-            >
-              <Svgs.NEWSLETTER_ONE />
-              <Svgs.NEWSLETTER_ONE_IMAGE />
-            </Flex>
-            <Flex
-              direction={'column'}
-              alignItems={'center'}
-              gap={'10px'}
-              position={'absolute'}
-              left={'150px'}
-              bottom={'0'}
-            >
-              <Svgs.NEWSLETTER_ONE />
-              <Svgs.NEWSLETTER_ONE_IMAGE />
-            </Flex>
-            <Flex
-              direction={'column'}
-              alignItems={'center'}
-              gap={'10px'}
-              position={'absolute'}
-              right={'150px'}
-              bottom={'0'}
+              left={'-8px'}
+              bottom={'30px'}
             >
               <Svgs.NEWSLETTER_ONE />
               <Svgs.NEWSLETTER_ONE_IMAGE />
@@ -2012,10 +2000,9 @@ const MobileHomePage = () => {
           minHeight={'40vh'}
           width={'100%'}
           backgroundColor={'#FFFFFF'}
-          pt={'1rem'}
         >
           <Grid
-            templateColumns={'400px 1fr 1fr 1fr 1fr'}
+            templateColumns={'1fr'}
             gridGap={'30px'}
             maxWidth={'90%'}
             m={'auto'}
@@ -2042,102 +2029,137 @@ const MobileHomePage = () => {
                 risus imperdiet.
               </Text>
             </Flex>
-            <Flex direction={'column'} justifyContent={'flex-start'}>
-              <Heading
-                fontSize={'18px'}
-                fontWeight={'500'}
-                color={'#8C97AC'}
-                pl={'5rem'}
-              >
-                Quick Links
-              </Heading>
-              <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'4rem'}>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Features
-                  </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    How It Works
-                  </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Pricing
-                  </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Categories
-                  </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    About
-                  </Text>
-                </Link>
+            <Flex
+              direction={'row'}
+              gap={'15px'}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Flex direction={'column'} justifyContent={'flex-start'}>
+                <Heading fontSize={'18px'} fontWeight={'500'} color={'#8C97AC'}>
+                  Quick Links
+                </Heading>
+                <Flex direction={'column'} gap={'10px'} pt={'20px'}>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Features
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      How It Works
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Pricing
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Categories
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      About
+                    </Text>
+                  </Link>
+                </Flex>
+              </Flex>
+              <Flex direction={'column'} justifyContent={'flex-start'}>
+                <Heading fontSize={'18px'} fontWeight={'500'} color={'#8C97AC'}>
+                  Other Links
+                </Heading>
+                <Flex direction={'column'} gap={'10px'} pt={'20px'}>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Privacy
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Terms & Conditions
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      Disclaimer
+                    </Text>
+                  </Link>
+                  <Link href={'/'}>
+                    <Text
+                      color={'#C5CBD5'}
+                      fontSize={'16px'}
+                      lineHeight={'20px'}
+                    >
+                      FAQs
+                    </Text>
+                  </Link>
+                </Flex>
               </Flex>
             </Flex>
-            <Flex direction={'column'} justifyContent={'flex-start'}>
-              <Heading
-                fontSize={'18px'}
-                fontWeight={'500'}
-                color={'#8C97AC'}
-                pl={'5rem'}
-              >
-                Other Links
-              </Heading>
-              <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'4rem'}>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Privacy
+            <Flex
+              direction={'row'}
+              gap={'15px'}
+              justifyContent={'space-between'}
+              alignItems={'center'}
+            >
+              <Flex direction={'column'} justifyContent={'flex-start'}>
+                <Heading fontSize={'18px'} fontWeight={'500'} color={'#8C97AC'}>
+                  Contacts
+                </Heading>
+                <Flex direction={'column'} gap={'10px'} pt={'20px'}>
+                  <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
+                    +2349066432526
                   </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Terms & Conditions
+                  <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
+                    hello@skylinetalk.org
                   </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    Disclaimer
-                  </Text>
-                </Link>
-                <Link href={'/'}>
-                  <Text color={'#C5CBD5'} fontSize={'16px'} lineHeight={'20px'}>
-                    FAQs
-                  </Text>
-                </Link>
+                </Flex>
               </Flex>
-            </Flex>
-            <Flex direction={'column'} justifyContent={'flex-start'}>
-              <Heading
-                fontSize={'18px'}
-                fontWeight={'500'}
-                color={'#8C97AC'}
-                pl={'7rem'}
-              >
-                Contacts
-              </Heading>
-              <Flex direction={'column'} gap={'10px'} pt={'20px'} pl={'7rem'}>
-                <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
-                  +2349066432526
-                </Text>
-                <Text color={'#FFD166'} fontSize={'16px'} lineHeight={'20px'}>
-                  hello@skylinetalk.org
-                </Text>
-              </Flex>
-            </Flex>
-            <Flex direction={'column'}>
-              <Flex
-                justifyContent={'center'}
-                alignItems={'center'}
-                gap={'15px'}
-              >
-                <Icon as={BsTwitter} size={'lg'} />
-                <Icon as={FaFacebookF} size={'lg'} />
-                <Icon as={BsGoogle} size={'lg'} />
+              <Flex direction={'column'}>
+                <Flex
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                  gap={'15px'}
+                >
+                  <Icon as={BsTwitter} size={'lg'} />
+                  <Icon as={FaFacebookF} size={'lg'} />
+                  <Icon as={BsGoogle} size={'lg'} />
+                </Flex>
               </Flex>
             </Flex>
           </Grid>
@@ -2153,7 +2175,7 @@ const MobileHomePage = () => {
               lineHeight={'20px'}
               pb={'10px'}
             >
-              Copyright© Skylinetalk 2023
+              Copyright© Skylinetalk {date?.getFullYear()}
             </Text>
           </Flex>
         </Box>

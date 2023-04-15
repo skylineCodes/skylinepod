@@ -25,7 +25,7 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
     <Drawer placement={'top'} onClose={handleClose} isOpen={isOpen}>
       <DrawerOverlay />
       <DrawerContent
-        backgroundColor={'#0D141EEB'}
+        backgroundColor={'primary.500'}
         height={'100vh'}
         maxWidth={'90%'}
       >
@@ -36,11 +36,14 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
             width={'100%'}
           >
             <Box>
-              <Svgs.LOGO />
+              <Svgs.LOGO_WHITE />
             </Box>
             <Box>
-              <Icon as={MdClose} onClick={() => handleClose()} />
-              {/* <Svgs.CLOSE_CIRCLE onClick={() => handleClose()} /> */}
+              <Icon
+                as={MdClose}
+                onClick={() => handleClose()}
+                fill={'grey.0'}
+              />
             </Box>
           </Flex>
         </DrawerHeader>
@@ -56,25 +59,13 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
                 as={NextLink}
                 href='/home'
                 color={'grey.0'}
-                fontSize={'xs'}
-                display={'flex'}
-                flexDirection={'row'}
-                justifyContent={'center'}
-                alignItems={'center'}
-                gap={'6px'}
-                outline={'none'}
+                fontSize={'lg'}
+                fontWeight={'semibold'}
+                lineHeight={'107%'}
+                letterSpacing={'0.01em'}
                 _hover={{ textDecoration: 'none', opacity: '0.8' }}
               >
-                <Text
-                  fontWeight={'semibold'}
-                  fontSize={'lg'}
-                  color={'grey.0'}
-                  lineHeight={'107%'}
-                  letterSpacing={'0.01em'}
-                >
-                  Services
-                </Text>
-                <Icon as={IoChevronDownOutline} color={'grey.0'} />
+                Features
               </Link>
               <Link
                 as={NextLink}
@@ -86,7 +77,7 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
                 letterSpacing={'0.01em'}
                 _hover={{ textDecoration: 'none', opacity: '0.8' }}
               >
-                Individuals
+                How It Works
               </Link>
               <Link
                 as={NextLink}
@@ -110,7 +101,7 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
                 letterSpacing={'0.01em'}
                 _hover={{ textDecoration: 'none', opacity: '0.8' }}
               >
-                About
+                Category
               </Link>
               <Link
                 as={NextLink}
@@ -122,48 +113,8 @@ const MobileNavbar = ({ handleClose, isOpen }: any) => {
                 letterSpacing={'0.01em'}
                 _hover={{ textDecoration: 'none', opacity: '0.8' }}
               >
-                Contact
+                About
               </Link>
-            </Flex>
-            <Flex
-              direction={'column'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              gap={'16px'}
-              mt={'70px'}
-            >
-              <Button
-                text='Sign up'
-                // fontSize={'xs'}
-                // fontWeight={'semibold'}
-                // color={'primary.50'}
-                // height={'50px'}
-                // width={'230px'}
-                style={{
-                  border: '2px solid #FFFFFF',
-                  borderRadius: '60px',
-                  backgroundColor: '#FFFFFF',
-                  '&:hover': {
-                    backgroundColor: '#FFFFFF',
-                  },
-                }}
-              />
-              <Button
-                text='Log in'
-                // fontSize={'xs'}
-                // fontWeight={'semibold'}
-                // color={'grey.0'}
-                // height={'50px'}
-                // width={'230px'}
-                style={{
-                  border: '2px solid #FFFFFF',
-                  borderRadius: '60px',
-                  backgroundColor: 'transparent',
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                  },
-                }}
-              />
             </Flex>
           </Flex>
         </DrawerBody>
