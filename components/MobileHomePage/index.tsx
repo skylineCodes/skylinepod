@@ -15,6 +15,7 @@ import { FaFacebookF } from 'react-icons/fa';
 import MobileNavbar from '../MobileNavbar';
 import { motion, isValidMotionProp, AnimatePresence, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useRouter } from 'next/navigation';
 
 const ChakraBox: any = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -44,6 +45,21 @@ const MobileHomePage = () => {
 
   const openNavbar = () => setShowNavbar(true);
   const closeNavbar = () => setShowNavbar(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  
+  const router = useRouter();
+  
+  const gotoDashboard = () => {
+    try {
+      setLoading(true);
+
+      router.push('/dashboard');
+
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (inView) {
@@ -216,9 +232,10 @@ const MobileHomePage = () => {
                   fontWeight={'500'}
                   lineHeight={'23px'}
                   _hover={{ opacity: 0.8 }}
+                  onClick={gotoDashboard}
                 >
                   <Text color={'#FFFFFF'} fontSize={'15px'}>
-                    Start trial for free
+                    Proceed to dashboard
                   </Text>
                 </Button>
                 <Flex
