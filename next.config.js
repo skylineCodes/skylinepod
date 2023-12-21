@@ -4,7 +4,11 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['images.unsplash.com', 'plus.unsplash.com'],
+    domains: [
+      'images.unsplash.com',
+      'plus.unsplash.com',
+      'deow9bq0xqvbj.cloudfront.net',
+    ],
   },
   webpack(config) {
     config.module.rules.push({

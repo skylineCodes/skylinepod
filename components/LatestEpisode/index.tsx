@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Flex, Heading, Text} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
@@ -8,11 +8,16 @@ import burnaBoy from '../../public/burna-boy3.jpg';
 import { currentPlayer } from '../../redux/reducers/player'
 
 export interface LatestEpisodesProps {
-  src?: string;
+  title: string;
+  src: string;
+  image: string;
+  date: string;
+  name: string;
 }
 
-const LatestEpisode = ({ src }: LatestEpisodesProps) => {
+const LatestEpisode = ({ src, title, image, date, name }: LatestEpisodesProps) => {
   const dispatch = useDispatch();
+  const [duration, setDuration] = useState<string>('0');
 
   return (
     <>
@@ -27,6 +32,9 @@ const LatestEpisode = ({ src }: LatestEpisodesProps) => {
             currentPlayer({
               item: {
                 audio: src,
+                title,
+                image,
+                name
               },
             })
           )
@@ -43,8 +51,8 @@ const LatestEpisode = ({ src }: LatestEpisodesProps) => {
               style={{
                 borderRadius: '4px',
               }}
-              src={burnaBoy}
-              alt='Fluffybuns the destroyer'
+              src={`${image}`}
+              alt={title}
               width={70}
               height={70}
             />
@@ -56,16 +64,27 @@ const LatestEpisode = ({ src }: LatestEpisodesProps) => {
               fontSize={'xxs'}
               fontWeight={'medium'}
             >
-              241- Mind hack...
+              {String(title).length > 10
+                ? `${String(title).substring(0, 10)}...`
+                : String(title)}
             </Heading>
             <Text color={'grey.100'} fontSize={'xxs'} fontWeight={'thin'}>
-              Today
+              {date}
             </Text>
           </Flex>
         </Flex>
         <Flex>
+          <audio
+            id='ad'
+            src={src}
+            controls
+            hidden
+            onLoadedMetadata={(event: any) =>
+              setDuration(String(event.target.duration).substring(0, 2))
+            }
+          ></audio>
           <Text color={'grey.100'} fontSize={'xxs'} fontWeight={'thin'}>
-            27 mins
+            {`${duration} mins`}
           </Text>
         </Flex>
       </Flex>

@@ -22,6 +22,8 @@ const Player = () => {
 
   const player: any = useSelector((state: any) => state.player.player);
 
+  console.log(player);
+
   const [currentAudio, setCurrentAudio] = useState<string>('');
 
   const audioToggle: any = useSelector(
@@ -41,7 +43,7 @@ const Player = () => {
   ]);
 
   useEffect(() => {
-    console.log(audioToggle)
+    // console.log(audioToggle)
     setCurrentAudio(player?.audio);
   }, [audioToggle, player]);
 
@@ -123,7 +125,7 @@ const Player = () => {
         mt={'0rem !important'}
       >
         <Grid
-          templateColumns='350px 1fr 300px'
+          templateColumns='350px  1fr 300px'
           gridGap={'50px'}
           height={'inherit'}
           position={'absolute'}
@@ -140,28 +142,34 @@ const Player = () => {
             flexDirection={'column'}
             justifyContent={'flex-start'}
             alignItems={'center'}
+            width={'100%'}
+            height={'100%'}
           >
             <Flex
               direction={'row'}
               justifyContent={'flex-start'}
               alignItems={'center'}
               gap={'10px'}
+              width={'100%'}
+              height={'100%'}
             >
               <Image
                 style={{
                   borderRadius: '4px',
                 }}
-                src={burnaBoy}
-                alt='Fluffybuns the destroyer'
+                src={`${player?.image}`}
+                alt={player?.title}
                 width={80}
                 height={80}
               />
               <Box display={'flex'} flexDirection={'column'} gap={'4px'}>
                 <Text fontSize={'sm'} color={'secondary.50'}>
-                  Cowboy Be-bop Influences
+                  {String(player?.title).length > 10
+                    ? `${String(player?.title).substring(0, 15)}...`
+                    : String(player?.title)}
                 </Text>
                 <Text fontSize={'xxs'} color={'grey.100'} fontWeight={'thin'}>
-                  Anime Talks
+                  {player?.name}
                 </Text>
               </Box>
             </Flex>
@@ -184,7 +192,6 @@ const Player = () => {
                 <audio
                   ref={audioPlayer}
                   src={currentAudio}
-                  // src='https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3'
                   preload='metadata'
                 ></audio>
                 <Icon

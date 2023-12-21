@@ -35,6 +35,9 @@ export const playerSlice = createSlice({
     currentPlayer: (state, action) => {
       const item = {
         audio: action.payload.item?.audio,
+        image: action.payload.item?.image,
+        name: action.payload.item?.name,
+        title: action.payload.item?.title,
       };
 
       state.player = item;

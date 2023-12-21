@@ -77,13 +77,15 @@ const Featured = () => {
           />
         </Flex>
         <Flex direction={'column'} justifyContent={'flex-start'} gap={'20px'}>
-          <Box mt={5}>
+          <Box mt={5} width={'100%'} height={'100%'}>
             <Image
               style={{
                 borderRadius: '4px',
               }}
-              src={burnaBoy}
-              alt='Fluffybuns the destroyer'
+              src={`https://deow9bq0xqvbj.cloudfront.net/dir-logo/767235/767235_300x300.jpg`}
+              alt='Featured cover'
+              width={500}
+              height={500}
             />
           </Box>
           <Box>
@@ -97,7 +99,14 @@ const Featured = () => {
             </Heading>
             <Flex direction={'column'} gap={'7px'} mt={'7px'} pb={'1rem'}>
               {playlists?.map((item: any, index: number) => (
-                <LatestEpisode key={index} src={item?.fileUrl} />
+                <LatestEpisode
+                  key={index}
+                  title={item?.title}
+                  image={item?.podcastThumb}
+                  date={item?.date}
+                  src={item?.fileUrl}
+                  name={item?.artistName}
+                />
               ))}
             </Flex>
           </Box>

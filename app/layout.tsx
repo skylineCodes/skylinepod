@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  ChakraProvider,
-  extendTheme,
-  ScaleFade,
-} from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, ScaleFade } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { themeSettings } from '@/theme';
 import { configureStore } from '@reduxjs/toolkit';
@@ -22,7 +18,7 @@ setupListeners(store.dispatch);
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   const mode = 'dark';
   const theme = useMemo(() => extendTheme(themeSettings()), [mode]);
