@@ -98,16 +98,19 @@ const Featured = () => {
               Latest episodes
             </Heading>
             <Flex direction={'column'} gap={'7px'} mt={'7px'} pb={'1rem'}>
-              {playlists?.map((item: any, index: number) => (
-                <LatestEpisode
-                  key={index}
-                  title={item?.title}
-                  image={item?.podcastThumb}
-                  date={item?.date}
-                  src={item?.fileUrl}
-                  name={item?.artistName}
-                />
-              ))}
+              {playlists?.map(
+                (item: any, index: number) =>
+                  item?.featured === true && (
+                    <LatestEpisode
+                      key={index}
+                      title={item?.title}
+                      image={item?.podcastThumb}
+                      date={item?.date}
+                      src={item?.fileUrl}
+                      name={item?.artistName}
+                    />
+                  )
+              )}
             </Flex>
           </Box>
         </Flex>

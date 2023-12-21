@@ -22,8 +22,6 @@ const Player = () => {
 
   const player: any = useSelector((state: any) => state.player.player);
 
-  console.log(player);
-
   const [currentAudio, setCurrentAudio] = useState<string>('');
 
   const audioToggle: any = useSelector(
@@ -92,10 +90,12 @@ const Player = () => {
   };
 
   const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current?.currentTime;
+    if (progressBar?.current !== undefined) {
+      progressBar.current.value = audioPlayer.current?.currentTime;
 
-    changePlayerCurrentTime();
-    animationRef.current = requestAnimationFrame(whilePlaying);
+      changePlayerCurrentTime();
+      animationRef.current = requestAnimationFrame(whilePlaying);
+    }
   };
 
   const changeRange = () => {

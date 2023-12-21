@@ -12,9 +12,25 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 import Input from '../Input';
 import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 const DesktopHomePage = () => {
   const [date, setDate] = useState<any>(new Date());
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const gotoDashboard = () => {
+    try {
+      setLoading(true);
+
+      router.push('/dashboard');
+
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+    }
+  }
 
   return (
     <Box>
@@ -97,9 +113,11 @@ const DesktopHomePage = () => {
                 fontWeight={'500'}
                 lineHeight={'23px'}
                 _hover={{ opacity: 0.8 }}
+                isLoading={loading}
+                onClick={gotoDashboard}
               >
                 <Text color={'#FFFFFF'} fontSize={'18px'}>
-                  Start trial for free
+                  Proceed to dashboard
                 </Text>
               </Button>
               <Flex gap={'7px'} cursor={'pointer'}>
@@ -421,7 +439,7 @@ const DesktopHomePage = () => {
                   lineHeight={'21px'}
                   fontWeight={'medium'}
                 >
-                  Record your episodesat any occassions.
+                  Search for your favorite podcast.
                 </Text>
               </Flex>
               <Flex
@@ -436,7 +454,7 @@ const DesktopHomePage = () => {
                   lineHeight={'21px'}
                   fontWeight={'medium'}
                 >
-                  Record your episodesat any occassions.
+                  Play your chosen podcast anywhere you like.
                 </Text>
               </Flex>
               <Flex
@@ -451,7 +469,7 @@ const DesktopHomePage = () => {
                   lineHeight={'21px'}
                   fontWeight={'medium'}
                 >
-                  Record your episodesat any occassions.
+                  Mark your podcast as favorite.
                 </Text>
               </Flex>
               <Flex
@@ -466,7 +484,7 @@ const DesktopHomePage = () => {
                   lineHeight={'21px'}
                   fontWeight={'medium'}
                 >
-                  Record your episodesat any occassions.
+                  Download for listening later.
                 </Text>
               </Flex>
             </Flex>
@@ -514,6 +532,7 @@ const DesktopHomePage = () => {
         </Grid>
       </Box>
       <Box
+        id='howitworks'
         position={'relative'}
         minHeight={'80vh'}
         width={'100%'}
@@ -547,7 +566,7 @@ const DesktopHomePage = () => {
             width={'55%'}
             textAlign={'center'}
           >
-            It&apos;s simple & quick to record your{' '}
+            It&apos;s simple & quick to listen to your favorite{' '}
             <Text as={'span'} color={'#514EB6'}>
               podcast
             </Text>
@@ -582,7 +601,7 @@ const DesktopHomePage = () => {
               fontSize={'20px'}
               fontWeight={'medium'}
             >
-              Record your podcast
+              Search for your favorite podcast.
             </Heading>
             <Text
               color={'#666666'}
@@ -612,7 +631,7 @@ const DesktopHomePage = () => {
               fontSize={'20px'}
               fontWeight={'medium'}
             >
-              Record your podcast
+              Play your podcast anywhere you like.
             </Heading>
             <Text
               color={'#666666'}
@@ -642,7 +661,7 @@ const DesktopHomePage = () => {
               fontSize={'20px'}
               fontWeight={'medium'}
             >
-              Record your podcast
+              Mark your podcast as favorite.
             </Heading>
             <Text
               color={'#666666'}
@@ -672,7 +691,7 @@ const DesktopHomePage = () => {
               fontSize={'20px'}
               fontWeight={'medium'}
             >
-              Record your podcast
+              Download for listening later.
             </Heading>
             <Text
               color={'#666666'}
@@ -1464,6 +1483,7 @@ const DesktopHomePage = () => {
         minHeight={'80vh'}
         width={'100%'}
         backgroundColor={'#FCF3FF'}
+        id={'pricing'}
       >
         <Flex
           pt={'2rem'}

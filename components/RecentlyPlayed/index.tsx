@@ -21,6 +21,11 @@ export interface RecentlyPlayedProps {
   no?: number;
 }
 
+function randomIntFromInterval(min: number, max: number) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 const RecentlyPlayed = ({ no }: RecentlyPlayedProps) => {
   return (
     <>
@@ -77,7 +82,10 @@ const RecentlyPlayed = ({ no }: RecentlyPlayedProps) => {
             alignItems={'center'}
           >
             <Box width={'75%'}>
-              <Slider aria-label='slider-ex-1' defaultValue={55}>
+              <Slider
+                aria-label='slider-ex-1'
+                defaultValue={randomIntFromInterval(20, 100)}
+              >
                 <SliderTrack>
                   <SliderFilledTrack />
                 </SliderTrack>

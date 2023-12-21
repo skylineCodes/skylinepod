@@ -32,9 +32,11 @@ const Navbar = () => {
           justifyContent={'center'}
           alignItems={'flex-start'}
         >
-          <Heading>
-            <Svgs.LOGO />
-          </Heading>
+          <Link href='/'>
+            <Heading>
+              <Svgs.LOGO />
+            </Heading>
+          </Link>
         </Flex>
         <Flex
           direction={'row'}
@@ -44,7 +46,7 @@ const Navbar = () => {
         >
           <Link
             as={NextLink}
-            href='/home'
+            href={'#feature'}
             color={'home.50'}
             fontWeight={'medium'}
             fontSize={'xs'}
@@ -56,7 +58,7 @@ const Navbar = () => {
           </Link>
           <Link
             as={NextLink}
-            href='/home'
+            href='#howitworks'
             color={'home.50'}
             fontWeight={'medium'}
             fontSize={'xs'}
@@ -68,7 +70,7 @@ const Navbar = () => {
           </Link>
           <Link
             as={NextLink}
-            href='/home'
+            href='#pricing'
             color={'home.50'}
             fontWeight={'medium'}
             fontSize={'xs'}
@@ -80,7 +82,7 @@ const Navbar = () => {
           </Link>
           <Link
             as={NextLink}
-            href='/home'
+            href='#category'
             color={'home.50'}
             fontWeight={'medium'}
             fontSize={'xs'}
@@ -92,7 +94,7 @@ const Navbar = () => {
           </Link>
           <Link
             as={NextLink}
-            href='/home'
+            href='/about'
             color={'home.50'}
             fontWeight={'medium'}
             fontSize={'xs'}
