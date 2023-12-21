@@ -45,7 +45,7 @@ const BottomNavigation = () => {
             <Box>
               <Link href={'/dashboard'}>
                 {pathname === '/dashboard' ? (
-                  <Svgs.HOME_BLUE />
+                  <Svgs.HOME_BLUE color={'grey.500'} />
                 ) : (
                   <Svgs.HOME_WHITE />
                 )}
@@ -54,7 +54,7 @@ const BottomNavigation = () => {
             <Box>
               <Link href={'/explore'}>
                 {pathname === '/explore' ? (
-                  <Svgs.DISCOVERY_BLUE />
+                  <Svgs.DISCOVERY_BLUE color={'grey.500'} />
                 ) : (
                   <Svgs.DISCOVERY_WHITE />
                 )}
@@ -63,7 +63,7 @@ const BottomNavigation = () => {
             <Box>
               <Link href={'/playlists'}>
                 {pathname === '/playlists' ? (
-                  <Svgs.PLAY_BLUE />
+                  <Svgs.PLAY_BLUE color={'grey.500'} />
                 ) : (
                   <Svgs.PLAY_WHITE />
                 )}

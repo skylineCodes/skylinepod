@@ -96,7 +96,7 @@ const MobileDashboard = () => {
         justifyContent={isMobile ? 'flex-start' : 'center'}
         alignItems={isMobile ? 'flex-start' : 'center'}
         gap={'30px'}
-        backgroundColor={'primary.50'}
+        backgroundColor={'grey.500'}
       >
         <Box
           display={'flex'}
@@ -123,7 +123,7 @@ const MobileDashboard = () => {
               lineHeight={'base'}
               noOfLines={1}
             >
-              Hi, Korede!{' '}
+              Hello, {' '}
               <h3
                 style={{
                   display: 'inline',
@@ -138,7 +138,7 @@ const MobileDashboard = () => {
               color={'secondary.50'}
               lineHeight={'24px'}
             >
-              Let's listen to your favorite podcast now
+              Listen to your favorite podcast now
             </Text>
           </Flex>
           <Flex>
