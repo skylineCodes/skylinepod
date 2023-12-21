@@ -1,11 +1,11 @@
 export default function Head() {
   return (
     <>
-      <title>SkyCast</title>
+      <title>SkylineTalk</title>
       <meta content='width=device-width, initial-scale=1' name='viewport' />
       <meta
         name='description'
-        content='Easily create and host your podcast on SkyCast!'
+        content='Listen to your favorite podcast on SkylineTalk!'
       />
       <link rel='icon' href='/favicon.ico' />
     </>
