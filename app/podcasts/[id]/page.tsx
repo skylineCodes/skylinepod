@@ -26,6 +26,7 @@ import { motion, isValidMotionProp } from 'framer-motion';
 import Button from '@/components/Button';
 import Podcast from '@/components/Podcast';
 import PodcastList from '@/components/PodcastList';
+import { playlists } from '@/components/Playlist';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -37,37 +38,6 @@ const ChakraBox2 = chakra(motion.div, {
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-const podcastData = [
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG9kY2FzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1664477096404-b8469646b867?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9kY2FzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1581368087049-7034ed0d1e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1487537023671-8dce1a785863?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1661714205805-14e04764217d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1664200913726-f40fd0c4f6ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-];
-
 const PodcastDetails = () => {
   const router = useRouter(); 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -76,6 +46,10 @@ const PodcastDetails = () => {
   const [categoriesWidth, setCategoriesWidth] = useState<number>(0);
   const carousel = useRef<any>();
   const categoriesRef = useRef<any>();
+  
+  const newEpisodes = playlists?.filter(
+    (item: any, index: number) => item?.new === true
+  );
   
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
@@ -307,9 +281,9 @@ const PodcastDetails = () => {
                   drag={'x'}
                   dragConstraints={{ right: 0, left: -width }}
                 >
-                  {podcastData?.map((item: any, index: number) => (
+                  {newEpisodes?.map((item: any, index: number) => (
                     <Box key={index} className='podcast-box'>
-                      <Podcast imageUrl={item?.imageUrl} />
+                      <Podcast image={item?.podcastThumb} title={item?.title} />
                     </Box>
                   ))}
                 </ChakraBox2>
@@ -325,9 +299,18 @@ const PodcastDetails = () => {
                 Available episodes
               </Heading>
               <Flex direction={'column'} gap={'10px'} mt={'15px'}>
-                {[1, 2, 3, 4, 5, 6, 7]?.map((item: any, index: number) => (
-                  <PodcastList key={index} />
-                ))}
+                {playlists?.map(
+                  (item: any, index: number) =>
+                    item?.recommended === true && (
+                      <PodcastList
+                        key={index}
+                        src={item?.fileUrl}
+                        title={item?.title}
+                        image={item.podcastThumb}
+                        artistName={item?.artistName}
+                      />
+                    )
+                )}
               </Flex>
             </Flex>
           </Flex>

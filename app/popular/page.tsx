@@ -11,6 +11,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import PodcastList from '@/components/PodcastList';
+import { playlists } from '@/components/Playlist';
 
 const Explore = () => {
   const router = useRouter(); 
@@ -197,9 +198,18 @@ const Explore = () => {
                 <Svgs.ROUNDED_RIGHT_SHORT_ARROW />
               </Flex>
               <Flex direction={'column'} gap={'10px'} mt={'15px'}>
-                {[1, 2, 3, 4, 5, 6, 7]?.map((item: any, index: number) => (
-                  <PodcastList key={index} />
-                ))}
+                {playlists?.map(
+                  (item: any, index: number) =>
+                    item?.recommended === true && (
+                      <PodcastList
+                        key={index}
+                        src={item?.fileUrl}
+                        title={item?.title}
+                        image={item.podcastThumb}
+                        artistName={item?.artistName}
+                      />
+                    )
+                )}
               </Flex>
             </Box>
           </Flex>

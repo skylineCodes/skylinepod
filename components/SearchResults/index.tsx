@@ -7,6 +7,7 @@ import {
   shouldForwardProp,
 } from '@chakra-ui/react';
 import React from 'react';
+import { playlists } from '../Playlist';
 import PodcastList from '../PodcastList';
 
 const SearchResults = () => {
@@ -19,8 +20,14 @@ const SearchResults = () => {
           </Heading>
         </Flex>
         <Flex direction={'column'} gap={'10px'} mt={'16px'}>
-          {[1, 2, 3, 4, 5, 6, 7]?.map((item: any, index: number) => (
-            <PodcastList key={index} />
+          {playlists?.map((item: any, index: number) => (
+            <PodcastList
+              key={index}
+              src={item?.fileUrl}
+              title={item?.title}
+              image={item.podcastThumb}
+              artistName={item?.artistName}
+            />
           ))}
         </Flex>
       </Box>
