@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export interface podcastProps {
   image: string;
-  title: string;
+  title?: string;
 }
 
 const Podcast = ({ image, title }: podcastProps) => {
