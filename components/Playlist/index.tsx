@@ -5,6 +5,7 @@ export const playlists = [
     artistName: 'The Papaya Podcast',
     date: '2023-12-04',
     featured: true,
+    recommended: true,
     new: true,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/614998/614998_300x300.jpeg',
@@ -17,6 +18,7 @@ export const playlists = [
     artistName: 'Chasing Life',
     date: '2023-12-19',
     featured: true,
+    recommended: true,
     new: false,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/767235/767235_300x300.jpg',
@@ -30,6 +32,7 @@ export const playlists = [
     artistName: 'The Papaya Podcast',
     date: '2023-12-11',
     featured: true,
+    recommended: false,
     new: true,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/614998/614998_300x300.jpeg',
@@ -43,6 +46,7 @@ export const playlists = [
     artistName: 'On Purpose with Jay Shetty',
     date: '2023-12-18',
     featured: true,
+    recommended: true,
     new: true,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2193124/2193124_300x300.jpg',
@@ -55,6 +59,7 @@ export const playlists = [
     artistName: 'Nutrition Unlocked',
     date: '2022-11-25',
     featured: false,
+    recommended: false,
     new: false,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2355558/2355558_300x300.jpg',
@@ -68,6 +73,7 @@ export const playlists = [
     artistName: 'On Purpose with Jay Shetty',
     date: '2023-12-15',
     featured: false,
+    recommended: false,
     new: true,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2193124/2193124_300x300.jpg',
@@ -80,6 +86,7 @@ export const playlists = [
     artistName: 'From Where We Stand',
     date: '2022-01-21',
     featured: true,
+    recommended: true,
     new: true,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2217400/2217400_300x300.jpg',
@@ -93,6 +100,7 @@ export const playlists = [
     artistName: 'Nutrition Unlocked',
     date: '2023-12-15',
     featured: true,
+    recommended: false,
     new: false,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2355558/2355558_300x300.jpg',
@@ -105,6 +113,7 @@ export const playlists = [
     artistName: 'From Where We Stand',
     date: '2021-10-13',
     featured: true,
+    recommended: false,
     new: false,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/2217400/2217400_300x300.jpg',
@@ -117,6 +126,7 @@ export const playlists = [
     artistName: 'Chasing Life',
     date: '2023-12-12',
     featured: false,
+    recommended: true,
     new: false,
     podcastThumb:
       'https://deow9bq0xqvbj.cloudfront.net/dir-logo/767235/767235_300x300.jpg',

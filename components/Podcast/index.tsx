@@ -6,10 +6,11 @@ import { FaPlay } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 export interface podcastProps {
-  imageUrl?: string;
+  image: string;
+  title: string;
 }
 
-const Podcast = ({ imageUrl }: podcastProps) => {
+const Podcast = ({ image, title }: podcastProps) => {
   const router = useRouter();
 
   const handlePlay = () => {
@@ -24,9 +25,9 @@ const Podcast = ({ imageUrl }: podcastProps) => {
           height: '100%',
           objectFit: 'cover',
         }}
-        src={`${imageUrl}`}
+        src={`${image}`}
         fill={true}
-        alt='Fluffybuns the destroyer'
+        alt={`${title}`}
       />
       <Flex
         direction={'row'}
@@ -38,7 +39,7 @@ const Podcast = ({ imageUrl }: podcastProps) => {
         left={'0'}
         zIndex={'25'}
         height={'50px'}
-        background={'rgba(82, 110, 160, 0.7)'}
+        background={'rgba(23, 23, 37, 0.7)'}
       >
         <Flex
           direction={'row'}
@@ -60,7 +61,9 @@ const Podcast = ({ imageUrl }: podcastProps) => {
               letterSpacing={'0.005em'}
               textAlign={'left'}
             >
-              Annie - Stories about wrong impressions
+              {String(title).length > 10
+                ? `${String(title).substring(0, 15)}...`
+                : String(title)}
             </Text>
           </Flex>
           <Flex

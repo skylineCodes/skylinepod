@@ -38,8 +38,6 @@ const DesktopDashboard = () => {
     (item: any, index: number) => item?.artistName === 'Chasing Life'
   );
 
-  console.log(chasingLifeEpisodes);
-
   return (
     <Suspense fallback={<Spinner />}>
       <Stack height={'100vh'}>

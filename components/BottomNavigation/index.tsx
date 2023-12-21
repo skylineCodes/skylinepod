@@ -30,7 +30,7 @@ const BottomNavigation = () => {
         <Flex
           direction={'column'}
           justifyContent={'center'}
-          backgroundColor={'grey.0'}
+          backgroundColor={'grey.500'}
           p={6}
           position={'absolute'}
           bottom={'0'}

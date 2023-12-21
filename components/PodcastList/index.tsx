@@ -5,15 +5,18 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import Link from 'next/link';
-import burnaBoy from '../../public/burna-boy3.jpg';
+// import burnaBoy from '../../public/burna-boy3.jpg';
 import { currentPlayer } from '../../redux/reducers/player';
 import { Svgs } from '@/assets';
 
 export interface PodcastListsProps {
-  src?: string;
+  src: string;
+  image: string;
+  title: string;
+  artistName: string;
 }
 
-const PodcastList = ({ src }: PodcastListsProps) => {
+const PodcastList = ({ src, image, title, artistName }: PodcastListsProps) => {
   const dispatch = useDispatch();
 
   return (
@@ -24,15 +27,15 @@ const PodcastList = ({ src }: PodcastListsProps) => {
         cursor={'pointer'}
         pr={'7px'}
         _hover={{ backgroundColor: 'grey.500', borderRadius: '4px' }}
-        // onClick={() =>
-        //   dispatch(
-        //     currentPlayer({
-        //       item: {
-        //         audio: src,
-        //       },
-        //     })
-        //   )
-        // }
+        onClick={() =>
+          dispatch(
+            currentPlayer({
+              item: {
+                audio: src,
+              },
+            })
+          )
+        }
       >
         <Flex
           direction={'row'}
@@ -47,9 +50,10 @@ const PodcastList = ({ src }: PodcastListsProps) => {
                 height: '100%',
                 objectFit: 'cover',
               }}
-              src={burnaBoy}
-              alt='Fluffybuns the destroyer'
+              src={`${image}`}
+              alt={`${title}`}
               width={70}
+              height={80}
             />
           </Box>
           <Flex
@@ -64,7 +68,9 @@ const PodcastList = ({ src }: PodcastListsProps) => {
                 fontSize={'xxs'}
                 fontWeight={'bold'}
               >
-                Mind hack talks
+                {String(title).length > 10
+                  ? `${String(title).substring(0, 25)}...`
+                  : String(title)}
               </Heading>
               <Text
                 as={'span'}
@@ -72,10 +78,10 @@ const PodcastList = ({ src }: PodcastListsProps) => {
                 fontSize={'xxs'}
                 fontWeight={'normal'}
               >
-                By Alixen Elior
+                By {artistName}
               </Text>
             </Flex>
-            <Box>
+            {/* <Box>
               <Text
                 color={'secondary.10'}
                 fontSize={'10px'}
@@ -83,13 +89,13 @@ const PodcastList = ({ src }: PodcastListsProps) => {
               >
                 11:25/12:35
               </Text>
-            </Box>
+            </Box> */}
           </Flex>
         </Flex>
         <Flex position={'absolute'} right={'0'}>
           <Box>
             <Link href={'/playing'}>
-              <Svgs.PLAY_ROUND_BLUE />            
+              <Svgs.PLAY_ROUND_BLUE color={'grey.500'} />
             </Link>
           </Box>
         </Flex>

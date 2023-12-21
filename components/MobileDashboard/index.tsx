@@ -26,6 +26,7 @@ import './styles.css';
 import TopPodcasters from '../TopPodcasters';
 import BottomNavigation from '../BottomNavigation';
 import PodcastList from '../PodcastList';
+import { playlists } from '../Playlist';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -73,13 +74,30 @@ const podcastData = [
   },
 ];
 
+// export async function getStaticProps() {  
+//   const latestEpisodes = playlists?.filter(
+//     (item: any, index: number) => item?.new === true
+//   );
+
+//   return {
+//     props: {
+//       latestEpisodes,
+//     },
+//   };
+// }
+
 const MobileDashboard = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const formBackground = useColorModeValue('secondary.50', 'grey.500');
   const [width, setWidth] = useState<number>(0);
+  // const [newEpisodes, setNewEpisodes] = useState<any>(latestEpisodes);
   const [topPodcasterWidth, setTopPodcasterWidth] = useState<number>(0);
   const carousel = useRef<any>();
   const topPodcaster = useRef<any>();
+
+  const newEpisodes = playlists?.filter(
+    (item: any, index: number) => item?.new === true
+  );
 
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
@@ -123,7 +141,7 @@ const MobileDashboard = () => {
               lineHeight={'base'}
               noOfLines={1}
             >
-              Hello, {' '}
+              Hello,{' '}
               <h3
                 style={{
                   display: 'inline',
@@ -176,7 +194,7 @@ const MobileDashboard = () => {
                       borderRadius: '24px 24px 0px 0px',
                       objectFit: 'cover',
                       background:
-                        'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #526EA0 75.64%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
+                        'linear-gradient(270.14deg, rgba(82, 110, 160, 0) 0.13%, #171725 75.64%), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60)',
                       height: '100%',
                       zIndex: '20',
                     }}
@@ -258,7 +276,7 @@ const MobileDashboard = () => {
                   >
                     Podcasts today
                   </Heading>
-                  <Svgs.ROUNDED_RIGHT_SHORT_ARROW />
+                  <Svgs.ROUNDED_RIGHT_SHORT_ARROW color={'grey.500'} />
                 </Flex>
                 <ChakraBox
                   className='carousel'
@@ -273,9 +291,12 @@ const MobileDashboard = () => {
                     drag={'x'}
                     dragConstraints={{ right: 0, left: -width }}
                   >
-                    {podcastData?.map((item: any, index: number) => (
+                    {newEpisodes?.map((item: any, index: number) => (
                       <Box key={index} className='podcast-box'>
-                        <Podcast imageUrl={item?.imageUrl} />
+                        <Podcast
+                          image={item?.podcastThumb}
+                          title={item?.title}
+                        />
                       </Box>
                     ))}
                   </ChakraBox2>
@@ -346,9 +367,18 @@ const MobileDashboard = () => {
                   <Svgs.ROUNDED_RIGHT_SHORT_ARROW />
                 </Flex>
                 <Flex direction={'column'} gap={'10px'} mt={'15px'}>
-                  {[1, 2, 3, 4, 5, 6, 7]?.map((item: any, index: number) => (
-                    <PodcastList key={index} />
-                  ))}
+                  {playlists?.map(
+                    (item: any, index: number) =>
+                      item?.recommended === true && (
+                        <PodcastList
+                          key={index}
+                          src={item?.fileUrl}
+                          title={item?.title}
+                          image={item.podcastThumb}
+                          artistName={item?.artistName}
+                        />
+                      )
+                  )}
                 </Flex>
               </Box>
             </Box>
@@ -360,6 +390,6 @@ const MobileDashboard = () => {
       </Flex>
     </>
   );
-}
+};
 
 export default MobileDashboard;
