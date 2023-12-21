@@ -25,6 +25,8 @@ import { motion, isValidMotionProp } from 'framer-motion';
 import Podcast from '@/components/Podcast';
 import CommentModal from '@/components/CommentModal';
 import { playlists } from '@/components/Playlist';
+import { currentPlayer } from '@/redux/reducers/player';
+import { useDispatch } from 'react-redux';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -36,40 +38,8 @@ const ChakraBox2 = chakra(motion.div, {
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-
-const podcastData = [
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG9kY2FzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1664477096404-b8469646b867?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9kY2FzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1581368087049-7034ed0d1e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1487537023671-8dce1a785863?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1661714205805-14e04764217d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    imageUrl:
-      'https://plus.unsplash.com/premium_photo-1664200913726-f40fd0c4f6ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-  },
-];
-
 const Explore = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [width, setWidth] = useState<number>(0);
@@ -97,7 +67,7 @@ const Explore = () => {
         justifyContent={isMobile ? 'flex-start' : 'center'}
         alignItems={isMobile ? 'flex-start' : 'center'}
         gap={'20px'}
-        backgroundColor={'primary.50'}
+        backgroundColor={'grey.500'}
       >
         <Box
           display={'flex'}
@@ -161,7 +131,7 @@ const Explore = () => {
               minHeight={'25vh'}
               width={'100%'}
               position={'relative'}
-              backgroundColor={'#526EA0'}
+              backgroundColor={'grey.500'}
               p={'23px 19px'}
             >
               <Flex direction={'column'}>
@@ -224,15 +194,6 @@ const Explore = () => {
                   cursor={'pointer'}
                   backgroundColor={'grey.0'}
                   boxShadow={'0px 30px 60px rgba(103, 103, 103, 0.15)'}
-                  // onClick={() =>
-                  //   dispatch(
-                  //     currentPlayer({
-                  //       item: {
-                  //         audio: src,
-                  //       },
-                  //     })
-                  //   )
-                  // }
                 >
                   <Flex
                     direction={'row'}
@@ -240,7 +201,7 @@ const Explore = () => {
                     alignItems={'flex-start'}
                     gap={'7px'}
                   >
-                    <Box width={'70px'} height={'100%'}>
+                    <Box width={'70px'} height={'100%'} p={'5px'}>
                       <Image
                         style={{
                           borderRadius: '4px',
@@ -326,7 +287,12 @@ const Explore = () => {
                 >
                   {newEpisodes?.map((item: any, index: number) => (
                     <Box key={index} className='podcast-box'>
-                      <Podcast image={item?.podcastThumb} title={item?.title} />
+                      <Podcast
+                        image={item?.podcastThumb}
+                        title={item?.title}
+                        artistName={item?.artistName}
+                        fileUrl={item?.fileUrl}
+                      />
                     </Box>
                   ))}
                 </ChakraBox2>

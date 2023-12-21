@@ -10,6 +10,7 @@ import {
   Grid,
   Heading,
   IconButton,
+  Icon,
   shouldForwardProp,
   Slider,
   SliderFilledTrack,
@@ -33,6 +34,7 @@ import BackButton from '@/components/BackButton';
 import { BsArrowLeft } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import CommentModal from '@/components/CommentModal';
+import { FaPause } from 'react-icons/fa';
 
 const Playing = () => {
   const router = useRouter();
@@ -48,7 +50,9 @@ const Playing = () => {
   const progressBar: any = useRef<any>(); // reference our progress bar
   const animationRef: any = useRef<any>(); // reference the animation
 
-  const player: any = useSelector((state: any) => state.player.player);
+  const player: any = useSelector((state: any) => state?.player?.player);
+
+  console.log(player)
 
   const [currentAudio, setCurrentAudio] = useState<string>('');
 
@@ -157,7 +161,7 @@ const Playing = () => {
         justifyContent={isMobile ? 'flex-start' : 'center'}
         alignItems={isMobile ? 'flex-start' : 'center'}
         gap={'20px'}
-        backgroundColor={'primary.50'}
+        backgroundColor={'grey.500'}
       >
         <Box
           display={'grid'}
@@ -224,17 +228,19 @@ const Playing = () => {
               backgroundColor={'#526EA0'}
               p={'23px 19px'}
             >
-              <Image
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  borderRadius: '24px 24px 0px 0px',
-                  transform: 'scaleX(-1)',
-                }}
-                fill={true}
-                src={`${'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvZGNhc3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'}`}
-                alt='Fluffybuns the destroyer'
-              />
+              {player?.image !== undefined && (
+                <Image
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '24px 24px 0px 0px',
+                    transform: 'scaleX(-1)',
+                  }}
+                  src={`${player?.image}`}
+                  alt={player?.title}
+                  fill={true}
+                />
+              )}
             </Box>
             <Box width={'100%'} mt={'10px'}>
               <Flex
@@ -250,7 +256,7 @@ const Playing = () => {
                   lineHeight={'shorter'}
                   letterSpacing={'tighter'}
                 >
-                  Social media shapes mindset
+                  {player?.title}
                 </Heading>
                 <Text
                   fontSize={'xxs'}
@@ -259,13 +265,12 @@ const Playing = () => {
                   lineHeight={'shorter'}
                   letterSpacing={'tighter'}
                 >
-                  By Emilion garcia
+                  By {player?.name}
                 </Text>
               </Flex>
               <audio
                 ref={audioPlayer}
                 src={currentAudio}
-                // src='https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3'
                 preload='metadata'
               ></audio>
               <Flex
@@ -285,13 +290,13 @@ const Playing = () => {
                 /> */}
                 <Slider
                   aria-label='slider-ex-1'
-                  defaultValue={20}
-                  // ref={progressBar}
-                  // onChange={changeRange}
-                  // value={currentTime}
+                  defaultValue={0}
+                  ref={progressBar}
+                  onChange={changeRange}
+                  value={currentTime}
                 >
                   <SliderTrack>
-                    <SliderFilledTrack backgroundColor={'#526EA0'} />
+                    <SliderFilledTrack backgroundColor={'#171725'} />
                   </SliderTrack>
                   <SliderThumb />
                 </Slider>
@@ -304,8 +309,7 @@ const Playing = () => {
                 </Box>
                 <Box>
                   <Text fontSize={'xxs'} color={'#9CA4AB'}>
-                    {/* {duration && !isNaN(duration) && calculateTime(duration)} */}
-                    5:00
+                    {duration && !isNaN(duration) && calculateTime(duration)}
                   </Text>
                 </Box>
               </Flex>
@@ -319,13 +323,24 @@ const Playing = () => {
                 height={'5vh'}
               >
                 <Box>
-                  <Svgs.PREV_ICON_GREY />
+                  <Svgs.PREV_ICON_GREY onClick={backThirty} />
                 </Box>
+                {isPlaying ? (
+                  <Icon
+                    as={FaPause}
+                    color={'grey.500'}
+                    cursor={'pointer'}
+                    height={'30px'}
+                    width={'30px'}
+                    onClick={togglePlayPause}
+                  />
+                ) : (
+                  <Box>
+                    <Svgs.PLAY_ROUND_BLUE_BIG onClick={togglePlayPause} />
+                  </Box>
+                )}
                 <Box>
-                  <Svgs.PLAY_ROUND_BLUE_BIG />
-                </Box>
-                <Box>
-                  <Svgs.NEXT_ICON_GREY />
+                  <Svgs.NEXT_ICON_GREY onClick={forwardThirty} />
                 </Box>
               </Flex>
             </Box>

@@ -5,9 +5,9 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import Link from 'next/link';
-// import burnaBoy from '../../public/burna-boy3.jpg';
 import { currentPlayer } from '../../redux/reducers/player';
 import { Svgs } from '@/assets';
+import { useRouter } from 'next/navigation';
 
 export interface PodcastListsProps {
   src: string;
@@ -17,7 +17,23 @@ export interface PodcastListsProps {
 }
 
 const PodcastList = ({ src, image, title, artistName }: PodcastListsProps) => {
+  const router = useRouter();
   const dispatch = useDispatch();
+
+  const handlePlay = () => {
+    dispatch(
+      currentPlayer({
+        item: {
+          audio: src,
+          title,
+          image,
+          name: artistName,
+        },
+      })
+    );
+
+    return router.push('/playing');
+  };
 
   return (
     <>
@@ -27,15 +43,7 @@ const PodcastList = ({ src, image, title, artistName }: PodcastListsProps) => {
         cursor={'pointer'}
         pr={'7px'}
         _hover={{ backgroundColor: 'grey.500', borderRadius: '4px' }}
-        onClick={() =>
-          dispatch(
-            currentPlayer({
-              item: {
-                audio: src,
-              },
-            })
-          )
-        }
+        onClick={() => handlePlay()}
       >
         <Flex
           direction={'row'}
@@ -94,9 +102,10 @@ const PodcastList = ({ src, image, title, artistName }: PodcastListsProps) => {
         </Flex>
         <Flex position={'absolute'} right={'0'}>
           <Box>
-            <Link href={'/playing'}>
-              <Svgs.PLAY_ROUND_BLUE color={'grey.500'} />
-            </Link>
+            <Svgs.PLAY_ROUND_BLUE
+              color={'grey.500'}
+              // onClick={() => handlePlay()}
+            />
           </Box>
         </Flex>
       </Flex>

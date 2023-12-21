@@ -116,7 +116,7 @@ const Explore = () => {
         justifyContent={isMobile ? 'flex-start' : 'center'}
         alignItems={isMobile ? 'flex-start' : 'center'}
         gap={'20px'}
-        backgroundColor={'primary.50'}
+        backgroundColor={'grey.500'}
       >
         <Box
           display={'flex'}

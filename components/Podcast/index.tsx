@@ -4,18 +4,34 @@ import Image from 'next/image';
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { currentPlayer } from '@/redux/reducers/player';
+import { useDispatch } from 'react-redux';
 
 export interface podcastProps {
   image: string;
   title?: string;
+  fileUrl?: string;
+  artistName?: string;
 }
 
-const Podcast = ({ image, title }: podcastProps) => {
+const Podcast = ({ image, title, fileUrl, artistName }: podcastProps) => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handlePlay = () => {
+    dispatch(
+      currentPlayer({
+        item: {
+          audio: fileUrl,
+          title,
+          image,
+          name: artistName,
+        },
+      })
+    );
+
     return router.push('/playing');
-  }
+  };
 
   return (
     <Box className='podcast' height={'100%'} position={'relative'}>
@@ -85,6 +101,6 @@ const Podcast = ({ image, title }: podcastProps) => {
       </Flex>
     </Box>
   );
-}
+};
 
 export default Podcast;
