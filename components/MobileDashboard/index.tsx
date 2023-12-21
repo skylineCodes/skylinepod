@@ -99,6 +99,10 @@ const MobileDashboard = () => {
     (item: any, index: number) => item?.new === true
   );
 
+  const topRatings = playlists?.filter(
+    (item: any, index: number) => parseFloat(item?.ratings) >= 3.5
+  );
+
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
     setTopPodcasterWidth(
@@ -339,10 +343,14 @@ const MobileDashboard = () => {
                     drag={'x'}
                     dragConstraints={{ right: 0, left: -topPodcasterWidth }}
                   >
-                    {[1, 2, 3, 4, 5, 6]?.map((item: any, index: number) => (
+                    {topRatings?.map((item: any, index: number) => (
                       <Box key={index} className='toppodcast-box'>
-                        <Link href={`/podcasts/${item}`}>
-                          <TopPodcasters />
+                        <Link href={`/podcasts/${item?.artistName}`}>
+                          <TopPodcasters
+                            key={index}
+                            image={item.podcastThumb}
+                            artistName={item?.artistName}
+                          />
                         </Link>
                       </Box>
                     ))}

@@ -1,13 +1,14 @@
 import { Svgs } from '@/assets';
 import { Box, Flex, Text, Icon, Wrap, WrapItem, Avatar, Heading } from '@chakra-ui/react';
 import React from 'react';
-import podcastCover1 from '../../public/podcast-cover-1.png';
+// import podcastCover1 from '../../public/podcast-cover-1.png';
 
 export interface podcastProps {
-  imageUrl?: string;
+  image: string;
+  artistName: string;
 }
 
-const TopPodcasters = ({ imageUrl }: podcastProps) => {
+const TopPodcasters = ({ image, artistName }: podcastProps) => {
   return (
     <Box
       className='toppodcaster'
@@ -28,11 +29,7 @@ const TopPodcasters = ({ imageUrl }: podcastProps) => {
     >
       <Wrap>
         <WrapItem>
-          <Avatar
-            name='Dan Abrahmov'
-            size='md'
-            src='https://bit.ly/dan-abramov'
-          />
+          <Avatar name={artistName} size='md' src={`${image}`} />
         </WrapItem>
       </Wrap>
       <Flex direction={'column'} gap={'4px'}>
@@ -43,19 +40,19 @@ const TopPodcasters = ({ imageUrl }: podcastProps) => {
           fontWeight={'medium'}
           color={'secondary.10'}
         >
-          Dan Abramov
+          {artistName}
         </Heading>
-        <Text
+        {/* <Text
           fontSize={'xxs'}
           color={'#9CA4AB'}
           lineHeight={'20px'}
           fontWeight={'medium'}
         >
-          Tech Entusiast
-        </Text>
+          {}
+        </Text> */}
       </Flex>
     </Box>
   );
-}
+};
 
 export default TopPodcasters;
