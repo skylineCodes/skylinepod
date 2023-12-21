@@ -52,8 +52,6 @@ const Playing = () => {
 
   const player: any = useSelector((state: any) => state?.player?.player);
 
-  console.log(player)
-
   const [currentAudio, setCurrentAudio] = useState<string>('');
 
   const audioToggle: any = useSelector(
