@@ -14,6 +14,7 @@ import './styles.css';
 import PodcastCategory from '@/components/PodcastCategory';
 import Podcast from '@/components/Podcast';
 import FilterModal from '@/components/FilterModal';
+import { playlists } from '@/components/Playlist';
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -95,6 +96,10 @@ const Explore = () => {
   const carousel = useRef<any>();
   const categoriesRef = useRef<any>();
   
+  const newEpisodes = playlists?.filter(
+    (item: any, index: number) => item?.new === true
+  );
+
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
     setCategoriesWidth(
@@ -334,9 +339,9 @@ const Explore = () => {
                   drag={'x'}
                   dragConstraints={{ right: 0, left: -width }}
                 >
-                  {podcastData?.map((item: any, index: number) => (
+                  {newEpisodes?.map((item: any, index: number) => (
                     <Box key={index} className='podcast-box'>
-                      <Podcast imageUrl={item?.imageUrl} />
+                      <Podcast image={item?.podcastThumb} title={item?.title} />
                     </Box>
                   ))}
                 </ChakraBox2>
