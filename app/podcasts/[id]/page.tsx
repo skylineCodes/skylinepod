@@ -283,7 +283,12 @@ const PodcastDetails = () => {
                 >
                   {newEpisodes?.map((item: any, index: number) => (
                     <Box key={index} className='podcast-box'>
-                      <Podcast image={item?.podcastThumb} title={item?.title} />
+                      <Podcast
+                        image={item?.podcastThumb}
+                        title={item?.title}
+                        fileUrl={item?.fileUrl}
+                        artistName={item?.artistName}
+                      />
                     </Box>
                   ))}
                 </ChakraBox2>

@@ -48,11 +48,20 @@ const Playing = () => {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [width, setWidth] = useState<number>(0);
   const [categoriesWidth, setCategoriesWidth] = useState<number>(0);
-  const [currentPlayingIndex, setCurrentPlayingIndex] = useState<any>(0);
+  const [noPrev, setNoPrev] = useState<boolean>(false);
+  const [noNext, setNoNext] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [duration, setDuration] = useState<number>(0);
+  const [calculatedDuration, setCalculatedDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
 
+  const [percentage, setPercentage] = useState(0);
+  const [position, setPosition] = useState(0);
+  const [marginLeft, setMarginLeft] = useState(0);
+  const [progressBarWidth, setProgressBarWidth] = useState(0);
+
+  const rangeRef: any = useRef();
+  const thumbRef: any = useRef();
   const audioPlayer: any = useRef<any>(); // reference our audio component
   const progressBar: any = useRef<any>(); // reference our progress bar
   const animationRef: any = useRef<any>(); // reference the animation
@@ -67,7 +76,7 @@ const Playing = () => {
 
   const carousel = useRef<any>();
   const categoriesRef = useRef<any>();
-  
+
   useEffect(() => {
     setWidth(carousel?.current?.scrollWidth - carousel?.current?.offsetWidth);
     setCategoriesWidth(
@@ -77,6 +86,14 @@ const Playing = () => {
 
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current?.duration);
+
+    const minutes = Math.floor(seconds / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const secs = Math.floor(seconds % 60);
+    const returnedSeconds = secs < 10 ? `0${secs}` : `${secs}`; // setCalculatedDuration(parseInt(returnedMinutes));
+
+    setCalculatedDuration(parseInt(`${returnedMinutes}${returnedSeconds}`));
+
     setDuration(seconds);
 
     if (progressBar?.current !== undefined) {
@@ -97,6 +114,7 @@ const Playing = () => {
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
@@ -126,7 +144,7 @@ const Playing = () => {
   const changePlayerCurrentTime = () => {
     progressBar.current.style.setProperty(
       '--seek-before-width',
-      `${(progressBar.current.value / duration) * 100}%`
+      `${(progressBar.current.value / calculatedDuration) * 100}%`
     );
 
     setCurrentTime(progressBar.current.value);
@@ -142,54 +160,92 @@ const Playing = () => {
   const findPrevPlaylist = () => {
     return playlists?.find((item: any, index: number) => {
       if (item?.fileUrl === currentAudio) {
-        dispatch(
-          currentPlayer({
-            item: {
-              audio: playlists[index - 1]?.fileUrl,
-              title: playlists[index - 1]?.title,
-              image: playlists[index - 1]?.podcastThumb,
-              name: playlists[index - 1]?.artistName,
-            },
-          })
-        );
+        if (playlists[index - 1] === undefined) {
+          setNoPrev(true);
+        } else {
+          dispatch(
+            currentPlayer({
+              item: {
+                audio: playlists[index - 1]?.fileUrl,
+                title: playlists[index - 1]?.title,
+                image: playlists[index - 1]?.podcastThumb,
+                name: playlists[index - 1]?.artistName,
+              },
+            })
+          );
+        }
       }
     });
   };
-  
+
   const findNextPlaylist = () => {
     return playlists?.find((item: any, index: number) => {
       if (item?.fileUrl === currentAudio) {
-        dispatch(
-          currentPlayer({
-            item: {
-              audio: playlists[index + 1]?.fileUrl,
-              title: playlists[index + 1]?.title,
-              image: playlists[index + 1]?.podcastThumb,
-              name: playlists[index + 1]?.artistName,
-            },
-          })
-        );
+        if (playlists[index + 1] === undefined) {
+          setNoNext(true);
+        } else {
+          dispatch(
+            currentPlayer({
+              item: {
+                audio: playlists[index + 1]?.fileUrl,
+                title: playlists[index + 1]?.title,
+                image: playlists[index + 1]?.podcastThumb,
+                name: playlists[index + 1]?.artistName,
+              },
+            })
+          );
+        }
       }
     });
   };
 
   const changeRange = () => {
-    audioPlayer.current.currentTime = progressBar.current.value;
+    audioPlayer.current.currentTime = progressBar?.current?.value;
     changePlayerCurrentTime();
   };
 
-  const backThirty = () => {
-    if (progressBar?.current !== undefined) {
-      progressBar.current.value = Number(progressBar.current.value) - 30;
-
-      changeRange();
-    }
+  const onChange = (e: any) => {
+    const audio = audioPlayer.current;
+    audio.currentTime = (audio.duration / 100) * e.target.value;
+    setPercentage(e.target.value);
   };
 
-  const forwardThirty = () => {
-    progressBar.current.value = Number(progressBar.current.value) + 30;
-    changeRange();
+  const getCurrDuration = (e: any) => {
+    const percent = (
+      (e.currentTarget.currentTime / e.currentTarget.duration) *
+      100
+    ).toFixed(2);
+    const time = e.currentTarget.currentTime;
+
+    setPercentage(+percent);
+    setCurrentTime(time.toFixed(2));
   };
+
+  useEffect(() => {
+    const rangeWidth = rangeRef.current?.getBoundingClientRect().width;
+    const thumbWidth = thumbRef.current?.getBoundingClientRect().width;
+    const centerThumb = (thumbWidth / 100) * percentage * -1;
+    const centerProgressBar =
+      thumbWidth +
+      (rangeWidth / 100) * percentage -
+      (thumbWidth / 100) * percentage;
+    setPosition(percentage);
+    setMarginLeft(centerThumb);
+    setProgressBarWidth(centerProgressBar);
+  }, [percentage]);
+
+  // const backThirty = () => {
+  //   if (progressBar?.current !== undefined) {
+  //     progressBar.current.value = Number(progressBar.current.value) - 30;
+
+  //     changeRange();
+  //   }
+  // };
+
+  // const forwardThirty = () => {
+  //   progressBar.current.value = Number(progressBar.current.value) + 30;
+  //   changeRange();
+  // };
 
   return (
     <>
@@ -310,7 +366,12 @@ const Playing = () => {
               <audio
                 ref={audioPlayer}
                 src={currentAudio}
+                onTimeUpdate={getCurrDuration}
+                onLoadedData={(e: any) => {
+                  setDuration(e.currentTarget.duration.toFixed(2));
+                }}
                 preload='metadata'
+                onEnded={findNextPlaylist}
               ></audio>
               <Flex
                 direction={'row'}
@@ -318,27 +379,31 @@ const Playing = () => {
                 gap={'10px'}
                 mt={'25px'}
               >
-                {/* <input
+                <input
                   type='range'
+                  value={position}
+                  ref={rangeRef}
+                  step='0.01'
                   defaultValue='0'
-                  ref={progressBar}
-                  onChange={changeRange}
+                  onChange={onChange}
                   style={{
                     width: '100%',
                   }}
-                /> */}
-                <Slider
+                />
+                {/* <Slider
                   aria-label='slider-ex-1'
                   defaultValue={0}
-                  ref={progressBar}
-                  onChange={changeRange}
+                  // ref={progressBar}
+                  ref={rangeRef}
+                  step='0.01'
                   value={currentTime}
+                  onChange={changeRange}
                 >
                   <SliderTrack>
                     <SliderFilledTrack backgroundColor={'#171725'} />
                   </SliderTrack>
                   <SliderThumb />
-                </Slider>
+                </Slider> */}
               </Flex>
               <Flex justifyContent={'space-between'} alignItems={'center'}>
                 <Box>
@@ -372,6 +437,10 @@ const Playing = () => {
                     height={'20px'}
                     width={'20px'}
                     onClick={findPrevPlaylist}
+                    _disabled={{
+                      userSelect: noPrev === true ? 'none' : '',
+                      opacity: noPrev === true ? 0.8 : '',
+                    }}
                   />
                 </Box>
                 {isPlaying ? (
@@ -396,6 +465,10 @@ const Playing = () => {
                     height={'20px'}
                     width={'20px'}
                     onClick={findNextPlaylist}
+                    _disabled={{
+                      userSelect: noNext === true ? 'none' : '',
+                      opacity: noNext === true ? 0.8 : '',
+                    }}
                   />
                 </Box>
               </Flex>
@@ -408,15 +481,20 @@ const Playing = () => {
                 // p={'20px'}
               >
                 <Box width={'70px'} height={'70px'}>
-                  <Image
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      borderRadius: '0px 0px 0px 0px',
-                    }}
-                    src={burnaBoy}
-                    alt='Fluffybun the destroyer'
-                  />
+                  {player?.image !== undefined && (
+                    <Image
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '0px 0px 0px 0px',
+                        objectFit: 'cover',
+                      }}
+                      src={`${player?.image}`}
+                      alt={player?.title}
+                      width={70}
+                      height={70}
+                    />
+                  )}
                 </Box>
                 <Flex
                   direction={'column'}
@@ -428,14 +506,18 @@ const Playing = () => {
                     fontWeight={'bold'}
                     color={'secondary.10'}
                   >
-                    Emilion garcia
+                    {String(player?.name).length > 10
+                      ? `${String(player?.name).substring(0, 15)}...`
+                      : String(player?.name)}
                   </Heading>
                   <Text
                     color={'#78828A'}
                     fontSize={'12px'}
                     fontWeight={'medium'}
                   >
-                    This podcast discusses...
+                    {String(player?.title).length > 10
+                      ? `${String(player?.title).substring(0, 15)}...`
+                      : String(player?.title)}
                   </Text>
                 </Flex>
                 <Flex
