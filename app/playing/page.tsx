@@ -232,7 +232,6 @@ const Playing = () => {
                     width: '100%',
                     height: '100%',
                     borderRadius: '24px 24px 0px 0px',
-                    transform: 'scaleX(-1)',
                   }}
                   src={`${player?.image}`}
                   alt={player?.title}
