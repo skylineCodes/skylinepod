@@ -300,6 +300,8 @@ const MobileDashboard = () => {
                         <Podcast
                           image={item?.podcastThumb}
                           title={item?.title}
+                          fileUrl={item?.fileUrl}
+                          artistName={item?.artistName}
                         />
                       </Box>
                     ))}
