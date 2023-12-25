@@ -8,7 +8,7 @@ import { currentPlayer } from '@/redux/reducers/player';
 import { useDispatch } from 'react-redux';
 
 export interface podcastProps {
-  image: string;
+  image?: string;
   title?: string;
   fileUrl?: string;
   artistName?: string;

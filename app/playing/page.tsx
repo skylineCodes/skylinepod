@@ -35,13 +35,20 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
 import CommentModal from '@/components/CommentModal';
 import { FaPause } from 'react-icons/fa';
+import { MdPause } from 'react-icons/md';
+import { IoMdSkipBackward, IoMdSkipForward } from 'react-icons/io';
+import { playlists } from '@/components/Playlist';
+import { useDispatch } from 'react-redux';
+import { currentPlayer } from '@/redux/reducers/player';
 
 const Playing = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [width, setWidth] = useState<number>(0);
   const [categoriesWidth, setCategoriesWidth] = useState<number>(0);
+  const [currentPlayingIndex, setCurrentPlayingIndex] = useState<any>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [duration, setDuration] = useState<number>(0);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -57,6 +64,7 @@ const Playing = () => {
   const audioToggle: any = useSelector(
     (state: any) => state.player.audioToggle
   );
+
   const carousel = useRef<any>();
   const categoriesRef = useRef<any>();
   
@@ -77,7 +85,6 @@ const Playing = () => {
   }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
 
   useEffect(() => {
-    console.log(audioToggle);
     setCurrentAudio(player?.audio);
   }, [audioToggle, player]);
 
@@ -126,10 +133,44 @@ const Playing = () => {
   };
 
   const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current?.currentTime;
+    progressBar.current.value = audioPlayer?.current?.currentTime;
 
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
+  };
+
+  const findPrevPlaylist = () => {
+    return playlists?.find((item: any, index: number) => {
+      if (item?.fileUrl === currentAudio) {
+        dispatch(
+          currentPlayer({
+            item: {
+              audio: playlists[index - 1]?.fileUrl,
+              title: playlists[index - 1]?.title,
+              image: playlists[index - 1]?.podcastThumb,
+              name: playlists[index - 1]?.artistName,
+            },
+          })
+        );
+      }
+    });
+  };
+  
+  const findNextPlaylist = () => {
+    return playlists?.find((item: any, index: number) => {
+      if (item?.fileUrl === currentAudio) {
+        dispatch(
+          currentPlayer({
+            item: {
+              audio: playlists[index + 1]?.fileUrl,
+              title: playlists[index + 1]?.title,
+              image: playlists[index + 1]?.podcastThumb,
+              name: playlists[index + 1]?.artistName,
+            },
+          })
+        );
+      }
+    });
   };
 
   const changeRange = () => {
@@ -232,6 +273,7 @@ const Playing = () => {
                     width: '100%',
                     height: '100%',
                     borderRadius: '24px 24px 0px 0px',
+                    objectFit: 'cover',
                   }}
                   src={`${player?.image}`}
                   alt={player?.title}
@@ -306,7 +348,10 @@ const Playing = () => {
                 </Box>
                 <Box>
                   <Text fontSize={'xxs'} color={'#9CA4AB'}>
-                    {duration && !isNaN(duration) && calculateTime(duration)}
+                    {(duration &&
+                      !isNaN(duration) &&
+                      calculateTime(duration)) ||
+                      '00:00'}
                   </Text>
                 </Box>
               </Flex>
@@ -320,15 +365,22 @@ const Playing = () => {
                 height={'5vh'}
               >
                 <Box>
-                  <Svgs.PREV_ICON_GREY onClick={backThirty} />
+                  <Icon
+                    as={IoMdSkipBackward}
+                    color={'grey.500'}
+                    cursor={'pointer'}
+                    height={'20px'}
+                    width={'20px'}
+                    onClick={findPrevPlaylist}
+                  />
                 </Box>
                 {isPlaying ? (
                   <Icon
-                    as={FaPause}
+                    as={MdPause}
                     color={'grey.500'}
                     cursor={'pointer'}
-                    height={'30px'}
-                    width={'30px'}
+                    height={'50px'}
+                    width={'50px'}
                     onClick={togglePlayPause}
                   />
                 ) : (
@@ -337,7 +389,14 @@ const Playing = () => {
                   </Box>
                 )}
                 <Box>
-                  <Svgs.NEXT_ICON_GREY onClick={forwardThirty} />
+                  <Icon
+                    as={IoMdSkipForward}
+                    color={'grey.500'}
+                    cursor={'pointer'}
+                    height={'20px'}
+                    width={'20px'}
+                    onClick={findNextPlaylist}
+                  />
                 </Box>
               </Flex>
             </Box>

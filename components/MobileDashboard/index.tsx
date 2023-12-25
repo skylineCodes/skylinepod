@@ -350,7 +350,7 @@ const MobileDashboard = () => {
                         <Link href={`/podcasts/${item?.artistName}`}>
                           <TopPodcasters
                             key={index}
-                            image={item.podcastThumb}
+                            image={item?.podcastThumb}
                             artistName={item?.artistName}
                           />
                         </Link>
@@ -384,7 +384,7 @@ const MobileDashboard = () => {
                           key={index}
                           src={item?.fileUrl}
                           title={item?.title}
-                          image={item.podcastThumb}
+                          image={item?.podcastThumb}
                           artistName={item?.artistName}
                         />
                       )

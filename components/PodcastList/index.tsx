@@ -10,10 +10,10 @@ import { Svgs } from '@/assets';
 import { useRouter } from 'next/navigation';
 
 export interface PodcastListsProps {
-  src: string;
-  image: string;
-  title: string;
-  artistName: string;
+  src?: string;
+  image?: string;
+  title?: string;
+  artistName?: string;
 }
 
 const PodcastList = ({ src, image, title, artistName }: PodcastListsProps) => {
