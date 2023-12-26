@@ -24,6 +24,7 @@ import BottomNavigation from '@/components/BottomNavigation';
 import { Svgs } from '@/assets';
 
 import './styles.css';
+import './thumb.css';
 import burnaBoy from '../../public/burna-boy3.jpg';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -206,8 +207,8 @@ const Playing = () => {
 
   const onChange = (e: any) => {
     const audio = audioPlayer.current;
-    audio.currentTime = (audio.duration / 100) * e.target.value;
-    setPercentage(e.target.value);
+    audio.currentTime = (audio.duration / 100) * e.target?.value;
+    setPercentage(e.target?.value);
   };
 
   const getCurrDuration = (e: any) => {
@@ -373,38 +374,50 @@ const Playing = () => {
                 preload='metadata'
                 onEnded={findNextPlaylist}
               ></audio>
-              <Flex
+              {/* <Flex
                 direction={'row'}
                 justifyContent={'space-around'}
                 gap={'10px'}
                 mt={'25px'}
               >
-                <input
-                  type='range'
-                  value={position}
-                  ref={rangeRef}
-                  step='0.01'
-                  defaultValue='0'
-                  onChange={onChange}
-                  style={{
-                    width: '100%',
-                  }}
-                />
-                {/* <Slider
+                <Slider
                   aria-label='slider-ex-1'
                   defaultValue={0}
-                  // ref={progressBar}
                   ref={rangeRef}
-                  step='0.01'
-                  value={currentTime}
-                  onChange={changeRange}
+                  step={0.01}
+                  value={position}
+                  onChange={onChange}
                 >
                   <SliderTrack>
                     <SliderFilledTrack backgroundColor={'#171725'} />
                   </SliderTrack>
                   <SliderThumb />
-                </Slider> */}
-              </Flex>
+                </Slider>
+              </Flex> */}
+              <div className='slider-container'>
+                <div
+                  className='progress-bar-cover'
+                  style={{
+                    width: `${progressBarWidth}px`,
+                  }}
+                ></div>
+                <div
+                  className='thumb'
+                  ref={thumbRef}
+                  style={{
+                    left: `${position}%`,
+                    marginLeft: `${marginLeft}px`,
+                  }}
+                ></div>
+                <input
+                  type='range'
+                  value={position}
+                  ref={rangeRef}
+                  step='0.01'
+                  className='range'
+                  onChange={onChange}
+                />
+              </div>
               <Flex justifyContent={'space-between'} alignItems={'center'}>
                 <Box>
                   <Text fontSize={'xxs'} color={'primary.50'}>
